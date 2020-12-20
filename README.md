@@ -7,14 +7,12 @@ Eğitmen: [**`Mehmet Seven`**](https://twitter.com/mehmeteseven)
 
 Müfredat: [**`kodluyoruz.org/earlybird-front-end-talent-bootcamp`**](https://www.kodluyoruz.org/bootcamp/istanbul-earlybird-front-end-talent-bootcamp/)
 
-|  Gün  |                                      Konu Başlıkları                                      |                  Notlarım                   | Ek Dokümanlar |
-| :---: | :---------------------------------------------------------------------------------------: | :-----------------------------------------: | :-----------: |
-|   1   |                           Modern Javascript,<br> Git Temelleri                            | [*`1. Günün Notları`*](/_data/docs/day1.md) |               |
-|   2   | Intro to React,<br> Virtual DOM,<br> JSX,<br> React Developer Tools,<br> Create React App |            *`2. Günün Notları`*             |               |
+|  Gün  |                                      Konu Başlıkları                                      |                  Notlarım                   | Ek Dokümanlar | Projeler |
+| :---: | :---------------------------------------------------------------------------------------: | :-----------------------------------------: | :-----------: | :------: |
+|   1   |                           Modern Javascript,<br> Git Temelleri                            | [*`1. Günün Notları`*](/_data/docs/day1.md) |               |          |
+|   2   | Intro to React,<br> Virtual DOM,<br> JSX,<br> React Developer Tools,<br> Create React App |            *`2. Günün Notları`*             |               |          |
 
 **Bootcamp sponsorları :** [Kodluyoruz](https://www.kodluyoruz.org/), [Earlybird VC](https://earlybird.com/), [Apsiyon](https://www.apsiyon.com/), [Obilet](Obilet.com) ve [Tapu.com](https://www.tapu.com/)
-
-
 
 
 <p align="center">
@@ -24,7 +22,6 @@ Müfredat: [**`kodluyoruz.org/earlybird-front-end-talent-bootcamp`**](https://ww
         <br>
 		<em><span><a href="https://www.kodluyoruz.org/">Kodluyoruz</a></span></em>	
 </p>
-
 
 > **If you see any mistakes or if you want to make any improvement on this repo you can** [**`pull the request here.`**](https://github.com/hasantezcan/evolutionary-computing/pulls) 
 
