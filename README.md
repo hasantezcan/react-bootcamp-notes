@@ -9,10 +9,10 @@ Müfredat: [**`kodluyoruz.org/earlybird-front-end-talent-bootcamp`**](https://ww
 
 Eğitim materyalleri: [**`github.com/kodluyoruz-react-bootcamp/sources`**](https://github.com/kodluyoruz-react-bootcamp/sources)
 
-|  Gün  |                                      Konu Başlıkları                                      |                  Notlarım                   | Ek Dokümanlar |                                          Ödev                                          |
-| :---: | :---------------------------------------------------------------------------------------: | :-----------------------------------------: | :-----------: | :------------------------------------------------------------------------------------: |
-|   1   |                           Modern Javascript,<br> Git Temelleri                            | [*`1. Günün Notları`*](/_data/docs/day1.md) |               |                                                                                        |
-|   2   | Intro to React,<br> Virtual DOM,<br> JSX,<br> React Developer Tools,<br> Create React App |            *`2. Günün Notları`*             |               | [`1. Haftanın Ödevi`](https://github.com/kodluyoruz-react-bootcamp/odev-1-hasantezcan) |
+|  Gün  |                                      Konu Başlıkları                                      |                  Notlarım                   |         Ders Materyalleri          |                                          Ödev                                          |
+| :---: | :---------------------------------------------------------------------------------------: | :-----------------------------------------: | :--------------------------------: | :------------------------------------------------------------------------------------: |
+|   1   |                           Modern Javascript,<br> Git Temelleri                            | [*`1. Günün Notları`*](/_data/docs/day1.md) | [*`1. Gün`*](/_data/practice/day1) |                                                                                        |
+|   2   | Intro to React,<br> Virtual DOM,<br> JSX,<br> React Developer Tools,<br> Create React App |            *`2. Günün Notları`*             | [*`2. Gün`*](/_data/practice/day2) | [`1. Haftanın Ödevi`](https://github.com/kodluyoruz-react-bootcamp/odev-1-hasantezcan) |
 
 **Bootcamp sponsorları :** [Kodluyoruz](https://www.kodluyoruz.org/), [Earlybird VC](https://earlybird.com/), [Apsiyon](https://www.apsiyon.com/), [Obilet](Obilet.com) ve [Tapu.com](https://www.tapu.com/)
 
