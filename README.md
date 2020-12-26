@@ -7,10 +7,12 @@ Eğitmen: [**`Mehmet Seven`**](https://twitter.com/mehmeteseven)
 
 Müfredat: [**`kodluyoruz.org/earlybird-front-end-talent-bootcamp`**](https://www.kodluyoruz.org/bootcamp/istanbul-earlybird-front-end-talent-bootcamp/)
 
-|  Gün  |                                      Konu Başlıkları                                      |                  Notlarım                   | Ek Dokümanlar | Projeler |
-| :---: | :---------------------------------------------------------------------------------------: | :-----------------------------------------: | :-----------: | :------: |
-|   1   |                           Modern Javascript,<br> Git Temelleri                            | [*`1. Günün Notları`*](/_data/docs/day1.md) |               |          |
-|   2   | Intro to React,<br> Virtual DOM,<br> JSX,<br> React Developer Tools,<br> Create React App |            *`2. Günün Notları`*             |               |          |
+Eğitim materyalleri: [**`github.com/kodluyoruz-react-bootcamp/sources`**](https://github.com/kodluyoruz-react-bootcamp/sources)
+
+|  Gün  |                                      Konu Başlıkları                                      |                  Notlarım                   | Ek Dokümanlar |                                          Ödev                                          |
+| :---: | :---------------------------------------------------------------------------------------: | :-----------------------------------------: | :-----------: | :------------------------------------------------------------------------------------: |
+|   1   |                           Modern Javascript,<br> Git Temelleri                            | [*`1. Günün Notları`*](/_data/docs/day1.md) |               |                                                                                        |
+|   2   | Intro to React,<br> Virtual DOM,<br> JSX,<br> React Developer Tools,<br> Create React App |            *`2. Günün Notları`*             |               | [`1. Haftanın Ödevi`](https://github.com/kodluyoruz-react-bootcamp/odev-1-hasantezcan) |
 
 **Bootcamp sponsorları :** [Kodluyoruz](https://www.kodluyoruz.org/), [Earlybird VC](https://earlybird.com/), [Apsiyon](https://www.apsiyon.com/), [Obilet](Obilet.com) ve [Tapu.com](https://www.tapu.com/)
 
