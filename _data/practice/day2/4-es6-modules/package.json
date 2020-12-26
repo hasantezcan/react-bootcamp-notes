@@ -1,0 +1,21 @@
+{
+	"name": "4-es6-modules",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node dist/index.js",
+		"dev": "nodemon src/index.js",
+		"build": "sucrase ./src -d ./dist --transforms imports"
+	},
+	"keywords": [],
+	"author": "Mehmet Seven <mehmetseven0@gmail.com>",
+	"license": "ISC",
+	"devDependencies": {
+		"nodemon": "^2.0.6",
+		"sucrase": "^3.16.0"
+	},
+	"dependencies": {
+		"axios": "^0.21.0"
+	}
+}
