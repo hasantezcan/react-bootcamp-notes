@@ -1,0 +1,24 @@
+ul.menu {
+  display: flex;
+  list-style-type: none;
+}
+
+ul.menu li {
+  padding: 0 10px 0 0;
+}
+
+.container {
+  padding: 15px;
+}
+
+.footer {
+  margin-top: 30px;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+.content {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: antiquewhite;
+}

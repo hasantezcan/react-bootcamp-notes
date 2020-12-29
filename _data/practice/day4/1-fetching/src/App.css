@@ -1,0 +1,22 @@
+* {
+  color: #fff;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+li {
+  padding: 5px 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+  height: 100vh;
+}
