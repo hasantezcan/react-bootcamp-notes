@@ -139,8 +139,7 @@ Componentler ile küçük parçarlardan bir bütünü inşa ediyoruz. Ve bu tekr
 React bize [tekrar tekrar kullanılabilien](https://reactjs.org/docs/components-and-props.html) component'leri üretmemize yardımcı olur. [[7]](https://reactjs.org/docs/components-and-props.html)
  
 
-
-
+## JSX Nedir ?
 
 
 
