@@ -141,6 +141,64 @@ React bize [tekrar tekrar kullanılabilien](https://reactjs.org/docs/components-
 
 ## JSX Nedir ?
 
+İlk olarak JSX'i HTML kodları ile javascript kodlarının bir karşımı gibi düşünebilirsiniz. Ama bu doğru değil. 
+
+JSX yazarken html tag'leri kullanak sanki HTML yazdığınızı düşünsenizde yazdığınız kod bir javaScript kodu oluyor siz sadece bunu html gibi görüyorsunuz. JSX size bu ilizyonu sağlayarak javaScript ile html elemanları üretiyor.
+
+Siz bunu yazdığınızda kodunuz arkaplanda ....
+```js
+//JSX
+ReactDOM.render(
+  <div id="test">
+    <h1>A title</h1>
+    <p>A paragraph</p>
+  </div>,
+  document.getElementById('myapp')
+)
+```
+
+buna dönüşüyor!
+
+```js
+// Plain JS
+ReactDOM.render(
+  React.createElement('div', { id: 'test' },
+    React.createElement('h1', null, 'A title'),
+    React.createElement('p', null, 'A paragraph')
+  ),
+  document.getElementById('myapp')
+)
+```
+
+Bu dönüşümü sağlayan ise [Babel](https://babeljs.io/). Projenizine Babel'i kurduktan ve ayarladıktan sonra JSX yazmanın keyfini sürebilirsiniz. Ya da [`create-react-app`](https://github.com/facebook/create-react-app) kullanark projenizi başlatabilir önceden hazırlanmış -babel dahil- konfügre edilmiş paketlerle çalışmaya başlayabilirsiniz.  
+
+### **Peki JSX içinede JS kullanabiliryor muyuz?**
+
+Evet, JSX yazımı içinde yalın JS kodları çalıştırmanıza izin verir. JS çalıştırmak istediğiniz yeri süslü parantezler `{}` ile çevreleyip kullanabilirsiniz.
+
+```jsx
+const paragraph = 'A paragraph'
+ReactDOM.render(
+  <table>
+    {rows.map((row, i) => {
+      return <tr>{row.text}</tr>
+    })}
+  </table>,
+  document.getElementById('myapp')
+)
+```
+
+### **`className` ve `htmlFor`**
+
+JSX'in aslında bir html kodu olmanığını sadece çevilirdikten sonra bu çıktıları verdiğini konuşmuştuk. Bu yüzden html yazarken kullandığımız bazı ifadeleri JSX yazarken biraz değiştirerk yazıyoruz. Bunlardan en çok kullanları `for` ile `class` js için **ayrılmış tanımlar (reserved words**) olan bu iki ifade yerine `htmlFor` ve `className` ifadelerini kullanıyoruz.
+
+ayrıca bilinmesi gerken bir ayrıtı daha var bu da componentler içinde belirtilen tüm elementler tek div içinde return edilmelidir. Eğer ifadelerinizi birden fazla div içinde hazırladıysanız [**React'ın Fragment özelliğini**](https://reactjs.org/docs/fragments.html) kullanabilirsiniz. 
+
+> JSX için daha fazla detay için [[8]](https://flaviocopes.com/jsx/#introduction-to-jsx)
+
+> [`Adem İlter`](https://twitter.com/ademilter)'den "JSX Nedir ne değildir? Çok kısa özet! Örneklerle.." [[9]](https://twitter.com/hasantezcann/status/1277191021001129984)
+
+
 
 
 
@@ -171,3 +229,5 @@ React bize [tekrar tekrar kullanılabilien](https://reactjs.org/docs/components-
 5. An Introduction to [Web Components](https://css-tricks.com/an-introduction-to-web-components/), css-tricks
 6. [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) MDN
 7. React [reuseable components](https://reactjs.org/docs/components-and-props.html)
+8. [Getting started with JSX](https://flaviocopes.com/jsx/#introduction-to-jsx) from flaviocopes
+9. [Adem İlter](https://twitter.com/ademilter)'den [Çok kısa özet! JSX anlatımı](https://twitter.com/hasantezcann/status/1277191021001129984) 
