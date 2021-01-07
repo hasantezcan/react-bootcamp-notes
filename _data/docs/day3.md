@@ -137,6 +137,15 @@ Componentler ile küçük parçarlardan bir bütünü inşa ediyoruz. Ve bu tekr
 </p>
 
 React bize [tekrar tekrar kullanılabilien](https://reactjs.org/docs/components-and-props.html) component'leri üretmemize yardımcı olur. [[7]](https://reactjs.org/docs/components-and-props.html)
+
+---
+
+**NOT:** React içinde kullanlan componetler büyük harf ile oluşturulmalı bu şekilde html elemenlarından ayırmış oluyoruz. 
+
+<p align="center">
+  <img alt="img-name" src="./../images/day-3/bigLatterComponents.png" width="500">
+</p>
+
  
 
 ## JSX Nedir ?
@@ -198,25 +207,132 @@ ayrıca bilinmesi gerken bir ayrıtı daha var bu da componentler içinde belirt
 
 > [`Adem İlter`](https://twitter.com/ademilter)'den "JSX Nedir ne değildir? Çok kısa özet! Örneklerle.." [[9]](https://twitter.com/hasantezcann/status/1277191021001129984)
 
+## ES7 Çok kullanılan snippet'lar
+
+<p align="center">
+  <img alt="img-name" src="./../images/day-3/es7-react-extension.png" width="600">
+</p>
+
+kısaltma | yatpığı iş
+------ | ------
+rfce   | export'lanmış fonksiyonel component oluşturur   
+
+---
+> **Ufak bir not:** Aslında dokümanı okunması daha keyifli bir blog gibi hazırlamak istiyorum fakat çok fazla konuya değindiğimiz için dokümanı hazırlamak çok fazla vaktimi alıyor. 
+
+>Bu şekilde devam edip hem motiasyonumu hem de vaktimi kaybetmek yerine bu noktadan sonra dokümana özet çıkartıyor gibi devam edeceğim. Konu başlığı, özet bir açıklama ve kullanım şeklinde.
+---
+# Props
+
+Componentler arasında veri akışını sağlamak için kullanılır. 
+
+```js
+function App() {
+  return (
+    <div>
+      <h1>En sevdiğim meyveler </h1>
+      <MeyveYazar name="elma"/>  {/* 🍎 "elma" burada prop olarak gönderdiğimiz değerdir. */}
+    </div>
+  )
+};
+```
+
+```js
+function MeyveYazar(props) {
+  return <p>en sevdiğim meyve {props.name}</p>
+};
+
+//ya da
+
+function MeyveYazar({ name }) {
+  return <p>en sevdiğim meyve { name }</p>
+};
+
+```
+
+app componetimizden MeyveYazar compoentimize bu şekilde veri gönderiyoruz.
+
+
+## PropTypes
+> https://reactjs.org/docs/typechecking-with-proptypes.html
+
+Prop'larınızın tipini ya da zorunlu olma durumlarını kontrol eder. 
+
+```js
+import PropTypes from 'prop-types';
+
+function Greeting ({ name }){
+    return (
+      <h1>Hello, {name}</h1>
+    );
+}
+
+Greeting.propTypes = {
+  name: PropTypes.string.isRequired
+};
+
+export default Button
+```
+
+## defaultProps
+Varsayılan prop değerleri atamak için kullanabiliriz.
+
+```js
+import PropTypes from "prop-types";
+
+function Button(props) {
+	return <button {...props}>{props.text}</button>;
+}
+
+Button.propTypes = {
+	text: PropTypes.string.isRequired,
+	disabled: PropTypes.bool,
+};
+
+Button.defaultProps = {
+	text: "Click",
+	disabled: false,
+};
+
+export default Button;
+
+```
+Not: Default props'ları destruct ederken varsayılan değer olarak da tanımlayabilirdik fakat o zaman react dev tool'da hata almazdık. React dev tool bizi tarayıcı üzerinde uyarıyor.
+
+## Props.children
+> React, how to transfer props to child components
+
+Button elementinin içinde ne yazmış ise yazı olarak onu gönderiyor. Bu özelliği tüm elementlerde elementin içerğini göndermek için kullanabilirsiniz.
+
+```js
+function Button({children, isDisabled}) {
+  return (
+    <div>
+      <button disabled={isDisabled}>{children}</button>
+    </div>
+  );
+}
+```
+
+
+
+[[10]](https://flaviocopes.com/react-pass-props-to-children/)
 
 
 
 
+## React'da item listelemek (unique key)
+> https://reactjs.org/docs/lists-and-keys.html#keys
+> 
+React DOM'a bastığı eleman listelerken her eleman için bir unique key vermemiz gerkeiyor. React bu şekilde DOM'a bastığı elemanları takip edebiliyor.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```js
+const todoItems = todos.map((todo) =>
+  <li key={todo.id}>
+    {todo.text}
+  </li>
+);
+```
 
 
 
@@ -231,3 +347,4 @@ ayrıca bilinmesi gerken bir ayrıtı daha var bu da componentler içinde belirt
 7. React [reuseable components](https://reactjs.org/docs/components-and-props.html)
 8. [Getting started with JSX](https://flaviocopes.com/jsx/#introduction-to-jsx) from flaviocopes
 9. [Adem İlter](https://twitter.com/ademilter)'den [Çok kısa özet! JSX anlatımı](https://twitter.com/hasantezcann/status/1277191021001129984) 
+10. React, how to transfer [props to child components](https://flaviocopes.com/react-pass-props-to-children/)
