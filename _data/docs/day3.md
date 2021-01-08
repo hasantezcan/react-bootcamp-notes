@@ -303,6 +303,7 @@ Not: Default props'ları destruct ederken varsayılan değer olarak da tanımlay
 > React, how to transfer props to child components
 
 Button elementinin içinde ne yazmış ise yazı olarak onu gönderiyor. Bu özelliği tüm elementlerde elementin içerğini göndermek için kullanabilirsiniz.
+[[10]](https://flaviocopes.com/react-pass-props-to-children/)
 
 ```js
 function Button({children, isDisabled}) {
@@ -313,17 +314,28 @@ function Button({children, isDisabled}) {
   );
 }
 ```
+---
 
+## React inline css
+> https://reactjs.org/docs/dom-elements.html#style
 
+İkişer süslü parentez kullanıyoruz.
 
-[[10]](https://flaviocopes.com/react-pass-props-to-children/)
+```js
+// Result style: '10px'
+<div style={{ height: 10 }}>
+  Hello World!
+</div>
 
-
-
+// Result style: '10%'
+<div style={{ height: '10%' }}>
+  Hello World!
+</div>
+```
 
 ## React'da item listelemek (unique key)
 > https://reactjs.org/docs/lists-and-keys.html#keys
-> 
+
 React DOM'a bastığı eleman listelerken her eleman için bir unique key vermemiz gerkeiyor. React bu şekilde DOM'a bastığı elemanları takip edebiliyor.
 
 ```js
@@ -334,6 +346,129 @@ const todoItems = todos.map((todo) =>
 );
 ```
 
+# State
+> https://reactjs.org/docs/state-and-lifecycle.html
+> https://reactjs.org/docs/hooks-state.html
+
+props component'ler arası veri taşımak içindi. **State** ise component içinde durum tutmak akışları kontrol etmek için kullanılıyor.
+
+```js
+import React, { useState } from 'react';
+
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+buradaki count ve setCount state'imizi oluşturuken kullandığımız tanımlayıcılar. count direk değeri tutan değişken; setCount ise count üzerindeki değişiklikleri yapmamızı sağlayan fonksiyon. [[11]](https://reactjs.org/docs/hooks-state.html#tip-what-do-square-brackets-mean)
+
+```js
+<button onClick={() => this.setState({ count: this.state.count + 1 })}>
+    Click me
+  </button>
+```
+
+ayrıca functional componet'ler de state kullanmadan önce setState hook'unu o dosyaya dahil etmemiz gerekiyor. defautl olarak export edilmediği için de süslü parantezler içinde import ediyoruz.
+
+---
+
+```js
+import React, { useState } from 'react';
+```
+
+### `Örnek:` iki state'i tek function ile handle etmek
+Tuşa basıldığında state değiştirmek için button elementinin onClick eventine handleClick isimli bir fonksiyon yazıp setState işlemlerini onun içinde yapıyoruz.
+
+```js
+const handleClick = (type, value) => {
+  if  (type === "name") {
+    setName(value)
+  } else if(type === "age") {
+    setAge(value)
+  }
+}
+```
+ardından bunu button'ın onClick eventine veriyoruz.
+
+```jsx
+<button onClick={()=> handleClick("name", "Ayşe")}>Change name</button>
+<button onClick={()=> handleClick("age", 24)}>Change age</button>
+```
+
+### `Örnek:` user state'ine yeni user eklemek
+
+user isimli bir state oluşturp bu state içine iki tane user atıyoruz sonrasında bu user'lara button'a basığımızda bir yenisi eklensin istiyoruz.
+
+```js
+import {useState} from "react"
+
+function App() {
+  const [users, setUsers] = setState([
+    {name: "Alper", age: 23},
+    {name: "Hasan", age: 22}
+  ])
+}
+
+const handleClick = () => {
+  setUsers([{name: "Aykut", age: 22 }, ...users])
+}
+
+return (
+  <div>
+    {users.map((user, i) => (
+        <li key={i}>{user.name}</li>
+      ))}
+      <hr />
+      <button onClick={handleClick}>Add user</button>
+  </div>
+)
+
+```
+> **`Önemli NOT:`** User'ı setUser ile değil de `.push` ile array'a yolladığımızda react uı'daki güncellemeyei takip edemez bu sebeple setUser'ı kullandık.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Ders içinde konuşulan diğer konular 
+
+### neal.fun
+> https://neal.fun/
+Özgün hobi fikirlerinin var olduğu bir site
 
 
 ## Kaynakça 
@@ -348,3 +483,4 @@ const todoItems = todos.map((todo) =>
 8. [Getting started with JSX](https://flaviocopes.com/jsx/#introduction-to-jsx) from flaviocopes
 9. [Adem İlter](https://twitter.com/ademilter)'den [Çok kısa özet! JSX anlatımı](https://twitter.com/hasantezcann/status/1277191021001129984) 
 10. React, how to transfer [props to child components](https://flaviocopes.com/react-pass-props-to-children/)
+11. [What Do Squre brackets](https://reactjs.org/docs/hooks-state.html#tip-what-do-square-brackets-mean) while creating states
