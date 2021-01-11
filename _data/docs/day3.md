@@ -213,9 +213,9 @@ ayrıca bilinmesi gerken bir ayrıtı daha var bu da componentler içinde belirt
   <img alt="img-name" src="./../images/day-3/es7-react-extension.png" width="600">
 </p>
 
-kısaltma | yatpığı iş
------- | ------
-rfce   | export'lanmış fonksiyonel component oluşturur   
+| kısaltma | yatpığı iş                                    |
+| -------- | --------------------------------------------- |
+| rfce     | export'lanmış fonksiyonel component oluşturur |
 
 ---
 > **Ufak bir not:** Aslında dokümanı okunması daha keyifli bir blog gibi hazırlamak istiyorum fakat çok fazla konuya değindiğimiz için dokümanı hazırlamak çok fazla vaktimi alıyor. 
@@ -404,6 +404,32 @@ ardından bunu button'ın onClick eventine veriyoruz.
 <button onClick={()=> handleClick("name", "Ayşe")}>Change name</button>
 <button onClick={()=> handleClick("age", 24)}>Change age</button>
 ```
+### `Örnek:` user'in sadece adını değiştrmek istersek
+
+User array'ını spread operator'ü ile birlikte kopayalıyoruz ve sonra name'i yeni değeri ile güncelliyoruz.
+
+```js
+import {useState} from "react"
+
+function App() {
+  const [user, setUser] = useState({name: "Hasan", age: 22})
+
+
+  const handleClick = () => {
+    setUsers( ...user, name: "Abbas")
+  }
+
+  return (
+    <div>
+        {user.name} {user.age}
+        <hr />
+        <button onClick={handleClick}>Add user</button>
+    </div>
+  )
+}
+
+export default App
+```
 
 ### `Örnek:` user state'ine yeni user eklemek
 
@@ -413,31 +439,124 @@ user isimli bir state oluşturp bu state içine iki tane user atıyoruz sonrası
 import {useState} from "react"
 
 function App() {
-  const [users, setUsers] = setState([
+  const [users, setUsers] = useState([
     {name: "Alper", age: 23},
     {name: "Hasan", age: 22}
   ])
+
+
+  const handleClick = () => {
+    setUsers([ ...users, {name: "Aykut", age: 22 }])
+  }
+
+  return (
+    <div>
+      {users.map((user, i) => (
+          <li key={i}>{user.name}</li>
+        ))}
+        <hr />
+        <button onClick={handleClick}>Add user</button>
+    </div>
+  )
 }
 
-const handleClick = () => {
-  setUsers([{name: "Aykut", age: 22 }, ...users])
-}
-
-return (
-  <div>
-    {users.map((user, i) => (
-        <li key={i}>{user.name}</li>
-      ))}
-      <hr />
-      <button onClick={handleClick}>Add user</button>
-  </div>
-)
-
+export default App
 ```
+
 > **`Önemli NOT:`** User'ı setUser ile değil de `.push` ile array'a yolladığımızda react uı'daki güncellemeyei takip edemez bu sebeple setUser'ı kullandık.
 
 
 
+## prevState
+
+setState bir callback fonskiyon ile beraber geliyor ve bu callback içinde state'in bir önceki değeri göderiliyor. Biz bunu bir önceki örnekte olduğu gibi yeni veri ile birleştirip set edebiliriz. [[12]](https://tr.reactjs.org/docs/hooks-reference.html#:~:text=prevState)
+ 
+```js
+import {useState} from "react"
+
+function App() {
+  const [users, setUsers] = useState([
+    {name: "Alper", age: 23},
+    {name: "Hasan", age: 22}
+  ])
+
+
+  const handleClick = () => {
+    setUsers(prevState) => {
+      return [ ...prevState, {name: "Aykut", age: 22 }]
+    })
+  }
+
+  return (
+    <div>
+      {users.map((user, i) => (
+          <li key={i}>{user.name}</li>
+        ))}
+        <hr />
+        <button onClick={handleClick}>Add user</button>
+    </div>
+  )
+}
+
+export default App
+```
+> prevState kullanımı özet [[12]](https://tr.reactjs.org/docs/hooks-reference.html#:~:text=prevState)
+
+```js
+setState(prevState => {
+  // Object.assign would also work
+  return {...prevState, ...updatedValues};
+});
+```
+---
+### JSX içinde koşula bağlı element render etmek
+> **Conditional Rendering** [[13]](https://reactjs.org/docs/conditional-rendering.html)
+
+return içinde block şekilde if else yazamıyoruz fakat mantıksal operatörlerle koşul işlemlerini yapabiliyoruz.
+
+```js
+import {useState} from "react"
+
+function App() {
+  const [isVisible, setIsVisible] = useState(true);
+  const [users, setUsers] = useState([
+    {name: "Alper", age: 23},
+    {name: "Hasan", age: 22}
+  ])
+
+
++  const handleClick = () => {
++    setUsers(prevState) => {
++      return [ ...prevState, {name: "Aykut", age: 22 }]
++    })
++  }
+
+  const handleToggle = () => setIsVisible(!isVisible)
+
+  return (
+    <div>
++      <button className="aç-kapa" onClick={handleToggle}>Toggle {isVisible ? "off" : "on"}</button>
+
++     {isVisible && (
++       <>
++         {users.map((user, i) => (
++           <li key={i}>{user.name}</li>
++         ))}
++         <hr />
++         <button onClick={handleClick}>Add user</button>
++       </>
++     )}
+    </div>
+  )
+}
+
+export default App
+```
+> aç-kapa butonuna basıldığında user'ları listeleyen yapı görünür olacak tekrar basıldığında görünmez. 
+
+> aç-kapa butonuna basıldığında isVisible değeri toggle olacak.
+
+---
 
 
 
@@ -452,11 +571,42 @@ return (
 
 
 
+..  
+..  
+..  
 
-
-
-
-
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+..  
 
 
 
@@ -484,3 +634,5 @@ return (
 9. [Adem İlter](https://twitter.com/ademilter)'den [Çok kısa özet! JSX anlatımı](https://twitter.com/hasantezcann/status/1277191021001129984) 
 10. React, how to transfer [props to child components](https://flaviocopes.com/react-pass-props-to-children/)
 11. [What Do Squre brackets](https://reactjs.org/docs/hooks-state.html#tip-what-do-square-brackets-mean) while creating states
+12. [prevState](https://tr.reactjs.org/docs/hooks-reference.html#:~:text=prevState)
+13. React [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html)
