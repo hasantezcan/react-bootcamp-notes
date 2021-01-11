@@ -9,13 +9,17 @@ Bu bölümde;
 - [**React Nasıl Ortaya Çıktı?**](#react-nasıl-ortaya-çıktı)
 - [**Component Nedir?**]()
 - [**React'ın Temelleri**]()
-  - [Props]()
-    - [prop type]()
-  - [State]()
-    - [prevState]()
-  - [koşula bağlı bir şeyleri render etmek]()
-  - [functinal components vs class base components]()
-  - [Hook]()
+  - [**Props**](#props)
+    - [prop type](#proptypes)
+    - [prop childre](#propschildren)
+    - [default props](#defaultprops)
+    - [...props nasıl kullanılır?](#props-nedir)
+  - [**Öğeleri map etmek (unique key)**](#reactda-item-listelemek-unique-key)
+  - [**State**]()
+    - [prevState](#prevstate)
+    - [Global state managment - REDUX contex API](#global-state-management)
+  - [**JSX'de koşula bağlı element render etme**](#jsx-içinde-koşula-bağlı-element-render-etmek)
+  - [**Hook**](#hooks)
     - [useEffect]()
 
 konularından bahsedeceğiz.
@@ -333,6 +337,8 @@ function Button({children, isDisabled}) {
 </div>
 ```
 
+---
+
 ## React'da item listelemek (unique key)
 > https://reactjs.org/docs/lists-and-keys.html#keys
 
@@ -345,6 +351,17 @@ const todoItems = todos.map((todo) =>
   </li>
 );
 ```
+
+## ...props nedir?
+Gönderilen tüm props'ları ifade eder. Component içinde kullanlıması gereken porp'ları **destruct** edip geri kalan propsları **...props**  olarak ifade edebiliriz.
+
+<p align="center">
+  <img alt="img-name" src="./../images/day-3/...props.png" width="800">
+</p>
+
+Örnekte navigationButtonda kullanmadığımız **href** props'u button componet'inde kullanılmış. Altı turuncu çizili **{..props}**'lar ise bir sonraki component'e o componet içinde bulunan tüm props'ları aktarmak için kullanılmış.
+
+---
 
 # State
 > https://reactjs.org/docs/state-and-lifecycle.html
@@ -614,14 +631,24 @@ Form'ları daha kolay kullanmamıza yarayan paketler mevcut bunlara ilerleyen de
 Ayrıca state'ler componetler arasında çok gel git yapmaya başladığında işler çığrında çıkabiliyor. Bu durmlarda state yönetim mekanizmalarına ihtiyaç duyarız. Bunlardan en kullanışlısı [contex API](https://reactjs.org/docs/context.html)
 biraz daha karışık olarak bilinen [REDUX](https://redux.js.org/) mevcut.
 
-## ...props
-Gönderilen tüm props'ları ifade eder. Component içinde kullanlıması gereken porp'ları **destruct** edip geri kalan propsları **...props**  olarak ifade edebiliriz.
 
-<p align="center">
-  <img alt="img-name" src="./../images/day-3/...props.png" width="800">
-</p>
 
-Örnekte navigationButtonda kullanmadığımız **href** props'u button componet'inde kullanılmış. Altı turuncu çizili **{..props}**'lar ise bir sonraki component'e o componet içinde bulunan tüm props'ları aktarmak için kullanılmış.
+---
+
+## Neden artık class base component'lar kullanmıyoruz?!
+
+???
+
+
+
+
+---
+
+
+# Hooks
+
+
+
 
 
 ..  
