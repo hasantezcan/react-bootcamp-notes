@@ -514,7 +514,7 @@ setState(prevState => {
 
 return içinde block şekilde if else yazamıyoruz fakat mantıksal operatörlerle koşul işlemlerini yapabiliyoruz.
 
-```js
+```diff
 import {useState} from "react"
 
 function App() {
@@ -558,7 +558,37 @@ export default App
 
 ---
 
+## React inputtan veri almak
+Öncelikle inputdan alcağımız veriyi bir state'da tutmamız gerek.
+**name** adında bir state oluşturuyoruz.
 
+```diff 
+import { useState } from "react";
+
+function App() {
++  const [name, setName] = useState("");
+  const [users, setUsers] = useState([
+    {name: "Alper", age: 23},
+    {name: "Hasan", age: 22}
+  ])
+
+  const handleClick = () => 
+    setUsers(prevState) => [ ...prevState, {name: "Aykut", age: 22 }])
+    
+    
++  const handleChangeName = (event) => setName(event.target.value)
+
+	return (
++		<div>
++      <input value={name} onChange={handleChangeName} />
++      <button onClick={handleClick}>Add user</button>
++		</div>
+	);
+}
+
+export default App;
+
+```
 
 
 
