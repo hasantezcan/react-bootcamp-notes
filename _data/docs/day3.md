@@ -591,20 +591,41 @@ export default App;
 ```
 
 
+<p align="center">
+  <img alt="img-name" src="./../images/day-3/name-input.png" width="300">
+</p>
+
+butona bastıktan sonra input'un içini temizlemek için **hadleClick** içine name state'inin içini sıfırlıyoruz.
+
+```js
+ const handleClick = () => {
+    setUsers(prevState) => [ ...prevState, {name: "Aykut", age: 22 }])
+    setName("")
+ }
+```
+
+**NOT:** Bir inputtan veri almak için her seferine yeni bir state mi acıcaz? 
+- Hayır!  
+  
+Form'ları daha kolay kullanmamıza yarayan paketler mevcut bunlara ilerleyen derslerede değinceğiz. Örn: [**Formik**](https://formik.org/) 
 
 
+## Global State Management
+Ayrıca state'ler componetler arasında çok gel git yapmaya başladığında işler çığrında çıkabiliyor. Bu durmlarda state yönetim mekanizmalarına ihtiyaç duyarız. Bunlardan en kullanışlısı [contex API](https://reactjs.org/docs/context.html)
+biraz daha karışık olarak bilinen [REDUX](https://redux.js.org/) mevcut.
 
+## ...props
+Gönderilen tüm props'ları ifade eder. Component içinde kullanlıması gereken porp'ları **destruct** edip geri kalan propsları **...props**  olarak ifade edebiliriz.
 
+<p align="center">
+  <img alt="img-name" src="./../images/day-3/...props.png" width="800">
+</p>
 
-
-
-
+Örnekte navigationButtonda kullanmadığımız **href** props'u button componet'inde kullanılmış. Altı turuncu çizili **{..props}**'lar ise bir sonraki component'e o componet içinde bulunan tüm props'ları aktarmak için kullanılmış.
 
 
 ..  
 ..  
-..  
-
 ..  
 ..  
 ..  
