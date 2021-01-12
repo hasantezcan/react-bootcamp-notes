@@ -636,60 +636,212 @@ biraz daha karışık olarak bilinen [REDUX](https://redux.js.org/) mevcut.
 ---
 
 ## Neden artık class base component'lar kullanmıyoruz?!
-
+..  
+..  
+..  
 ???
-
-
-
 
 ---
 
+# React Hooks
+> https://reactjs.org/docs/hooks-intro.html , [[14]](https://reactjs.org/docs/hooks-intro.html)  
+> https://reactjs.org/docs/hooks-overview.html , [[15]](https://reactjs.org/docs/hooks-overview.html)
 
-# Hooks
+Hooks özelliği bir herhangi bir class yazmadan fonksiyonlar yardımıyla React’teki state ve lifecycle özelliklerinin kullanılmasını sağlar. Hook’lar class’lar içerisinde çalışmadığı için **fonksiyon component’ı içerisinde yer almalıdırlar**. React içerisinde halihazırda yer alan temel hook’lar olarak **state hook** ve **effect hook’u** örnek verebiliriz. [[16]](https://devnot.com/2018/react-hooks-nedir-ve-nasil-kullanilir/)
 
+Hook oluştururken bazı class'ları [high order componet](https://reactjs.org/docs/higher-order-components.html)'ler ile sarmalayıp o şekilde dışarı aktarıyoruz. Bunlara da **hooks** diyoruz.
 
-
-
-
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-..  
+Hook'lar genelde prefix olarak **use** ifadesini kullanır.
+Örn: **useState, useEffect** gibi..
 
 
 
+## useEffect
+> yan etikiler
 
+Componet'in [yaşam döngüsünü (lifecycle)](https://reactjs.org/docs/state-and-lifecycle.html) takip ederek olan değişiklikleri ya ilk yükleme anlarını kontrol etmemize yarar. 
 
+- Component'in DOM'a yüklendiği (mount olduğu) anı yakalayabilirim. - `componentDidMount`
+- Component içindeki verinin güncelendiği anı yakalayabilirim.- `componentDidUpdate`
+- Component'in DOM'dan kaldırıldığı (unmount) anı yakalayabilirim. - `componentWillUnmount`
+
+```js
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  // componentDidMount ve componentDidUpdate kullanımına benzer bir kullanım sunar:
+  useEffect(() => {
+    // tarayıcının başlık bölümünü değiştirmemizi sağlar
+    document.title = `You clicked ${count} times`;
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+[[17]](https://tr.reactjs.org/docs/hooks-effect.html)
+
+sayfada birden fazla defa useEffect kullanabilirsiniz.
+
+## dependency array
+
+Dependency array **useEffect** hook'unun isteye bağlı kullanılan ikinci argumanıdır. 
+Adından da anlaşılacağı üzere bir önceki render'da değiştirdiğimizi array'in bağımlılığıdır. [[18]](https://dennyscott.io/use-effect-dependency-array/#what-is-the-dependency-array)
+
+useEffect standart olarak sayfadaki tüm state güncellemelerini dinler.
+
+```js
+function App() {
+	const [name, setName] = useState("Burak");
+	const [age, setAge] = useState(22);
+
+	useEffect(() => {
+		console.log("State updated");
+  });
+
+  return (
+    ..
+    ...
+    ....
+```
+> Bu örnekte name ya da age state'inde bir değişiklik olduğunda "State updated" log'unu göreceğiz. Bu useEffect'in varsayılan olarak ekrandaki tüm state'leri dinlediğini gösterir.
+
+Eğer sadece name state'inde bir değişklik olduğunda bunu bilmek istersek;
+dependency array'e useEffect'in değişimini takip edeceği state'i parametre olarak vermeniz gerekir.
+
+```js
+function App() {
+	const [name, setName] = useState("Burak");
+	const [age, setAge] = useState(22);
+
+	useEffect(() => {
+		console.log("name state updated");
+	}, [name]);
+
+ return (
+    ..
+    ...
+    ....
+```
+> **Bu sefer useEffect sadece name state'inde bir güncelleme olduğunda çalışacak.**
+
+Eğer takip etmesin sadece mount olduğunda çalışsın istersek. Dependency array'i boş bırakabiliriz.
+
+```js
+function App() {
+	const [name, setName] = useState("Burak");
+	const [age, setAge] = useState(22);
+
+	useEffect(() => {
+		console.log("App component mounted");
+  }, []);
+  
+   return (
+    ..
+    ...
+    ....
+```
+
+Ayrıca istersek dependency array'e birden fazla state'i argüman olarak verebilir sadece o state'leri dinlemesini sağlayabiliriz.
+
+```js
+function App() {
+	const [name, setName] = useState("Burak");
+	const [age, setAge] = useState(22);
+
+	useEffect(() => {
+		console.log("age/name state updated");
+	}, [age, name]);
+  
+   return (
+    ..
+    ...
+    ....
+```
+
+Componet'in unmount olduğu halini de şu şekilde takip edebiliriz.
+
+`return () => console.log("App component unmounted!");`
+
+bu return'ü useEffect'in sonuna eklediğimizde unmount olduğunu anlayabiliriz.
+
+Counter örneği;
+
+```js
+// Counter.js
+import { useState, useEffect } from "react";
+
+function Counter() {
+	const [count, setCount] = useState(0);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCount((n) => n + 1);
+		}, 1000);
+
+		return () => clearInterval(interval);
+	}, []);
+
+	return (
+		<div>
+			<h1>{count}</h1>
+		</div>
+	);
+}
+
+export default Counter;
+```
+
+```js
+// App.js
+import { useEffect, useState } from "react";
+
+import Counter from "./components/Counter";
+
+function App() {
+	const [isVisible, setIsVisible] = useState(true);
+
+	return (
+		<div className="App">
+			<header className="App-header">
+				{isVisible && <Counter />}
+
+				<button onClick={() => setIsVisible(!isVisible)}>Toggle</button>
+			</header>
+		</div>
+	);
+}
+
+export default App;
+```
+
+<p align="center">
+  <img alt="img-name" src="./../images/day-3/counter.png" width="200">
+</p>
+
+Button toggle olduğunda component artık görünürlüğünü kaybediyor yani unmount oluyor. Biz de counter.js içindeki useEffect içinde componet artık unmount olduğundan onu güncellemeye devam etmek istemiyoruz bu sebeple `return () => clearInterval(interval);` diyerek intervali sıfırlıyoruz. Aksi halde bu yapmasak react bize şu hatayı göseterecektir.
+
+<p align="center">
+  <img alt="img-name" src="./../images/day-3/unmount-error.png" width=600">
+</p>
+
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+
+---
 
 
 ## Ders içinde konuşulan diğer konular 
@@ -714,3 +866,8 @@ biraz daha karışık olarak bilinen [REDUX](https://redux.js.org/) mevcut.
 11. [What Do Squre brackets](https://reactjs.org/docs/hooks-state.html#tip-what-do-square-brackets-mean) while creating states
 12. [prevState](https://tr.reactjs.org/docs/hooks-reference.html#:~:text=prevState)
 13. React [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html)
+14. [Introducing Hooks](https://reactjs.org/docs/hooks-intro.html) - Reactjs.org
+15. [Hooks at a Glance](https://reactjs.org/docs/hooks-overview.html) - Reactjs.org 
+16. [React Hooks Nedir ve Nasıl Kullanılır?](https://devnot.com/2018/react-hooks-nedir-ve-nasil-kullanilir/) - [Zafer Ayan](https://twitter.com/ZaferAyan)
+17. useEffect örneği [tr.reactjs.org](https://tr.reactjs.org/docs/hooks-effect.html)
+18. Understanding the [useEffect Dependency Array](https://dennyscott.io/use-effect-dependency-array/#what-is-the-dependency-array) 
