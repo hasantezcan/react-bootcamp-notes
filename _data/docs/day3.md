@@ -851,6 +851,10 @@ Button toggle olduğunda component artık görünürlüğünü kaybediyor yani u
 > https://neal.fun/
 Özgün hobi fikirlerinin var olduğu bir site
 
+### react Query
+> https://react-query.tanstack.com/
+Performant and powerful data synchronization for React
+
 
 ## Kaynakça 
 
