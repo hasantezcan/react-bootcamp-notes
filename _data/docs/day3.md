@@ -20,7 +20,8 @@ Bu bölümde;
     - [Global state managment - REDUX contex API](#global-state-management)
   - [**JSX'de koşula bağlı element render etme**](#jsx-içinde-koşula-bağlı-element-render-etmek)
   - [**Hook**](#hooks)
-    - [useEffect]()
+    - [useEffect](#useeffect)
+    - [dependency array](#dependency-array)
 
 konularından bahsedeceğiz.
 
