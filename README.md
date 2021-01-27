@@ -17,13 +17,17 @@ Eğitim materyalleri: [**`github.com/kodluyoruz-react-bootcamp/sources`**](https
 |   4   | Props,<br> States,<br> React Developer Tools,<br> Build First Project | *`4. Günün Notları`* | [*`4. Gün`*](/_data/practice/day4) | [`2. Haftanın Ödevi`](https://github.com/kodluyoruz-react-bootcamp/odev-2-todo-app-hasantezcan) |
 |   5   | Formik Js,<br> Yup Js,<br> Obilet tanışma sunumu,<br> Oluşan formu ile backend bağlantısı | *`5. Günün Notları`* | [*`5. Gün`*](/_data/practice/day5) |  |
 |   6   | Frontend Deoployment Netlify ve Surge,<br> Digitalocean'a deoploy,<br> Heroku'ya  deploy,<br> Heroku, Travis CI entegrasyonu,<br> Contex API | *`6. Günün Notları`* | [*`6. Gün`*](/_data/practice/day6) | [`3. Haftanın Ödevi`](https://github.com/kodluyoruz-react-bootcamp/odev-3-weather-app-hasantezcan) |
+|   7   | -- ,<br> -- ,<br> | *`7. Günün Notları`* | [*`7. Gün`*](/_data/practice/day7) |  |
+|   8   | -- ,<br> -- ,<br> | *`8. Günün Notları`* | [*`8. Gün`*](/_data/practice/day8) |  |
+|   9   | -- ,<br> -- ,<br> | *`9. Günün Notları`* | [*`9. Gün`*](/_data/practice/day9) |  |
+|   10   | -- ,<br> -- ,<br> | *`10. Günün Notları`* | [*`10. Gün`*](/_data/practice/day10) |  |
 
 **Bootcamp sponsorları :** [Kodluyoruz](https://www.kodluyoruz.org/), [Earlybird VC](https://earlybird.com/), [Apsiyon](https://www.apsiyon.com/), [Obilet](Obilet.com) ve [Tapu.com](https://www.tapu.com/)
 
 
 <p align="center">
 	<a href="https://www.kodluyoruz.org/">
-		<img alt="kodluyoruz logo" src="_data/images/kodluyoruz-logo.png" width="200">
+		<img alt="kodluyoruz logo" src="_data/images/kodluyoruz-logo.png" width="250">
 	</a>
         <br>
 		<em><span><a href="https://www.kodluyoruz.org/">Kodluyoruz</a></span></em>	
