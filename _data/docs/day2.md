@@ -10,6 +10,8 @@ Bu bölümde;
   - [npm ile npx arasındaki fark!](#npm-ile-npx-arasındaki-fark)
   - [yarn](#yarn)
   - [`yarn` ve `npm` arsındaki farklar!](#yarn-ve-npm-arsındaki-farklar)
+    - [Npm vs Yarn commands](#npm-vs-yarn-commands)
+    - [İkisi için de aynı olan komutlar](#i̇kisi-için-de-aynı-olan-komutlar)
   - [`package-lock.json` nedir?](#package-lockjson-nedir)
   - [`~`, `^`, `*` Bu işaretler ne manaya geliyor? (`SemVer`)](#---bu-işaretler-ne-manaya-geliyor-semver)
 - [Kaynakça](#kaynakça)
@@ -18,6 +20,10 @@ Bu bölümde;
 > [How JavaScript package managers work](https://www.freecodecamp.org/news/javascript-package-managers-101-9afd926add0a/) - Shubheksha Jalan
 
 Basitçe söylemek gerekirse, bir paket yöneticisi, projenizin doğru çalışması için ihtiyaç duyduğu bağımlılıkları (sizin veya başka biri tarafından yazılan harici kod) yönetmenizi sağlayan bir yazılım parçasıdır.
+
+Paket yöneticisi, yazılım paketlerini kurmak, kaldırmak ve yönetmek için kullanılır.
+
+Paket yöneticisinin yaptığı şey, yazılım paketlerini tutarlı bir şekilde yükleme, yükseltme, yapılandırma ve kaldırma sürecini otomatikleştirmektir.
 
 ## npm
 > **https://www.npmjs.com/**
@@ -74,16 +80,18 @@ Paketi bu şekilde başlatırsanız bunun gibi bir çıktı alacaksınız;
 ```
 
 ```bash
-$npm run say-hello
+npm run say-hello
 ```
+---
 
-...  
-...  
-...  
-...  
-...  
-...  
-
+```json
+"scripts": {
+    "dev": "nodemon src/app.js",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/app.js"
+```
+> **sucrase**: yazdığınız kodları ES6+ standartları ile derler.  
+> **nodemon**: yazdığınız kod yaptığınız değişiklikleri canlı olarak takip etmenizi sağlar.
 
 > ### `npm cheat sheet:` **https://devhints.io/npm**
 
@@ -100,20 +108,70 @@ Fakat `npm` ile kurulan paketler `package json`'a eklenir. Ve proje tekrar kurul
 
 
 ## yarn
-...  
-...  
-...  
-...  
-...  
-...  
+> [A Quick Introduction to the Yarn Package Manager](https://www.digitalocean.com/community/tutorials/js-yarn-package-manager-quick-intro) - Alligator.io
+
+
+[**Yarn**](https://yarnpkg.com/), Facebook tarafından geliştirilen yeni ve açık kaynaklı JavaScript paket yöneticisidir. Yarn, `npm` paket yöneticisi ile tamamen uyumludur ve `npm` ile birlikte çalışabilir, ancak daha tehlikesiz, daha güvenli ve daha emniyetli bir alternatif olmayı amaçlamaktadır.  
+
+Yeni veya mevcut projeler için tüm npm iş akışınızı çok az çabayla Yarn ile değiştirebilirsiniz. Yarn'da bağımlılıklar yarn.lock içinde saklanır. Bu dosya versiyon kontrol araçı ile takip edilmelirdir. Ve bu dosya sadece yarn tarıfndan düzenlenir elle bir değişiklik yapmanız önerilmez. 
 
 
 ## `yarn` ve `npm` arsındaki farklar!
-...  
-...  
-...  
-...  
+> [Yarn Vs NPM, Which One To Choose In 2020](https://www.javascriptwillrule.com/yarn-vs-npm-speed-tests) - Subin Sudhakaran  
 
+- **Modül Kurulum Hızı'ı**  
+  Yarn kullanarak bir paket kurduğunuzda (`yarn add packagename`), paketi diskinize cashler. Bir sonraki kurulumda, kurulum için gerekli tarball'ı (çok sayıda dosyanın tar uzantılı sıkıştırılmış hali) almak için HTTP isteği göndermek yerine cashle'diği paketi kullanılacaktır.
+
+  Önbelleğe alınan modülünüz `~/.yarn-cache` içine alınacak ve registry adı önekini alacak ve modül sürümü ile sonradan eklenmiş olacaktır. 
+  
+  Yani express'in 4.4.5 sürümünü Yarn ile kurarsanız,  
+  **`~/.yarn-cache/npm-express-4.4.5.`** gibi bir cashe'iniz olacak demektir.
+
+- **Paralel Kurulum**
+  Npm ile bir paketi kurarken başka bir paketi eklemek mümkün değil. Yeni bir paket eklemeden önce öbürünün tamamen bitmesini beklemelisiniz.
+
+  Fakat `yarn` paket kurulumlarını paralel olarak gerçekleştirerek performansı artırır. 
+
+  > **Expres paketi için kurulum süreleri.** (bağımlılıklarala beraber 42 paket)
+  ```bash
+    npm: 9 seconds
+
+    Yarn: 1.37 seconds
+  ```
+
+- **Yarn nodeJs'ün 5. sürümü altında destek vermiyor.**
+
+  Yarn `(released 2016)`, npm'e`(2010)` göre daha yeni bir paket yöneticisi olduğundan sürüm desteği npm kadar geniş değil.
+
+### Npm vs Yarn commands
+> [Cheat Sheet: npm vs Yarn Commands](https://www.digitalocean.com/community/tutorials/nodejs-npm-yarn-cheatsheet) - William Le
+
+| **Command** | **npm** | **yarn** |
+|:---:|:---:|:---:|
+| Install dependencies | `npm install` | `yarn` |
+| Install package | `npm install [package]` | `yarn add [package]` |
+| Install dev package | `npm install --save-dev [package]` | `yarn add --dev [package]` |
+| Uninstall package | `npm uninstall [package]` | `yarn remove [package]` |
+| Uninstall dev package | `npm uninstall --save-dev [package]` | `yarn remove [package]` |
+| Update | `npm update` | `yarn upgrade` |
+| Update package | `npm update [package]` | `yarn upgrade [package]` |
+| Global install package | `npm install --global [package]` | `yarn global add [package]` |
+| Global uninstall package | `npm uninstall --global [package]` | `yarn global remove [package]` |
+
+### İkisi için de aynı olan komutlar
+> Yarn'ın değiştirmemeye karar verdiği bazı komutlar
+
+| **npm** | **yarn** |
+|:---:|:---:|
+| `npm init` | `yarn init` |
+| `npm run` | `yarn run` |
+| `npm test` | `yarn test` |
+| `npm login` (and `logout`) | `yarn login` (and`logout`) |
+| `npm link` | `yarn link` |
+| `npm publish` | `yarn publish` |
+| `npm cache clean` | `yarn cache clean` |
+
+---
 
 ## `package-lock.json` nedir?
 > - https://docs.npmjs.com/cli/v6/configuring-npm/package-lock-json  
@@ -203,3 +261,5 @@ Bunlar **`SemVer`** yani [Semantic Versioning](https://semver.org/) ilgili sembo
 - [What Do the ~, ^, and * Mean in package.json?](https://gunnariauvinen.com/what-do-the-tilde-carrot-and-asterick-mean-in-package-dot-json/) - Gunnari Auvinen
 - [How JavaScript package managers work](https://www.freecodecamp.org/news/javascript-package-managers-101-9afd926add0a/) - Shubheksha Jalan
 - [Introduction to NPM Scripts](https://www.freecodecamp.org/news/introduction-to-npm-scripts-1dbb2ae01633/) - Mohammed Ajmal Siddiqui
+- [Cheat Sheet: npm vs Yarn Commands](https://www.digitalocean.com/community/tutorials/nodejs-npm-yarn-cheatsheet) - William Le
+- [A Quick Introduction to the Yarn Package Manager](https://www.digitalocean.com/community/tutorials/js-yarn-package-manager-quick-intro) - Alligator.io
