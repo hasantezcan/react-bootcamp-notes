@@ -14,6 +14,11 @@ Bu bölümde;
     - [İkisi için de aynı olan komutlar](#i̇kisi-için-de-aynı-olan-komutlar)
   - [`package-lock.json` nedir?](#package-lockjson-nedir)
   - [`~`, `^`, `*` Bu işaretler ne manaya geliyor? (`SemVer`)](#---bu-işaretler-ne-manaya-geliyor-semver)
+- [JS Different Module Formats](#js-different-module-formats)
+  - [Requiring a Module](#requiring-a-module)
+  - [Module oluşturmak ve export etmek](#module-oluşturmak-ve-export-etmek)
+  - [`Module.exports` ile `exports` arasındaki fark nedir?](#moduleexports-ile-exports-arasındaki-fark-nedir)
+  - [Export default nedir?](#export-default-nedir)
 - [Kaynakça](#kaynakça)
 
 # JavaScript Package managers
@@ -62,6 +67,8 @@ Paketi bu şekilde başlatırsanız bunun gibi bir çıktı alacaksınız;
 }
 ```
 
+> ### `npm cheat sheet:` **https://devhints.io/npm**
+
 ### npm'e script ekleme
 > [Introduction to NPM Scripts](https://www.freecodecamp.org/news/introduction-to-npm-scripts-1dbb2ae01633/) - Mohammed Ajmal Siddiqui
 
@@ -92,9 +99,6 @@ npm run say-hello
 ```
 > **sucrase**: yazdığınız kodları ES6+ standartları ile derler.  
 > **nodemon**: yazdığınız kod yaptığınız değişiklikleri canlı olarak takip etmenizi sağlar.
-
-> ### `npm cheat sheet:` **https://devhints.io/npm**
-
 
 ## npm ile npx arasındaki fark!
 > **https://aykutkardas.medium.com/npx-nedir-c6a604cde961**
@@ -176,9 +180,15 @@ Yeni veya mevcut projeler için tüm npm iş akışınızı çok az çabayla Yar
 ## `package-lock.json` nedir?
 > - https://docs.npmjs.com/cli/v6/configuring-npm/package-lock-json  
 
-`package-lock.json` `package.json`'dan farklı olarak kullandığınız paketlerin bağımlılıklarını da saklar. 
+`package-lock.json` `package.json`'dan farklı olarak kullandığınız paketlerin bağımlılıklarını ve versiyonlarını `checksum`'ları ile saklar. 
 
-Örneğin projenize sadece express ve axios kurduğunuzu düşünün bu durumda `package.json` içinde sadece bu iki bağımlılığı göreceksiniz.
+> **checksum:** sağlama toplamı
+
+`...lock.json` dosyaları kullanıcılar tarafından değiştirilmez. Bu dosyaları npm (ya da hangi paket yöneticisi kullanıyorsanız). tarafından tarafından oluşturulur ve düzenlenir.
+
+---
+
+*Örneğin* projenize sadece express ve axios kurduğunuzu düşünün bu durumda `package.json` içinde sadece bu iki bağımlılığı göreceksiniz.
 
 ```diff
 {..
@@ -243,18 +253,172 @@ Bunlar **`SemVer`** yani [Semantic Versioning](https://semver.org/) ilgili sembo
 
   > **`1.0.0 < 1.* < 2.0.0`**
 
-
-
-...  
-...  
-...  
-...  
-...  
-...  
-...  
-...  
-
 ---
+
+<p align="center">
+    <img alt="imgName" src="https://media0.giphy.com/media/12UlfHpF05ielO/giphy.gif?cid=ecf05e47zp0uzut5itobq2g9t58mtlweo1ssma4iv03wot79&rid=giphy.gif" width="500">
+    <br>
+</p>
+
+# JS Different Module Formats
+> - [Understanding module.exports and exports in Node.js](https://www.sitepoint.com/understanding-module-exports-exports-node-js/) - James Hibbard - Nov 2019   
+> - [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export#re-exporting_aggregating) - MDN
+
+Programlamada modüller, projeler arasında paylaşılabilen ve yeniden kullanılabilen bağımsız işlevsellik birimleridir.
+
+Kendimiz yazmak zorunda olmadığımız işlevselliklerle uygulamalarımızı geliştirmek için kullanabildiğimiz için geliştiriciler olarak hayatımızı kolaylaştırırlar.
+
+Ayrıca kodumuzu düzenlememize ve ayırmamıza izin vererek anlaşılması, hata ayıklaması ve bakımı daha kolay uygulamalara yol açar.
+
+## Requiring a Module
+
+Node.js, kodumuza yüklemek zorunda kalmadan kullanabileceğimiz bir dizi yerleşik modülle birlikte gelir.
+
+Bunu yapmak için, modülü `require` anahtar kelimesi ile çağırılması yeterlidir.
+
+```js
+const fs = require('fs');
+const folderPath = '/home/jim/Desktop/';
+
+fs.readdir(folderPath, (err, files) => {
+  files.forEach(file => {
+    console.log(file);
+  });
+});
+```
+
+> CommonJS'de modüllerin eşzamanlı olarak yüklendiğini ve oluştukları sıraya göre işlendiğini unutmayın.
+
+## Module oluşturmak ve export etmek
+Şimdi kendi modülümüzü nasıl oluşturacağımıza ve modülümüzün başka bir yerinde kullanmak üzere dışa aktaracağımıza bakalım. 
+
+Bir `user.js` dosyası oluşturarak ve aşağıdakileri ekleyerek başlayalım:
+
+```js
+// user.js
+const getName = () => {
+  return 'Hasan';
+};
+
+module.exports.getName = getName;
+```
+Şimdi aynı klasörde bir `index.js` dosyası oluşturalım ve içine şunları ekleyelim:
+
+```js
+// index.js
+const user = require('./user');
+
+console.log(`User: ${user.getName()}`);
+```
+`user.js` içinde oluşturudğumuz getName fonksiyonunu `index.js` içinde `require` (ihtiyacı olmak) ile çağırarak user değişkinene atadık ve sonrasında user içinden `getName` fonksiyonuna ulaştık. 
+
+export etmek istediğimiz birden fazla fonskiyon olsayıdı.
+
+```js
+// user.js
+const getName = () => {
+  return 'Hasan';
+};
+
+const getLocation = () => {
+  return 'Denizli';
+};
+
+exports.dateOfBirth = '19.08.1998';
+
+exports.getName = getName;
+exports.getLocation = getLocation;
+```
+birden fazla fonksiyonu bu şekilde `export` edip `index.js` içinde;
+
+```js
+// index.js
+const { getName, getLocation, dateOfBirth } = require('./user');
+
+console.log(
+  `${getName()} lives in ${getLocation()} and he was born on ${dateOfBirth()}.`
+); 
+// Hasan lives in Denizli and he was born on 19.08.1998
+```
+Burada `user.js` içinden export ettiğimiz fonksiyonları destruct ederek kullandık.
+
+## `Module.exports` ile `exports` arasındaki fark nedir?
+
+exports aslında module objesinin bir alt argümanıdır.
+
+bir module objesini log ettiğimizde şunu görürüz;
+
+```js
+//console.log(module);
+Module {
+  id: '.',
+  exports: {},
+  parent: null,
+  filename: '/home/jim/Desktop/index.js',
+  loaded: false,
+  children: [],
+  paths:
+   [ '/home/jim/Desktop/node_modules',
+     '/home/jim/node_modules',
+     '/home/node_modules',
+     '/node_modules' ] }
+```
+Gördüğünüz gibi `exports`, `module` altında bulunan bir property'dir.
+
+```js
+exports.foo = 'foo';
+console.log(module);
+
+Module {
+  id: '.',
+  exports: { foo: 'foo' },
+  ...
+```
+
+Görüldüğü gibi `module.exports` ile `exports` aynı işi yapmakta (en azından varsayılan olarak).
+
+## Export default nedir?
+
+default olarak export ettiğimiz fonksiyon tanımlandığında varsayılan olarak çalışır. Default olarak eklenmeyen fonksiyonları kullanmak istersek onları tanımlayarak kullanmamız gerekir. 
+
+```js
+// user.js
+const getName = () => {
+  return 'Hasan';
+};
+
+const getLocation = () => {
+  return 'Denizli';
+};
+
+const dateOfBirth = '19.08.1998';
+
+module.exports.default = getName;
+module.exports {
+  getLocation,
+  dateOfBirth
+}
+```
+
+```js
+// index.js
+const getName { getLocation, dateOfBirth } = require('./user');
+
+console.log(
+  `${getName()} lives in ${getLocation()} and he was born on ${dateOfBirth()}.`
+); 
+// Hasan lives in Denizli and he was born on 19.08.1998
+```
+
+
+...  
+...  
+...  
+...  
+...  
+...  
+...  
+...  
 # Kaynakça  
 
 - [Everything You Wanted To Know About package-lock.json But Were Too Afraid To Ask](https://medium.com/coinmonks/everything-you-wanted-to-know-about-package-lock-json-b81911aa8ab8) - James Quigley
@@ -263,3 +427,5 @@ Bunlar **`SemVer`** yani [Semantic Versioning](https://semver.org/) ilgili sembo
 - [Introduction to NPM Scripts](https://www.freecodecamp.org/news/introduction-to-npm-scripts-1dbb2ae01633/) - Mohammed Ajmal Siddiqui
 - [Cheat Sheet: npm vs Yarn Commands](https://www.digitalocean.com/community/tutorials/nodejs-npm-yarn-cheatsheet) - William Le
 - [A Quick Introduction to the Yarn Package Manager](https://www.digitalocean.com/community/tutorials/js-yarn-package-manager-quick-intro) - Alligator.io
+- [Understanding module.exports and exports in Node.js](https://www.sitepoint.com/understanding-module-exports-exports-node-js/) - James Hibbard - Nov 2019 
+- [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export#re-exporting_aggregating) - MDN
