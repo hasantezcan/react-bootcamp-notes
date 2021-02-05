@@ -1,5 +1,5 @@
 ### `Kodluyoruz Earlybird Front-End Talent Bootcamp`
-## Kodluyoruz React Bootcamp `2020`
+## Kodluyoruz React Bootcamp `2021`
 
 > Bu repo bootcamp boyunca alacağım tüm notları saklar.
 
@@ -33,6 +33,7 @@ Eğitim materyalleri: [**`github.com/kodluyoruz-react-bootcamp/sources`**](https
 		<em><span><a href="https://www.kodluyoruz.org/">Kodluyoruz</a></span></em>	
 </p>
 
-> **If you see any mistakes or if you want to make any improvement on this repo you can** [**`pull the request here.`**](https://github.com/hasantezcan/evolutionary-computing/pulls) 
 
-> **You can contact with me:** [**`t.me/hasantezcan`**](https://t.me/hasantezcan)
+> **Repoda herhangi bir hata görürseniz veya herhangi bir iyileştirme yapmak isterseniz [`pull request`](https://github.com/hasantezcan/kodluyoruz-react-bootcamp/pulls)'lerinizi buraya gönderebilirsiniz.**
+
+> **Herhangi bir sorunuz olursa benimle buradan iletşime geçebilirsiniz:** [**`t.me/hasantezcan`**](https://t.me/hasantezcan)
