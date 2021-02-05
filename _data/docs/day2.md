@@ -25,6 +25,7 @@ Bu bölümde;
 - [ES6+ standartları ile export import](#es6-standartları-ile-export-import)
   - [nodemon](#nodemon)
   - [sucrase](#sucrase)
+- [`async, await` vs `then chain`](#async-await-vs-then-chain)
 - [Kaynakça](#kaynakça)
 
 # JavaScript Package managers
@@ -497,6 +498,52 @@ function greet(input) {
 Nodemon ve sucrase kurulumu.
 
 ---
+# `async, await` vs `then chain`
+
+> **Bu aşağıda gördüğünüz iki kod praçası da aynı işi yapmakta. `Hangisi daha derli toplu görünüyor?` `Aralarındaki fark nedir?`**
+
+```js
+axios
+	.get(`${ENDPOINT}/users`)
+	.then((response) => response.data)
+	.then((users) => {
+		axios
+			.get(`${ENDPOINT}/posts`)
+			.then((response) => response.data)
+			.then((posts) => {
+				axios
+					.get(`${ENDPOINT}/albums`)
+					.then((response) => response.data)
+					.then((albums) => console.log(albums));
+			});
+	})
+	.catch((e) => {
+		console.log(e);
+  });
+```
+> Burada belli bir sırada istek yapılması istendiğinden sıranın sağlanması için `then`'ler kullanılmış. Tabi araka arakaya 3 istek yapılmak istenmesi burada bir `then chain`'e yol açmış.
+
+Bu sıralı yapılacak istekler daha farklı şekilde yapılabilir mi?
+
+```js
+async function getData() {
+	try {
+		const { data: users } = await axios.get(`${ENDPOINT}/users/1`);
+		const { data: posts } = await axios.get(`${ENDPOINT}/posts/1`);
+		const { data: albums } = await axios.get(`${ENDPOINT}/albums/1`);
+		console.log(users, posts, albums);
+	} catch (e) {
+		console.log(e);
+	}
+}
+```
+ES6 ile birlikte gelen async await yapısı ile birbirini beklemesi gereken istekleri bu şekilde sıraya sokabilir. Önceki kodda var olan karmaşadan kurtulmuş olursunuz.
+
+`Callback`'ler içinde hata yakalamlırnı `catch` ile yapabiliyorduk. `Async await` yapısında hata yakalaması yapmak için de bir `try catch` yapısı kurmamız gerekiyor.
+
+
+
+
 
 ...  
 ...  
