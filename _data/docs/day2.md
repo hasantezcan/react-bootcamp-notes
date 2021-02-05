@@ -19,6 +19,12 @@ Bu bölümde;
   - [Module oluşturmak ve export etmek](#module-oluşturmak-ve-export-etmek)
   - [`Module.exports` ile `exports` arasındaki fark nedir?](#moduleexports-ile-exports-arasındaki-fark-nedir)
   - [Export default nedir?](#export-default-nedir)
+- [Ek bilgiler](#ek-bilgiler)
+  - [gereksiz çalışan portları kapatma](#gereksiz-çalışan-portları-kapatma)
+  - [express generator](#express-generator)
+- [ES6+ standartları ile export import](#es6-standartları-ile-export-import)
+  - [nodemon](#nodemon)
+  - [sucrase](#sucrase)
 - [Kaynakça](#kaynakça)
 
 # JavaScript Package managers
@@ -382,6 +388,14 @@ Görüldüğü gibi `module.exports` ile `exports` aynı işi yapmakta (en azın
 default olarak export ettiğimiz fonksiyon tanımlandığında varsayılan olarak çalışır. Default olarak eklenmeyen fonksiyonları kullanmak istersek onları tanımlayarak kullanmamız gerekir. 
 
 ```js
+import React, { useState } from 'react';
+```
+
+Burada soldaki React default olarak export edilmiş. useState ise normal şekilde export edilmiş diyebilirz.
+
+---
+
+```js
 // user.js
 const getName = () => {
   return 'Hasan';
@@ -409,7 +423,80 @@ console.log(
 ); 
 // Hasan lives in Denizli and he was born on 19.08.1998
 ```
+----
+# Ek bilgiler
 
+## gereksiz çalışan portları kapatma
+
+3000 portu ya da herhangi port'da açık kalmış bir servis var ise o servisi **`npx kill-port 8080`** ile kapatabilirsiniz. - 
+> [Stackoverflow](https://stackoverflow.com/a/62406427/10694425)
+
+## express generator
+> https://expressjs.com/en/starter/generator.html
+
+Express generator ile hılzı bir uygulama iskeleti oluşturabilirsiniz.
+
+
+<p align="center">
+    <img alt="imgName" src="../images/day-2/2021-02-04-18-01-00.png" width="600">
+    <br>
+    <em>
+       express generator file structure
+    </em>
+</p>
+
+---
+
+# ES6+ standartları ile export import
+
+[Biraz önce](#js-different-module-formats) ES6 öncesi export import nasıl yapılır görmüştük şimdi ise bu işlerin es6 ile birlikte nasıl değiştiğini göreceğiz.
+
+`require` yerine `import` 
+
+`module.export` yerine `export`
+
+```js
+const name = "Hasan";
+const surname = "Tezcan";
+const fullName = `${name} ${surname}`;
+
+export { name, surname, fullName };
+```
+
+```js
+import { name, surname, fullName } from "./myModule";
+
+console.log(name, surname, fullName);
+```
+
+## nodemon
+> https://github.com/remy/nodemon
+
+Yazdığınız kod'a yaptığınız değişiklikleri canlı olarak takip etmenizi sağlar.
+
+## sucrase
+> https://github.com/alangpierce/sucrase
+
+**Sucrase**, [babel'a](https://github.com/babel/babel) aleternatif olarak kullanılabilcek bir compalier. Desteklenen ortamlarınız belirli özellikleri yerel olarak desteklemediğinde, Sucrase bu özellikleri desteklenen bir sürüme indirmenize yardımcı olacaktır. 
+
+Bu yazım ile yazdığınız kodlar
+
+```js
+// ES2020 nullish coalescing
+function greet(input) {
+  return input ?? "Hello world";
+}
+```
+Bu şekle dönüştürülecek
+
+```js
+function greet(input) {
+  return input != null ? input : "Hello world";
+}
+```
+Nodemon ve sucrase kurulumu.
+
+---
 
 ...  
 ...  

@@ -14,5 +14,17 @@ Burada dev ile çalışırken nodemon bizim için sürekli derleme yaparak kodum
 ```bash
 nodemon sucrase src/app.js
 ```
+## **CEVAP:**
+```js
+//nodemon.json
+{
+	"execMap": {
+		"js": "node -r sucrase/register"
+	}
+}
+```
 
+bunu eklediğimiz için yapabilyoruz. Teşekkürler.
+
+> yt! t=1611
 ---
