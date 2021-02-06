@@ -673,8 +673,7 @@ Server-side rendering sağlayan Next.js şunları sağlar;
 - HTML içeriğinin tamamı kaynak kodda mevcuttur; bu, arama motorunun hemen isteyebileceği, tarayabileceği ve dizine ekleyebileceği anlamına gelir, bu da arama sonuçlarında gerçekten görünme ve sıralama için daha hızlı zaman sağlar.
 - Ancak yinelenen sunucu istekleri, sonraki sayfa yüklemelerini CSR'ye göre daha yavaş hale getirir.
   
-Bunlarada bakabilirsin
-
+**Ayrıca bu kaynaklara da göz atabilirsiniz;**
 - [Next.js VS Create-React-App](https://medium.com/alienbrains/next-js-vs-create-react-app-bbf3ca2d9891) - Rohit Mondal
 - [Why I Migrated From Next.js to Create React App](https://medium.com/better-programming/why-i-migrated-from-next-js-to-create-react-app-7e74834e8431) - Jake Prins
 - [How to Create a React Development Build From Scratch](https://medium.com/swlh/react-without-create-react-app-setting-up-a-dev-build-from-scratch-fefd5d9d6baa) - Mike Pottebaum
