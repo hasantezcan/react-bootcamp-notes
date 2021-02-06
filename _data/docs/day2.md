@@ -1,7 +1,7 @@
 ### `Kodluyoruz Earlybird Front-End Talent Bootcamp`
 
 ## `GÜN 2 - 2020.12.20`
-> 
+> Paket yöneticileri, async-await then chain, Create React App ve Next.js
 
 Bu bölümde;
 - [JavaScript Paket yöneticileri](#javascript-paket-yöneticileri)
@@ -28,12 +28,10 @@ Bu bölümde;
 - [`async, await` vs `then chain`](#async-await-vs-then-chain)
 - [Bir React Projesi başlatmak](#bir-react-projesi-başlatmak)
   - [create react app](#create-react-app)
-  - [nextjs](#nextjs)
-  - [NextJs mi? Create react app?](#nextjs-mi-create-react-app)
-    - [Nedir bu `server-side-rendering` ve `client-side-redering` ?](#nedir-bu-server-side-rendering-ve-client-side-redering-)
-    - [Code splitting nedir?](#code-splitting-nedir)
-      - [Create react app?](#create-react-app-1)
-    - [Webpack nedir?](#webpack-nedir)
+  - [NextJs](#nextjs)
+  - [Ne zaman next.js kullanmalıyız?](#ne-zaman-nextjs-kullanmalıyız)
+  - [Ne zaman Create-React-App kullanmalıyız?](#ne-zaman-create-react-app-kullanmalıyız)
+  - [Nedir bu `server-side-rendering` ve `client-side-redering` ?](#nedir-bu-server-side-rendering-ve-client-side-redering-)
 - [Kaynakça](#kaynakça)
 
 # JavaScript Paket yöneticileri
@@ -173,30 +171,30 @@ Yeni veya mevcut projeler için tüm npm iş akışınızı çok az çabayla Yar
 ### Npm vs Yarn commands
 > [Cheat Sheet: npm vs Yarn Commands](https://www.digitalocean.com/community/tutorials/nodejs-npm-yarn-cheatsheet) - William Le
 
-| **Command** | **npm** | **yarn** |
-|:---:|:---:|:---:|
-| Install dependencies | `npm install` | `yarn` |
-| Install package | `npm install [package]` | `yarn add [package]` |
-| Install dev package | `npm install --save-dev [package]` | `yarn add --dev [package]` |
-| Uninstall package | `npm uninstall [package]` | `yarn remove [package]` |
-| Uninstall dev package | `npm uninstall --save-dev [package]` | `yarn remove [package]` |
-| Update | `npm update` | `yarn upgrade` |
-| Update package | `npm update [package]` | `yarn upgrade [package]` |
-| Global install package | `npm install --global [package]` | `yarn global add [package]` |
-| Global uninstall package | `npm uninstall --global [package]` | `yarn global remove [package]` |
+|       **Command**        |               **npm**                |            **yarn**            |
+| :----------------------: | :----------------------------------: | :----------------------------: |
+|   Install dependencies   |            `npm install`             |             `yarn`             |
+|     Install package      |       `npm install [package]`        |      `yarn add [package]`      |
+|   Install dev package    |  `npm install --save-dev [package]`  |   `yarn add --dev [package]`   |
+|    Uninstall package     |      `npm uninstall [package]`       |    `yarn remove [package]`     |
+|  Uninstall dev package   | `npm uninstall --save-dev [package]` |    `yarn remove [package]`     |
+|          Update          |             `npm update`             |         `yarn upgrade`         |
+|      Update package      |        `npm update [package]`        |    `yarn upgrade [package]`    |
+|  Global install package  |   `npm install --global [package]`   |  `yarn global add [package]`   |
+| Global uninstall package |  `npm uninstall --global [package]`  | `yarn global remove [package]` |
 
 ### İkisi için de aynı olan komutlar
 > Yarn'ın değiştirmemeye karar verdiği bazı komutlar
 
-| **npm** | **yarn** |
-|:---:|:---:|
-| `npm init` | `yarn init` |
-| `npm run` | `yarn run` |
-| `npm test` | `yarn test` |
+|          **npm**           |          **yarn**          |
+| :------------------------: | :------------------------: |
+|         `npm init`         |        `yarn init`         |
+|         `npm run`          |         `yarn run`         |
+|         `npm test`         |        `yarn test`         |
 | `npm login` (and `logout`) | `yarn login` (and`logout`) |
-| `npm link` | `yarn link` |
-| `npm publish` | `yarn publish` |
-| `npm cache clean` | `yarn cache clean` |
+|         `npm link`         |        `yarn link`         |
+|       `npm publish`        |       `yarn publish`       |
+|     `npm cache clean`      |     `yarn cache clean`     |
 
 ---
 
@@ -239,11 +237,11 @@ ama `package-lock.json` içine baktığınızda express'in çalışabilmesi içi
 npm install komutunu çalıştırdığınız anda `package-lock.json` da güncellenir ve `package.json`'a ayak uydurur.
 
 
-> - Tutarlı bir yükleme ve uyumlu bağımlılıklar sağlamak için `package-lock`'ı kullanmalısınız
+- Tutarlı bir yükleme ve uyumlu bağımlılıklar sağlamak için `package-lock`'ı kullanmalısınız
 
-> - `package-lock` dosyanızı versiyon kontrol ile takip etmelisiniz. *(`.gitignore` içne koyMAMALSINIZ!)*
+- `package-lock` dosyanızı versiyon kontrol ile takip etmelisiniz. *(`.gitignore` içne koyMAMALSINIZ!)*
 
-> - `package-lock`'ı her seferinde silmenize gerek yok! `npm install`ı çalıştırmak `package.lock`'ı sizin için tekrar oluşturacaktır.
+- `package-lock`'ı her seferinde silmenize gerek yok! `npm install`ı çalıştırmak `package.lock`'ı sizin için tekrar oluşturacaktır.
 
 ---
 
@@ -580,16 +578,64 @@ Ancak neyse ki, birçok durumda kullanılabilecek hızlı ve kolay bir çözüm 
 
 Create React App, tek komutla basit bir konfigürasyonla yeni bir tek sayfalı uygulama oluşturarak yeni bir ReactJS projesinin önyüklenmesine yardımcı olan, Facebook geliştiricileri tarafından oluşturulan bir araçtır.
 
-## nextjs
+> ### Create React App'in avantajları
 
-## NextJs mi? Create react app?
-> [What’s The Difference Between NextJS and Create-React-App?](https://medium.com/frontend-digest/whats-the-difference-between-nextjs-and-create-react-app-11b55650a612) - Malcolm Laing - Oct 2020
+- **İyileştirilmemiş. (It’s unopinionated.)**
+  İstediğiniz kütüphaneleri kullanabilirsiniz, kural veya öneri yoktur. Tercih ettiğiniz routing kütüphanesi kullanabilirsiniz.
+-  **Client-side'da render edilir. (İstemci tarafında oluşturulur)** 
 
-**Next.js**, `server-side rendering`, `automatic code-splitting`, `static exporting options`, ve `easy production builds` imkanları sunan react uygulamları üretmenizi sağlayan bir **framework**'tür.
+> ### Create React App'in dezavantajları
 
-**Create React App**, single-page React uygulamaları oluşturmanın resmi olarak desteklenen bir yoludur. `Client-side rendering`'i destekler. Webpack veya Babel gibi araçlar yüklemenize veya yapılandırmanıza gerek yoktur. Koda odaklanabilmeniz için önceden yapılandırılmış ve gizlenmiştir.
+- **Özelleştirmesi zahmetlidir**
+  Uygulamanızı özelleştirmenin belirli bir yolu yoktur. Webpack yapılandırmanızı özelleştirmeniz gerekiyorsa, tek seçeneğiniz craco veya eject gibi üçüncü taraf bir araç kullanmaktır.
 
-### Nedir bu `server-side-rendering` ve `client-side-redering` ?
+- **SEO tarafında başarısız**
+ CRA ile oluşturudğumuz uygulamlar istemci tarfında render edildiğinden dolayı google tarafından indexlenmesi kolay olmuyor bu durum da bizi SEO açısından başarısız kılıyor.  
+
+## NextJs
+NextJS'yi Create-React-App ile karşılaştırmak neredeyse haksızlıktır çünkü NextJS çok daha fazlasıdır. CRA, React uygulamaları oluşturuken kullanılan bir iskeletken (template) NextJS başlı başına bir **Framework**'tür. Kutudan çıkar çıkmaz size sserver-side rendering, static-site generation, serverless functions ve çok daha fazlasını sunar. Performanslı web uygulamaları oluşturmak için ihtiyacınız olan her şeyi size veren bir araç kutusudur.
+
+> ### NextJs'in avantajları
+
+- **It blazing fast.**
+  Sunucu tarafında işleme ve statik site oluşturma sayesinde, NextJS uygulamaları çok hızlı. NextJS, bizim için birçok performans optimizasyonuyla ilgilenir ve bize varsayılan olarak performanslı olarak gelir.
+
+- **Kolay Deploy edilebilir**
+  Vercel (NextJS'nin arkasındaki şirket), fullstack React uygulamalarının deployment'ını kolaylaştırır. Yalnızca birkaç tıklama ile profesyonel bir pipeline'a (dağıtım hattına) sahip olursunuz. Ve bunları github ile beraber çalışacak şekilde monitorize edebilirsiniz.
+
+- **API desteği mevcuttur**
+  NextJS, uygulamalarımızda API'ler oluşturmanın hızlı ve kolay bir yolunu sağlıyor.
+
+- **Özelleştirmesi gayet kolaydır.**
+  extJS, babel veya webpack yapılandırmamızı özelleştirmemize izin verir. Web paketi yükleyicileri veya babel eklentileri eklemek oldukça kolaydır.
+
+
+> ### Create React App'in dezavantajları
+
+- **Bağnazıdır**
+  NextJS kendi route sistemi dışında bir şey kullanmanıza izin vermez.
+
+
+## Ne zaman next.js kullanmalıyız?
+
+- **landing page hazırlarken**
+  NextJS, landing page'ler gibi sunum sayfaları hazırlamada bir numaradır.
+
+- **SEO sizin için önemliyse**
+  Örneğin; E-ticaret siteleri oluştururken SEO her zamankinden daha önemlidir. Sayfaları server-side'da hazırladığı için  NextJS SEO konusunda oldukça başarılıdır.
+
+- **Client'da yük oluşturmamak için**
+  Uygulamamızı sunucu üzerinde oluşturmak, istemcinin render yükünü ortadan kaldırmaktadır. Daha yavaş cihaz kullanan client'lar için bu, çok daha hızlı yükleme sürelerine yol açabilir.
+
+## Ne zaman Create-React-App kullanmalıyız?
+
+- **Üye bazlı bir sisteminiz varsa**
+  Uygulamanız yalnızca kimliği doğrulanmış kullanıcılar tarafından kullanılabiliyorsa, SSRfaydalarının çoğunu kaybeder. Bu kullanım örneği için, istemci tarafından oluşturulan uygulamalar gayet iyi çalışır ve barındırılması daha kolay ve daha ucuzdur.
+
+- **Web uygulamaları oluştururken**
+  Web uygulamaları genel olarak SSR'dab daha az yararlanır. Genellikle tekrar eden kullanıcılar tarafından kullanılırlar ve önbelleğe almayı, SSR maliyeti veya sıkıntısı olmadan onlara ışık hızında yükleme süreleri sağlamak için kullanabiliriz.
+
+## Nedir bu `server-side-rendering` ve `client-side-redering` ?
 
 <p align="center">
     <img alt="imgName" src="../images/day-2/2021-02-06-12-45-53.png" width="500">
@@ -622,27 +668,12 @@ Server-side rendering sağlayan Next.js şunları sağlar;
 - Çok daha iyi SEO
 - HTML içeriğinin tamamı kaynak kodda mevcuttur; bu, arama motorunun hemen isteyebileceği, tarayabileceği ve dizine ekleyebileceği anlamına gelir, bu da arama sonuçlarında gerçekten görünme ve sıralama için daha hızlı zaman sağlar.
 - Ancak yinelenen sunucu istekleri, sonraki sayfa yüklemelerini CSR'ye göre daha yavaş hale getirir.
+  
+Bunlarada bakabilirsin
 
-### Code splitting nedir?
-
-
-
-
-
-
-
-
-#### Create react app?
-
-
-
-
-| **Create React App** | **NextJs** | 
-|:--------------------:|:----------:|
-| Install dependencies | `npm install` | 
-
-
-### Webpack nedir?
+- [Next.js VS Create-React-App](https://medium.com/alienbrains/next-js-vs-create-react-app-bbf3ca2d9891) - Rohit Mondal
+- [Why I Migrated From Next.js to Create React App](https://medium.com/better-programming/why-i-migrated-from-next-js-to-create-react-app-7e74834e8431) - Jake Prins
+- [How to Create a React Development Build From Scratch](https://medium.com/swlh/react-without-create-react-app-setting-up-a-dev-build-from-scratch-fefd5d9d6baa) - Mike Pottebaum
 
 
 # Kaynakça  
