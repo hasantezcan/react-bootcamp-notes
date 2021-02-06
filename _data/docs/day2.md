@@ -138,7 +138,7 @@ Fakat `npm` ile kurulan paketler `package json`'a eklenir. Ve proje tekrar kurul
 
 [**Yarn**](https://yarnpkg.com/), Facebook tarafından geliştirilen yeni ve açık kaynaklı JavaScript paket yöneticisidir. Yarn, `npm` paket yöneticisi ile tamamen uyumludur ve `npm` ile birlikte çalışabilir, ancak daha tehlikesiz, daha güvenli ve daha emniyetli bir alternatif olmayı amaçlamaktadır.  
 
-Yeni veya mevcut projeler için tüm npm iş akışınızı çok az çabayla Yarn ile değiştirebilirsiniz. Yarn'da bağımlılıklar yarn.lock içinde saklanır. Bu dosya versiyon kontrol araçı ile takip edilmelirdir. Ve bu dosya sadece yarn tarıfndan düzenlenir elle bir değişiklik yapmanız önerilmez. 
+Yeni veya mevcut projeler için tüm npm iş akışınızı çok az çabayla Yarn ile değiştirebilirsiniz. Yarn'da bağımlılıklar yarn.lock içinde saklanır. Bu dosya versiyon kontrol aracı ile takip edilmelidir. Ve bu dosya sadece yarn tarafından düzenlenir elle bir değişiklik yapmanız önerilmez. 
 
 
 ## `yarn` ve `npm` arsındaki farklar!
@@ -155,8 +155,8 @@ Yeni veya mevcut projeler için tüm npm iş akışınızı çok az çabayla Yar
 - **Paralel Kurulum**
   Npm ile bir paketi kurarken başka bir paketi eklemek mümkün değil. Yeni bir paket eklemeden önce öbürünün tamamen bitmesini beklemelisiniz.
 
-  Fakat `yarn` paket kurulumlarını paralel olarak gerçekleştirerek performansı artırır. 
-
+  Fakat `yarn` paket kurulumlarını paralel olarak gerçekleştirerek performansı artırır.
+  
   > **Expres paketi için kurulum süreleri.** (bağımlılıklarala beraber 42 paket)
   ```bash
     npm: 9 seconds
@@ -164,9 +164,13 @@ Yeni veya mevcut projeler için tüm npm iş akışınızı çok az çabayla Yar
     Yarn: 1.37 seconds
   ```
 
-- **Yarn nodeJs'ün 5. sürümü altında destek vermiyor.**
+- **Yarn nodeJs'in 5. sürümü altında destek vermiyor.**
 
   Yarn `(released 2016)`, npm'e`(2010)` göre daha yeni bir paket yöneticisi olduğundan sürüm desteği npm kadar geniş değil.
+  
+  > **Bir projeye paket yüklemeye hangi paket yöneticisi ile başladıysanız onunla devam etmeniz önerilir. Diyelim `npm` ile birsürü paket kurulumu yaptınız ve bir sonraki paketi `yarn` ile kurdunuz. Projenin ilerleyen zamanlarında bu gittiğimiz yol bize sorun yaratabilir.**
+  
+  > **Projede hangi paket yöneticisine sahip olduğunuzu öğrenmek isterseniz proje dizininize bakmalısınız. `Npm` kullanıyorsanız `package.json.lock` olacaktır. Eğer `yarn` kullanıyosanız `yarn.lock`'ı proje dizininizde görebilirsiniz.**
 
 ### Npm vs Yarn commands
 > [Cheat Sheet: npm vs Yarn Commands](https://www.digitalocean.com/community/tutorials/nodejs-npm-yarn-cheatsheet) - William Le
@@ -258,7 +262,7 @@ npm install komutunu çalıştırdığınız anda `package-lock.json` da güncel
 
 Bu işaretleri dil ya da framework'lerden bağımsız şekilde herhangi bir paketin versiyonu yanında görmeniz pek mümkün.
 
-Bunlar **`SemVer`** yani [Semantic Versioning](https://semver.org/) ilgili semboller. Semantik programlma nedir kısa bir özet yapmak gerekirse. Üçlü versiyonlama sitemine Semantik Versiyonlama denir. **`x.y.z` major version x, minor version y, and patch version z.**
+Bunlar **`SemVer`** yani [Semantic Versioning](https://semver.org/) ilgili semboller. Semantik programlama nedir kısa bir özet yapmak gerekirse. Üçlü versiyonlama sistemine Semantik Versiyonlama denir. **`x.y.z` major version x, minor version y, and patch version z.**
 
 - **x** `MAJOR` Önceki sürümle uyumsuz API değişiklikleri yaptığınızda,
 - **y** `MINOR` Önceki sürümle uyumlu bir davranış eklediğinizde,
@@ -334,7 +338,7 @@ const user = require('./user');
 
 console.log(`User: ${user.getName()}`);
 ```
-`user.js` içinde oluşturudğumuz getName fonksiyonunu `index.js` içinde `require` (ihtiyacı olmak) ile çağırarak user değişkinene atadık ve sonrasında user içinden `getName` fonksiyonuna ulaştık. 
+`user.js` içinde oluşturduğumuz getName fonksiyonunu `index.js` içinde `require` (ihtiyacı olmak) ile çağırarak user değişkenine atadık ve sonrasında user içinden `getName` fonksiyonuna ulaştık. 
 
 export etmek istediğimiz birden fazla fonskiyon olsayıdı.
 
@@ -557,7 +561,7 @@ async function getData() {
 ```
 ES6 ile birlikte gelen async await yapısı ile birbirini beklemesi gereken istekleri bu şekilde sıraya sokabilir. Önceki kodda var olan karmaşadan kurtulmuş olursunuz.
 
-`Callback`'ler içinde hata yakalamlırnı `catch` ile yapabiliyorduk. `Async await` yapısında hata yakalaması yapmak için de bir `try catch` yapısı kurmamız gerekiyor.
+`Callback`'ler içinde hata yakalamalarını `catch` ile yapabiliyorduk. `Async await` yapısında hata yakalaması yapmak için de bir `try catch` yapısı kurmamız gerekiyor.
 
 ---
 # Bir React Projesi başlatmak
