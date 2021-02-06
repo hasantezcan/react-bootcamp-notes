@@ -674,6 +674,7 @@ Bunlarada bakabilirsin
 - [Next.js VS Create-React-App](https://medium.com/alienbrains/next-js-vs-create-react-app-bbf3ca2d9891) - Rohit Mondal
 - [Why I Migrated From Next.js to Create React App](https://medium.com/better-programming/why-i-migrated-from-next-js-to-create-react-app-7e74834e8431) - Jake Prins
 - [How to Create a React Development Build From Scratch](https://medium.com/swlh/react-without-create-react-app-setting-up-a-dev-build-from-scratch-fefd5d9d6baa) - Mike Pottebaum
+- [What is Nextjs and Why Should You Use it in 2021?](https://dev.to/pagepro_agency/what-is-nextjs-and-why-should-you-use-it-in-2021-1h5d) - omgrabski
 
 
 # Kaynakça  
