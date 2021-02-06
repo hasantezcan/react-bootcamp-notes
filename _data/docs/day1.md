@@ -68,9 +68,9 @@ Babel tarayıcıların anlayamadağı yeni gelen js özellikleri eskisine çevir
 ## Versiyon Kontrol Sistemi nedir?
 Versiyon kontol sistemleri herhangi bir proje üzerine çalışırken size yaptığınız değişiklikler ve yenilikler arasında boğulmadan temiz bir şekilde çalışabilme imkanı sunar.
 
-Version kontol sistemleri ile çalışamayı öğrendikten sonra bir proje üzerinde zamanda geri gidebilir projenizin falanca zamanki halini o günkü hali ile inceleyebilir ya da projenizin o anki halini bozmadan üzerine yeni denemeler yapabilir ve bu denemeniz istediğiniz gibi olursa ana projenize bu özelliği ekleyebilirsiniz.
+Version kontol sistemleri ile çalışmayı öğrendikten sonra bir proje üzerinde zamanda geri gidebilir projenizin falanca zamanki halini o günkü hali ile inceleyebilir ya da projenizin o anki halini bozmadan üzerine yeni denemeler yapabilir ve bu denemeniz istediğiniz gibi olursa ana projenize bu özelliği ekleyebilirsiniz.
 
-Bu söylediklerimi en başta gördüğümüz insan beyninin direk oluşturduğu versiyon kontrol sistemi ile yapmaya kalkmak bi yerde mantıklı olsa da bu yöntemle devam etmek bir yerden sonra sizi sinir krizlerine sokabilir hata ve hata projeninizi geliştirecem derken çalışır halinden de olmanıza sebep olablir.[**[1]**](https://hasantezcan.dev/blog/versiyon-kontrol-sistemi-git.html#:~:text=Versiyon%20Kontrol%20Sistemi%20Nedir?)
+Bu söylediklerimi en başta gördüğümüz insan beyninin direk oluşturduğu versiyon kontrol sistemi ile yapmaya kalkmak bir yerde mantıklı olsa da bu yöntemle devam etmek bir yerden sonra sizi sinir krizlerine sokabilir hatta ve hatta projenizi geliştireceğim derken çalışır halinden de olmanıza sebep olablir.[**[1]**](https://hasantezcan.dev/blog/versiyon-kontrol-sistemi-git.html#:~:text=Versiyon%20Kontrol%20Sistemi%20Nedir?)
 
 ## Git Nedir?
 
@@ -94,7 +94,7 @@ Ayrıca [Linus Torvalds](https://tr.wikipedia.org/wiki/Linus_Torvalds) “**GIT*
 
 ## Git nasıl kullanılır?
 
-Bu konuyu geçtiğimiz sene topluk için yaptığım bir sunumda kaynak olsun diye yazıya geçirmiştim. Sizi direk oraya yönlendiriyorum... [**hasantezcan.dev/versiyon-kontrol-sistemi-git**](https://hasantezcan.dev/blog/versiyon-kontrol-sistemi-git.html#:~:text=Git%20Nas%C4%B1l%20kullan%C4%B1l%C4%B1r?)
+Bu konuyu geçtiğimiz sene topluluk için yaptığım bir sunumda kaynak olsun diye yazıya geçirmiştim. Sizi direkt oraya yönlendiriyorum... [**hasantezcan.dev/versiyon-kontrol-sistemi-git**](https://hasantezcan.dev/blog/versiyon-kontrol-sistemi-git.html#:~:text=Git%20Nas%C4%B1l%20kullan%C4%B1l%C4%B1r?)
 
 > **GIT != GITHUB**
 
@@ -103,10 +103,10 @@ Ayrıca github nasıl kullanılır kısmında ise github'ın hazırlamış oldu�
 ---
 
 # JS Temelleri
-Bu başlık altında en yaygın ve temel JS kavramlarını kısa kısa üzerinden geçerek bilgi edinceğiz.
+Bu başlık altında en yaygın ve temel JS kavramlarını kısa kısa üzerinden geçerek bilgi edineceğiz.
 
 ## Hello world
-Aldığım ilk algortima dersinde `"hello world!"` için yazlımcının Bismillah'ı demişti Mustafa Tosun hocam. Burdan ona selamlar olsun. Hadi başlayalım.
+Aldığım ilk algortima dersinde `"hello world!"` için yazılımcının Bismillah'ı demişti Mustafa Tosun hocam. Buradan ona selamlar olsun. Hadi başlayalım.
 
 ```js
 console.log('Hello Node!');
@@ -116,7 +116,7 @@ console.log('Hello Node!');
 
 Es6 ile birlikte değişkenlerimize hayat veren iki yeni tanımlayıcı ile tanıştık. **let** ve **const** 
 
-"Ne gerek vardı kardeşim bunlara" derseniz; en amiane tabirle bazı scope karşıklıkları ve tekrar tanımlanabilme ya da tanımlanmama gibi durumlara çare olması amacı ile eklendi diyebiliriz.
+"Ne gerek vardı kardeşim bunlara" derseniz; en amiyane tabirle bazı scope karışıklıkları ve tekrar tanımlanabilme ya da tanımlanmama gibi durumlara çare olması amacı ile eklendi diyebiliriz.
 
 ## Variable Declaration vs Initialization 
 > **Yeniden Tanımlama ve Güncellenebilirlik**
@@ -140,7 +140,7 @@ hasan
 alper
 ```
 
-şimdi de **let** ve **const** için bu bu değişken tanımlama durumlarına gözatalım.
+Şimdi de **let** ve **const** için bu bu değişken tanımlama durumlarına gözatalım.
 
 ### `let`
 
@@ -216,7 +216,7 @@ Tekrar tanımlamaya kaltığımızda demin de olduğu gibi JS bize değişmez de
 
 **Global Scope:** var ile fonksiyon dışında tanımlanan değişkenler **global scope** olarak isimlendirilir.
 
-Global scope'lara bu dosya içindeki heryerden erişilebilir.
+Global scope'lara bu dosya içindeki her yerden erişilebilir.
 
 ```js
 var test='Merhaba Dünya!'; //global scope
@@ -231,11 +231,11 @@ fonksiyon();
 ```
 **Local Scope:** Var ile bir değişkeni fonksiyon içerisinde tanımladığımız zaman da bunu local scope deriz.
 
-Local scope'da tanımlı değişkenler fonskiyon dışından erişilemezler.
+Local scope'da tanımlı değişkenler fonksiyon dışından erişilemezler.
 
 > **That from outer to inner works! but the other direction does not work!**
 
-> Fonskiyon içi tanımlanmış değşkenleri fonskiyon dışına çağıramayız. Fakat global scope'ları local scope'lar içine çağırabiliriz.
+> Fonskiyon içi tanımlanmış değşkenleri fonksiyon dışına çağıramayız. Fakat global scope'ları local scope'lar içine çağırabiliriz.
 
 ```js
 var fonksiyon=() => {
@@ -316,15 +316,15 @@ if (true) {
     Hasan
 */ 
 ```
-Çıktısını verir ama sondaki log'ları yorum satırından kaldırırsak biz bu hatayı döner   
+Çıktısını verir ama sondaki log'ları yorum satırından kaldırırsak bize bu hatayı döner   
 `"ReferenceError: myAge is not defined"`  
-Bunun sebebi scopların dışardan içeriye erişilebilirken içerden dışarıya erişilemez olmasıdır.
+Bunun sebebi scopların dışardan içeriye erişilebilirken içeriden dışarıya erişilemez olmasıdır.
 
 
 
 ### **`let ve const`** **global scope**'muş gibi de davranabilir. **Nasıl mı?**
 
-Yeni açtığınız bir js dosyasını düşünün bu sayfanın başında ve sonunda birer süslü parantez vardır ve sayfanın let ve const için bir block scope'u dur. Sayfanın en üstünde oldğunan bunu global scope gibi de kabul edebiliriz.
+Yeni açtığınız bir js dosyasını düşünün bu sayfanın başında ve sonunda birer süslü parantez vardır.Sayfanın let ve const için bir block scope'u dur. Sayfanın en üstünde olduğundan bunu global scope gibi de kabul edebiliriz.
 
 ```js
 const myName = 'Hasan' // block scope, similar to global scope
@@ -535,9 +535,9 @@ henüz tamamlanmadı...
 
 JavaScript varsayılan olarak synchronous çalışan tek çekirdekli bir dildir. Bu da yeni bir thread oluşturup paralelde işlem yapamayacağı anlamına gelir. **Peki Asynchronous kod nedir ve nasıl çalışır?**
 
-Asynchronous işlem yapmak çok dakik olmak gerek tek başınıza bir yığın işin üstesinden herbirine doğru zamanı ayıorp parça parça halletmek demek.  
+Asynchronous işlem yapmak çok dakik olmak gerek tek başınıza bir yığın işin üstesinden herbirine doğru zamanı ayırıp parça parça halletmek demek.  
   
-Callback'ler bir değeri bir fonksiyondan başka bir fonskiyona geçirmek için kullanılan basit fonksiyonlardır ve sadece event gerçekleştiğinde çalışırlar.
+Callback'ler bir değeri bir fonksiyondan başka bir fonksiyona geçirmek için kullanılan basit fonksiyonlardır ve sadece event gerçekleştiğinde çalışırlar.
 
 Bunu yapabiliriz çünkü JavaScript, değişkenlere atanabilen ve diğer işlevlere aktarılabilen birinci sınıf işlevlere sahiptir (higher-order functions denir)
 
@@ -578,7 +578,7 @@ window.addEventListener('load', () => {
 })
 ```
 
-Burada sadece 4 seviyeli bir iç içelik söz konusu ,şimdiden cok karısık gorunmüyor mu?
+Burada sadece 4 seviyeli bir iç içelik söz konusu ,şimdiden cok karışık görünmüyor mu?
 
 Biraz daha karmaşıklaştıktan sonra işin gideceği yer burası..
 
