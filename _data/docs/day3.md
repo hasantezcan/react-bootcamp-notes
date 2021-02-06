@@ -60,8 +60,6 @@ Hadi bunu kısa bir demo ile görelim.
 
 Şimdi ekrana bir buton koyup bu butona basıldığında ekrandaki 1 numarasını 2 yapan bir kod yazacağız. Bunu bi jQuery ile bir de React ile yapacağız ve Virtual DOM'un nasıl bir fayda sağladığını direk görmüş olcağız.
 
-
-
 <p align="center">
     <img alt="jQuery-paint-flashing" src="../images/day-3/jquery.gif" width="500">
     <br>
@@ -79,6 +77,9 @@ Hadi bunu kısa bir demo ile görelim.
 </p>
 
 Burada da gördüğünüz gibi React sayıyı 1'den 2'ye çevirdikten sonra 2 elementini tekrar güncellemiyor çünkü orada bir değişiklik yok ama jQuery'de böyle bir yapı olmadığından 1'i 2 yaptıktan sonra bile tekrar tekrar 2'yerine 2 yazmaya devam ediyor.
+
+> 💡 **Virtual dom arakda nasıl güncelleniyor? React değişiklikleri nasıl kıyaslıyor?**  
+[Inside Fiber: in-depth overview of the new reconciliation algorithm in React](https://indepth.dev/posts/1008/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react) - Max Koretskyi
 
 ### **`React gerekmedikçe dom'u güncellemez!`**
 
