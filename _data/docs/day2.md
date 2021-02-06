@@ -1,10 +1,10 @@
 ### `Kodluyoruz Earlybird Front-End Talent Bootcamp`
 
 ## `GÜN 2 - 2020.12.20`
-> ???
+> 
 
 Bu bölümde;
-- [JavaScript Package managers](#javascript-package-managers)
+- [JavaScript Paket yöneticileri](#javascript-paket-yöneticileri)
   - [npm](#npm)
     - [npm'e script ekleme](#npme-script-ekleme)
   - [npm ile npx arasındaki fark!](#npm-ile-npx-arasındaki-fark)
@@ -14,8 +14,8 @@ Bu bölümde;
     - [İkisi için de aynı olan komutlar](#i̇kisi-için-de-aynı-olan-komutlar)
   - [`package-lock.json` nedir?](#package-lockjson-nedir)
   - [`~`, `^`, `*` Bu işaretler ne manaya geliyor? (`SemVer`)](#---bu-işaretler-ne-manaya-geliyor-semver)
-- [JS Different Module Formats](#js-different-module-formats)
-  - [Requiring a Module](#requiring-a-module)
+- [JS Modüller ile çalışmak](#js-modüller-ile-çalışmak)
+  - [Modülleri dahil etmek](#modülleri-dahil-etmek)
   - [Module oluşturmak ve export etmek](#module-oluşturmak-ve-export-etmek)
   - [`Module.exports` ile `exports` arasındaki fark nedir?](#moduleexports-ile-exports-arasındaki-fark-nedir)
   - [Export default nedir?](#export-default-nedir)
@@ -26,9 +26,17 @@ Bu bölümde;
   - [nodemon](#nodemon)
   - [sucrase](#sucrase)
 - [`async, await` vs `then chain`](#async-await-vs-then-chain)
+- [Bir React Projesi başlatmak](#bir-react-projesi-başlatmak)
+  - [create react app](#create-react-app)
+  - [nextjs](#nextjs)
+  - [NextJs mi? Create react app?](#nextjs-mi-create-react-app)
+    - [Nedir bu `server-side-rendering` ve `client-side-redering` ?](#nedir-bu-server-side-rendering-ve-client-side-redering-)
+    - [Code splitting nedir?](#code-splitting-nedir)
+      - [Create react app?](#create-react-app-1)
+    - [Webpack nedir?](#webpack-nedir)
 - [Kaynakça](#kaynakça)
 
-# JavaScript Package managers
+# JavaScript Paket yöneticileri
 > [How JavaScript package managers work](https://www.freecodecamp.org/news/javascript-package-managers-101-9afd926add0a/) - Shubheksha Jalan
 
 Basitçe söylemek gerekirse, bir paket yöneticisi, projenizin doğru çalışması için ihtiyaç duyduğu bağımlılıkları (sizin veya başka biri tarafından yazılan harici kod) yönetmenizi sağlayan bir yazılım parçasıdır.
@@ -112,7 +120,15 @@ npm run say-hello
 
 `npx` kurulan paketleri package json'a eklemez! Sadece o an için kurar. İlerde aynı proje başka bir yerde ayağa kaldırıldığında npx ile kurulan paketleri kurmayacaktır.
 
-Ör: `create react app` (npx ile kurarız.)
+Ör: `create react app` (npx ile kurmamız tavsiye edilir)
+
+<p align="center">
+    <img alt="imgName" src="../images/day-2/2021-02-05-13-13-15.png" width="600">
+    <br>
+    <em>
+       Create React App - <a href="https://create-react-app.dev/docs/getting-started"> Getting Started </a>  
+    </em>
+</p>
 
 Fakat `npm` ile kurulan paketler `package json`'a eklenir. Ve proje tekrar kurulduğunda bu paketlerle birlikte kurulur.
 
@@ -186,6 +202,8 @@ Yeni veya mevcut projeler için tüm npm iş akışınızı çok az çabayla Yar
 
 ## `package-lock.json` nedir?
 > - https://docs.npmjs.com/cli/v6/configuring-npm/package-lock-json  
+
+> Bilinen ilk .lock dosyası (en azından benim bildiğim) https://rubyinrails.com/2013/12/10/what-is-gemfile-lock/
 
 `package-lock.json` `package.json`'dan farklı olarak kullandığınız paketlerin bağımlılıklarını ve versiyonlarını `checksum`'ları ile saklar. 
 
@@ -267,7 +285,7 @@ Bunlar **`SemVer`** yani [Semantic Versioning](https://semver.org/) ilgili sembo
     <br>
 </p>
 
-# JS Different Module Formats
+# JS Modüller ile çalışmak
 > - [Understanding module.exports and exports in Node.js](https://www.sitepoint.com/understanding-module-exports-exports-node-js/) - James Hibbard - Nov 2019   
 > - [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export#re-exporting_aggregating) - MDN
 
@@ -277,7 +295,8 @@ Kendimiz yazmak zorunda olmadığımız işlevselliklerle uygulamalarımızı ge
 
 Ayrıca kodumuzu düzenlememize ve ayırmamıza izin vererek anlaşılması, hata ayıklaması ve bakımı daha kolay uygulamalara yol açar.
 
-## Requiring a Module
+## Modülleri dahil etmek
+> **require:** ihtiyacı olmak
 
 Node.js, kodumuza yüklemek zorunda kalmadan kullanabileceğimiz bir dizi yerleşik modülle birlikte gelir.
 
@@ -499,8 +518,9 @@ Nodemon ve sucrase kurulumu.
 
 ---
 # `async, await` vs `then chain`
+> **Promises, async/await**
 
-> **Bu aşağıda gördüğünüz iki kod praçası da aynı işi yapmakta. `Hangisi daha derli toplu görünüyor?` `Aralarındaki fark nedir?`**
+ **Bu aşağıda gördüğünüz iki kod praçası da aynı işi yapmakta. `Hangisi daha derli toplu görünüyor?` `Aralarındaki fark nedir?`**
 
 ```js
 axios
@@ -541,18 +561,90 @@ ES6 ile birlikte gelen async await yapısı ile birbirini beklemesi gereken iste
 
 `Callback`'ler içinde hata yakalamlırnı `catch` ile yapabiliyorduk. `Async await` yapısında hata yakalaması yapmak için de bir `try catch` yapısı kurmamız gerekiyor.
 
+---
+# Bir React Projesi başlatmak
+React Js'i bir çok şekilde kullanma imkanınız mevcut. En temelde yapmanız gerekten tek şey React'ı proje dizininize dahil etmek. 
+
+Fakat React Js'i dahil etmekten sonra bir proje oluşturma yolunda yapmanız gereken bir çok konfigurasyon olacak. Her proje başlangıçında bu ayarlamaları tekrar tekrar yapmamak bi yerden sonra baş edilebilir olmaktan çıkıyor. Bu sebeple hem bu ayarları önceden hazırlamış hem de daha iyi optimize ayarlar ile bunu yapmış olan proje başlatıcılardan faydalanırız.
+
+Proje başlatıcıları sizin için öncesinde bir çok ayarlamayı hazırlamış, gerekli tüm bağımlılıkları halletmiş şekilde size gelirler ve sizinde yapmanız gereken tek şey. Projeye başlamak olur...
+
+Şimdi gelin bu proje başlatıcılarını tanıyalım.
+
+## create react app
+> https://create-react-app.dev/
+
+Bir ReactJS uygulamasını sıfırdan kurmak uzun ve karmaşık bir süreç olabilir. Babel, tüm eklentileri olan Webpack, kütüphaneleri test etme vb. Gibi her şeyi düşünmelisiniz. Ayrıca çözülmesi birkaç saat sürebilen bazı sorunları da beraberinde getirebilir.
+
+Ancak neyse ki, birçok durumda kullanılabilecek hızlı ve kolay bir çözüm var ve bu, React Uygulaması Oluşturma aracı. Basit bir ReactJS uygulaması oluşturmak ve onunla çalışmaya başlamak için bunu bilgisayarınıza kurmanız ve basit komutu çalıştırmanız yeterlidir.
+
+Create React App, tek komutla basit bir konfigürasyonla yeni bir tek sayfalı uygulama oluşturarak yeni bir ReactJS projesinin önyüklenmesine yardımcı olan, Facebook geliştiricileri tarafından oluşturulan bir araçtır.
+
+## nextjs
+
+## NextJs mi? Create react app?
+> [What’s The Difference Between NextJS and Create-React-App?](https://medium.com/frontend-digest/whats-the-difference-between-nextjs-and-create-react-app-11b55650a612) - Malcolm Laing - Oct 2020
+
+**Next.js**, `server-side rendering`, `automatic code-splitting`, `static exporting options`, ve `easy production builds` imkanları sunan react uygulamları üretmenizi sağlayan bir **framework**'tür.
+
+**Create React App**, single-page React uygulamaları oluşturmanın resmi olarak desteklenen bir yoludur. `Client-side rendering`'i destekler. Webpack veya Babel gibi araçlar yüklemenize veya yapılandırmanıza gerek yoktur. Koda odaklanabilmeniz için önceden yapılandırılmış ve gizlenmiştir.
+
+### Nedir bu `server-side-rendering` ve `client-side-redering` ?
+
+<p align="center">
+    <img alt="imgName" src="../images/day-2/2021-02-06-12-45-53.png" width="500">
+    <br>
+    <em>
+       Server-side rendering. <a href="https://medium.com/walmartglobaltech/the-benefits-of-server-side-rendering-over-client-side-rendering-5d07ff2cefe8"> (Image by Alex Grigoryan) </a>
+    </em>
+</p>
+
+`Server-side rendering`'de kullanıcı web sitesine erişmek istediğinde (bir istekte bulunduğunda) Sunucu, kullanıcıya özel verileri alarak bir HTML sayfası hazırlar ve bunu internet üzerinden kullanıcının makinesine gönderir. Tarayıcı daha sonra içeriği analiz eder ve sayfayı görüntüler. Veritabanından veri alma, bir HTML sayfası oluşturma ve istemciye gönderme işleminin tamamı yalnızca milisaniyeler içinde gerçekleşir.
+
+<p align="center">
+    <img alt="imgName" src="../images/day-2/2021-02-06-12-46-02.png" width="500">
+    <br>
+    <em>
+       Client-side rendering. <a href="https://medium.com/walmartglobaltech/the-benefits-of-server-side-rendering-over-client-side-rendering-5d07ff2cefe8"> (Image by Alex Grigoryan) </a>
+    </em>
+</p>
+
+`client-side rendering`'de içerik JavaScript kullanılarak oluşturulur. Tüm içeriği sunucudan HTML dokümanını olarak almak yerine ilk yüklemede sunucu üzerinden sadece taslak bir html dokümanı alır ve sitenin geri kalanını tarayıcı üzerinde oluşturur. 
+
+Client-side rendering ile birlikte;
+
+- Sayfa ilk yüklenirken biraz yavaştır. Ancak bundan sonra sonraki her sayfa yüklemesi çok hızlıdır.
+- Sunucu ile sadece run-time verilerini almak için iletişim kurar.
+- Sunucuya yapılan her çağrıdan sonra tüm kullanıcı arayüzünü yeniden yüklemenize gerek yoktur. Sadece güncellenen verinin olduğu kısmı günceller.
+
+Server-side rendering sağlayan Next.js şunları sağlar;
+
+- Çok daha iyi SEO
+- HTML içeriğinin tamamı kaynak kodda mevcuttur; bu, arama motorunun hemen isteyebileceği, tarayabileceği ve dizine ekleyebileceği anlamına gelir, bu da arama sonuçlarında gerçekten görünme ve sıralama için daha hızlı zaman sağlar.
+- Ancak yinelenen sunucu istekleri, sonraki sayfa yüklemelerini CSR'ye göre daha yavaş hale getirir.
+
+### Code splitting nedir?
 
 
 
 
-...  
-...  
-...  
-...  
-...  
-...  
-...  
-...  
+
+
+
+
+#### Create react app?
+
+
+
+
+| **Create React App** | **NextJs** | 
+|:--------------------:|:----------:|
+| Install dependencies | `npm install` | 
+
+
+### Webpack nedir?
+
+
 # Kaynakça  
 
 - [Everything You Wanted To Know About package-lock.json But Were Too Afraid To Ask](https://medium.com/coinmonks/everything-you-wanted-to-know-about-package-lock-json-b81911aa8ab8) - James Quigley
@@ -563,3 +655,5 @@ ES6 ile birlikte gelen async await yapısı ile birbirini beklemesi gereken iste
 - [A Quick Introduction to the Yarn Package Manager](https://www.digitalocean.com/community/tutorials/js-yarn-package-manager-quick-intro) - Alligator.io
 - [Understanding module.exports and exports in Node.js](https://www.sitepoint.com/understanding-module-exports-exports-node-js/) - James Hibbard - Nov 2019 
 - [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export#re-exporting_aggregating) - MDN
+- [What Is Create React App?](https://www.blog.duomly.com/what-is-create-react-app/)
+- [What’s The Difference Between NextJS and Create-React-App?](https://medium.com/frontend-digest/whats-the-difference-between-nextjs-and-create-react-app-11b55650a612) - Malcolm Laing - Oct 2020
