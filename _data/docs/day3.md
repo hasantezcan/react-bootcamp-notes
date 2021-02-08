@@ -219,10 +219,12 @@ ayrıca bilinmesi gerken bir ayrıtı daha var bu da componentler içinde belirt
   <img alt="img-name" src="./../images/day-3/es7-react-extension.png" width="600">
 </p>
 
-| kısaltma | yatpığı iş    |
-| :----: | :----------- |
-| rfce     | export'lanmış fonksiyonel component oluşturur |
-| imp     | `import moduleName from 'module'` TAB tuşu|
+| kısaltma | yatpığı iş                                                             |
+| :------: | :--------------------------------------------------------------------- |
+|  _rafce  | export'lanmış arrow fonksiyonel component oluşturur (react importsuz!) |
+|  rafce   | export'lanmış arrow fonksiyonel component oluşturur (react importlu)   |
+|   rfce   | export'lanmış fonksiyonel component oluşturur                          |
+|   imp    | `import moduleName from 'module'` TAB tuşu                             |
 
 ---
 > **Ufak bir not:** Aslında dokümanı okunması daha keyifli bir blog gibi hazırlamak istiyorum fakat çok fazla konuya değindiğimiz için dokümanı hazırlamak çok fazla vaktimi alıyor. 
