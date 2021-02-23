@@ -185,3 +185,52 @@ ReactDOM.render(
 ```
 
 ---
+
+# `React.memo()`
+
+Component update olduğunda rerender edilmesini istemediğimiz alt componetlere tanımladığımız ve tekrar render edilmesini engellediğimiz performans nedenleri ile var olan bir araçtır.
+
+```js
+import "./App.css";
+
+import { useState } from "react";
+import Title from "./components/Title";
+
+function App() {
+	const [count, setCount] = useState(0);
+
+	return (
+		<div className="App">
+			<h1>{count}</h1>
+			<button onClick={() => setCount(count - 1)}>Decrease</button>
+			<button onClick={() => setCount(count + 1)}>Increase</button>
+
+			<hr />
+			<Title text={count < 5 ? "Selam ben Title component" : "Yeni Başlık"} />
+		</div>
+	);
+}
+
+export default App;
+```
+
+Bu sayfaya baktığımızda count state'i her güncellendiğinde Virtual DOM bu component içinde bir farklılık olduğunu fark eder ve tüm component'i rerender eder.
+
+Fakat biz bu component içindeki Title componetini tekarar render etmek istemezsek. Bu noktada react memo'dan faydalanabilriz.
+
+```js
+import { memo } from "react";
+
+function Title({text}) {
+	console.log("Title component re-render");
+	return <h3>{text}</h3>;
+}
+
+export default memo(Title);
+```
+memo'yu react içinden çağırıyoruz ve export ederken memo ile birlikte export ediyoruz bu bu komponentden tasarruf edin manasına geliyor. 
+
+```js
+<Title text={count < 5 ? "Selam ben Title component" : "Yeni Başlık"} />
+```
+fakat app.js'deki bu ibareden ötürü count 5 den büyük olduğunda başka bir text içine gönderileceğinden bu component tekrar render edilecektir.
