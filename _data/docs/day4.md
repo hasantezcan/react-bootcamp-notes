@@ -11,9 +11,9 @@ Bu bölümde;
 - [React Styling and CSS](#react-styling-and-css)
   - [css module nedir?](#css-module-nedir)
   - [Css design systems](#css-design-systems)
-  - [Ders içinde konuşulan diğer konular](#ders-içinde-konuşulan-diğer-konular)
-    - [example](#example)
-  - [Kaynakça](#kaynakça)
+- [Ders içinde konuşulan diğer konular](#ders-içinde-konuşulan-diğer-konular)
+  - [example](#example)
+- [Kaynakça](#kaynakça)
 
 konularından bahsedeceğiz.
 
@@ -254,6 +254,13 @@ memo'yu react içinden çağırıyoruz ve export ederken memo ile birlikte expor
 ```
 fakat app.js'deki bu ibareden ötürü count 5 den büyük olduğunda başka bir text içine gönderileceğinden bu component tekrar render edilecektir.
 
+YA DA
+
+componetleri doğru şekilde ayırırsanız bu kullanıma ihtiyacınız kalmayabilir. O zaman sadece ayramadığınız vakitrlerde kullanırsınız. 
+
+Ayrmaktan kastım mesela bu örnekte title componneti dışındaki diğer elementleri de bir componet haline getirip app.js içinde o yeni oluşturulan componenti çağırmak gibi. O zaman update işlemi başka bir component içinde olacağından memoya ihtiyaç kalmayacaktır.
+
+
 ---
 
 # React Styling and CSS
@@ -320,14 +327,13 @@ Burada örnek bir react module css kullanımı görülmekte.
 
 ---
 
+# Ders içinde konuşulan diğer konular 
 
-## Ders içinde konuşulan diğer konular 
-
-### example 
+## example 
 > example
 example
 
-## Kaynakça 
+# Kaynakça 
 
 1. https://reactjs.org/docs/react-api.html#reactmemo
 2. https://css-tricks.com/css-modules-part-1-need/
