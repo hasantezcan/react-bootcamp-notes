@@ -5,6 +5,16 @@
 
 Bu bölümde;
 
+- [Fetching Data from API and show those with React](#fetching-data-from-api-and-show-those-with-react)
+- [js ile jsx arasındaki fark nedir?](#js-ile-jsx-arasındaki-fark-nedir)
+- [`React.memo()`](#reactmemo)
+- [React Styling and CSS](#react-styling-and-css)
+  - [css module nedir?](#css-module-nedir)
+  - [Css design systems](#css-design-systems)
+  - [Ders içinde konuşulan diğer konular](#ders-içinde-konuşulan-diğer-konular)
+    - [example](#example)
+  - [Kaynakça](#kaynakça)
+
 konularından bahsedeceğiz.
 
 ---
@@ -111,13 +121,21 @@ vscode'da react componentlerinizi jsx uzatısı ile oluşturduğunuzda  fileicon
 
 Ben kendi kullanımda sırf bu sebeple başlarda hep jsx olarak dosyalarımı oluşturuyordum ya da vscode üzerinde bulunan change language mode ile js uzantısı ile oluşturduğum componet'lerde html tamamlamaları çalışsın diye her seferinde JavaScript React olacak şekilde o dosyanın dil modunu değiştiriyordum. Dediğim gibi eğer dosyanınz modunu jsx yaparsanız bu sorun zaten gündeme gelmiyordu. 
 
-![](2021-02-21-06-35-03.png)
 
-![](2021-02-21-06-34-14.png)
+<p align="center">
+    <img alt="virtual-dom" src="../images/day-4/2021-02-21-06-35-03.png" width="500">
+</p>
+
+
+<p align="center">
+    <img alt="virtual-dom" src="../images/day-4/2021-02-21-06-34-14.png" width="500">
+</p>
 
 Ama sonrasında js uzantısı ile de istediğim html tamamlamalarını kullanabileceğim ve her seferinde language mod seçmemin gerekmeyeceği bir yöntem buldum. Yine vscode içide js uzantılı dosyalarıma react javascript ön tanımlı olarak davran şekilde bir ayar ile jsx ile js arasındaki farkı ben kendi dünyamda kaldırmış oldum.
 
-![](2021-02-21-06-32-59.png)
+<p align="center">
+    <img alt="virtual-dom" src="../images/day-4/2021-02-21-06-32-59.png" width="500">
+</p>
 
 Peki bu fark niye var. Dikkatinizi çekerim burada js ya da jsx arasındaki fark kod çalışmıyor olduğundan falan değil. Sadece benim istediğim eklentilerin js olduğu zaman çalışamasından kaynaklıydı.
 
@@ -187,6 +205,7 @@ ReactDOM.render(
 ---
 
 # `React.memo()`
+> **https://reactjs.org/docs/react-api.html#reactmemo**
 
 Component update olduğunda rerender edilmesini istemediğimiz alt componetlere tanımladığımız ve tekrar render edilmesini engellediğimiz performans nedenleri ile var olan bir araçtır.
 
@@ -234,3 +253,81 @@ memo'yu react içinden çağırıyoruz ve export ederken memo ile birlikte expor
 <Title text={count < 5 ? "Selam ben Title component" : "Yeni Başlık"} />
 ```
 fakat app.js'deki bu ibareden ötürü count 5 den büyük olduğunda başka bir text içine gönderileceğinden bu component tekrar render edilecektir.
+
+---
+
+# React Styling and CSS
+> **https://reactjs.org/docs/faq-styling.html**
+
+
+## css module nedir?
+> **https://css-tricks.com/css-modules-part-1-need/**
+
+Sadece tek bir component için yazılan ve sonrasında render edilirken üretilen clas isimlerini uniuqe halde getiren bir yapı. Genel kullanım amacı css conflitchlerinin önüne geçmek.
+
+css module'Ü kullanmak için ek bir şey kurmanıza gerek yok CRA (create react app) içinde otomatik olarak gelmekte.
+
+<p align="center">
+    <img alt="virtual-dom" src="../images/day-4/2021-02-24-03-09-09.png" width="200">
+</p>
+
+görüldüğü üzere her component için ayrı bir `styles.module.css` mevcut.
+
+```js
+import React from "react";
+
+import styles from "./styles.module.css";
+
+function ComponentA() {
+	return (
+		<div>
+			<h1 className={styles.title}>Component A</h1>
+			<p className={styles.description}>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est labore
+				veritatis quidem quo voluptatum. Dolores earum corrupti dolore, debitis
+				voluptate nisi, modi fuga alias tenetur quos voluptatem deserunt
+				aspernatur tempore?
+			</p>
+		</div>
+	);
+}
+
+export default ComponentA;
+```
+
+Burada örnek bir react module css kullanımı görülmekte.
+
+
+## Css design systems
+
+- https://chakra-ui.com/
+- https://ant.design/
+- https://tailwindcss.com/
+
+
+
+
+
+
+
+..  
+..  
+..  
+..  
+..  
+..  
+..  
+
+---
+
+
+## Ders içinde konuşulan diğer konular 
+
+### example 
+> example
+example
+
+## Kaynakça 
+
+1. https://reactjs.org/docs/react-api.html#reactmemo
+2. https://css-tricks.com/css-modules-part-1-need/
