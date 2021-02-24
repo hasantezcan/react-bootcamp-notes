@@ -11,8 +11,9 @@ Bu bölümde;
 - [React Styling and CSS](#react-styling-and-css)
   - [css module nedir?](#css-module-nedir)
   - [Css design systems](#css-design-systems)
-- [Ders içinde konuşulan diğer konular](#ders-içinde-konuşulan-diğer-konular)
-  - [example](#example)
+- [REACT ROUTER](#react-router)
+  - [Exact kullanımı](#exact-kullanımı)
+  - [param kullanmak - nesting routing](#param-kullanmak---nesting-routing)
 - [Kaynakça](#kaynakça)
 
 konularından bahsedeceğiz.
@@ -311,27 +312,211 @@ Burada örnek bir react module css kullanımı görülmekte.
 - https://ant.design/
 - https://tailwindcss.com/
 
-
-
-
-
-
-
-..  
-..  
-..  
-..  
-..  
-..  
-..  
-
 ---
 
-# Ders içinde konuşulan diğer konular 
+# REACT ROUTER
+> **https://reactrouter.com/**
 
-## example 
-> example
-example
+React içinde dahili bir routing sistemi gelimyor bunu ihtiyacı `react-router-dom` paketi ile gideriyoruz. 
+
+```js
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+import styles from "./App.module.css";
+
+// pages
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Users from "./pages/Users";
+import Error404 from "./pages/Error404";
+
+function App() {
+	return (
+		<div className={styles.container}>
+			<Router>
+				<nav>
+					<ul className={styles.menu}>
+						<li>
+							<Link to="/">Home</Link>
+						</li>
+						<li>
+							<Link to="/about">About</Link>
+						</li>
+						<li>
+							<Link to="/users">Users</Link>
+						</li>
+					</ul>
+				</nav>
+
+				<div className={styles.content}>
+					<Switch>
+						<Route path="/" exact component={Home} />
+						<Route path="/about" component={About} />
+						<Route path="/users" component={Users} />
+						<Route path="*" component={Error404} />
+					</Switch>
+				</div>
+
+				<div className={styles.footer}>Copyright 2021</div>
+			</Router>
+		</div>
+	);
+}
+
+export default App;
+```
+
+Link'ler ile redirect işlemlerini gerçekleştiriyoruz. 
+
+Routerları belirlediğimiz nokta ise Switch içinde gerçekleşiyor. Bu kısım içine belirttiğiniz Router'lar ulaşılabilir hala geliyor. 
+
+Router'ların çalışma mantığı şu şekilde; sizin adres cubuğuna yazıdğınız routerlar ilk belittiğiniz routerdan başlayarak sıra sıra aşağı doğru hepsini dener. Eşleşen yerde kalır ve size ilgili sayfayı gösterir. Herhangi bir confiltch yaşandığında bu sıraya dikkat etmelisiniz.
+
+Tüm projeyi `<Router> ...whole app... </Router>` içinde tutarsanız alt sayfalarda redirect (Link'leme) yapabilirsiniz.
+
+## Exact kullanımı 
+
+Eğer belittiğiniz path in sadece o path için geçerli olmasını isterseniz yani o pathin alt pathleri için arama yapmasnı istemezseniz bu parametreyi eklemeniz gerekir. 
+
+Örneğin bu path `/hayvanlar` ile eşleşecek.
+
+```js
+<Route exact path="/hayvanlar"> 
+```
+
+fakat `/hayvanlar/tembel-hayvan` ile eşleyşemeyecek alt pathlere bakmayacak.
+
+## param kullanmak - nesting routing
+> https://reactrouter.com/web/example/nesting
+
+bazı pathlerimiz sayfa özel olarak çalışıyor olacak bu sayfaları hazırlarken paramları kullnmamız gerekecek `hayvanlar/3` gibi.
+
+```js
+//Users page 
+
+import { useState, useEffect } from "react";
+
+import { Link, Switch, Route, useRouteMatch } from "react-router-dom";
+import axios from "axios";
+
+import UserDetail from "../UserDetail";
+
+function Users() {
+	let { path } = useRouteMatch();
+
+	const [loading, setLoading] = useState(true);
+	const [users, setUsers] = useState([]);
+
+	useEffect(() => {
+		axios(`${process.env.REACT_APP_API_ENDPOINT}/users`)
+			.then((res) => setUsers(res.data))
+			.finally(() => setLoading(false));
+	}, []);
+
+	return (
+		<div>
+			<h2>Users</h2>
+			{loading && <div>Loading...</div>}
+			{users.map((user) => (
+				<li key={user.id}>
+					<Link to={`/users/${user.id}`}>{user.name}</Link>
+				</li>
+			))}
+
+			<Switch>
+				<Route path={`${path}/:id`} component={UserDetail} />
+			</Switch>
+		</div>
+	);
+}
+
+export default Users;
+```
+
+`:id` dediğimiz zaman param'ı router ile almış oluyoruz. 
+
+```js
+<Switch>
+  <Route path={`${path}/:id`} component={UserDetail} />
+</Switch>
+```
+
+sonrasında bu yolladığımız parameter'ları userDetail içinde bu şekilde karşılıyoruz 
+
+
+```js
+// UserDetail page
+import { useState, useEffect } from "react";
+
+import axios from "axios";
+import { useParams, Link } from "react-router-dom";
+
+function UserDetail() {
+	let { id } = useParams();
+
+	id = parseInt(id);
+
+	// const [userId, setUserId] = useState(id);
+
+	const [loading, setLoading] = useState(false);
+	const [user, setUser] = useState({});
+
+	useEffect(() => {
+		setLoading(true);
+		axios(`${process.env.REACT_APP_API_ENDPOINT}/users/${id}`)
+			.then((res) => setUser(res.data))
+			.finally(() => setLoading(false));
+	}, [id]);
+
+	return (
+		<div>
+			<h2>User Detail</h2>
+
+			{loading && <div>Loading...</div>}
+			{user && !loading && JSON.stringify(user)}
+
+			<br />
+			<br />
+
+			{/* <button onClick={() => setUserId(userId + 1)}>
+				Next User (id: {userId + 1})
+			</button> */}
+
+			<Link to={`/users/${id + 1}`}>Next User (id: {id + 1})</Link>
+		</div>
+	);
+}
+
+export default UserDetail;
+```
+React router dom içinden `useParams` ı çağırıyoruz ve bu şekilde kullanıyoruz .
+
+```js
+import axios from "axios";
+import { useParams, Link } from "react-router-dom";
+
+function UserDetail() {
+	let { id } = useParams();
+
+	id = parseInt(id);
+
+..  
+..  
+..  
+```
+
+Ayrıca bu sayfayı gelen param'a göre axios isteği yapacağımızdan 
+yapılan istedği id'ye bağımlı şekilde gerçekleştirmemiz lazım
+
+```js
+	useEffect(() => {
+		setLoading(true);
+		axios(`${process.env.REACT_APP_API_ENDPOINT}/users/${id}`)
+			.then((res) => setUser(res.data))
+			.finally(() => setLoading(false));
+	}, [id]);
+```
+---
 
 # Kaynakça 
 
