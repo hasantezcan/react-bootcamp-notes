@@ -5,15 +5,15 @@
 
 Bu bölümde;
 
-- [Fetching Data from API and show those with React](#fetching-data-from-api-and-show-those-with-react)
+- [React ile API kullanımı](#react-ile-api-kullanımı)
 - [js ile jsx arasındaki fark nedir?](#js-ile-jsx-arasındaki-fark-nedir)
 - [`React.memo()`](#reactmemo)
 - [React Styling and CSS](#react-styling-and-css)
-  - [css module nedir?](#css-module-nedir)
-  - [Css design systems](#css-design-systems)
+	- [css module nedir?](#css-module-nedir)
+	- [Css design systems](#css-design-systems)
 - [REACT ROUTER](#react-router)
-  - [Exact kullanımı](#exact-kullanımı)
-  - [param kullanmak - nesting routing](#param-kullanmak---nesting-routing)
+	- [Exact kullanımı](#exact-kullanımı)
+	- [param kullanmak - nesting routing](#param-kullanmak---nesting-routing)
 - [Kaynakça](#kaynakça)
 
 konularından bahsedeceğiz.
@@ -24,8 +24,9 @@ Temele git komutlarını özet şeklinde listeleyen faydalı bir kaynak (Türkç
   - https://rogerdudler.github.io/git-guide/index.tr.html
   - https://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf
 
-# Fetching Data from API and show those with React
+# React ile API kullanımı
 > **API'den Veri Almak ve React ile Olanları Göstermek**
+> **Fetching Data from API and show those with React**
 
 Axios ile `https://jsonplaceholder.typicode.com/users` endponint'inden verileri çekip react ile ekrana yazdırmak istiyoruz.
 
