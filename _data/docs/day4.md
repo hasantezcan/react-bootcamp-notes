@@ -317,6 +317,8 @@ Burada örnek bir react module css kullanımı görülmekte.
 # REACT ROUTER
 > **https://reactrouter.com/**
 
+> [`Örnek proje`](../practice/4-day/4-routing)
+
 React içinde dahili bir routing sistemi gelimyor bunu ihtiyacı `react-router-dom` paketi ile gideriyoruz. 
 
 ```js
