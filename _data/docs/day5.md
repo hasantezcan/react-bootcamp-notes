@@ -165,12 +165,7 @@ Formik hook'undan faydalanıp daha temiz sonuçlar elde edebiliriz.
 
 ```js
 import React from "react";
-
-import axios from "axios";
-
-import styles from "./styles.module.css";
 import { useFormik } from "formik";
-import validations from "./validations";
 
 function RegisterForm() {
 	const formik = useFormik({
@@ -205,9 +200,6 @@ function RegisterForm() {
 						onBlur={formik.handleBlur}
 						disabled={formik.isSubmitting}
 					/>
-					{formik.errors.firstName && formik.touched.firstName && (
-						<div className={styles.error}>{formik.errors.firstName}</div>
-					)}
 				</div>
 
 				<div>
@@ -221,9 +213,6 @@ function RegisterForm() {
 						onBlur={formik.handleBlur}
 						disabled={formik.isSubmitting}
 					/>
-					{formik.errors.lastName && formik.touched.lastName && (
-						<div className={styles.error}>{formik.errors.lastName}</div>
-					)}
 				</div>
 
 				<button type="submit" disabled={formik.isSubmitting}>
@@ -249,18 +238,118 @@ Bu gördüğümüz üzere daha temiz bir kullanım.
 # Form Validation - Yupjs
 > https://github.com/jquense/yup
 
+Validation (doğrulama) işlemlerini bu örnekte `yup` ile yapacağız. Formik ile beraber çalışarak çok başarılı form tanımları yapabiliriz. 
 
+<p align="center">
+  <img alt="img-name" src="../images/day-5/2021-03-05-05-58-08.png" width="300">
+</p>
 
+Validasyon tanımlarını o component içinde `validation.js` adında ayrı bir dosya içinde yapıyoruz.
 
+```js
+import * as yup from "yup";
 
+const schema = yup.object().shape({
+	firstName: yup.string().required("Kullanıcı adı zorunludur."),
+	lastName: yup.string().required(),
+	email: yup.string().email().required(),
+	password: yup.string().min(5).max(10).required(),
+	passwordConfirm: yup
+		.string()
+		.oneOf([yup.ref("password"), null], "Passwords must match"),
+});
 
+export default schema;
+```
 
+Örnek bir validasyon dosyası yukarda  mevcut. Buradaki tanımlar gibi girilen input'un değerlerini istediğiniz gibi şekillendirebilirsiniz.
 
+<p align="center">
+  <img alt="img-name" src="../images/day-5/2021-03-05-05-59-27.png" width="300">
+</p>
 
+```diff
+import React from "react";
 
+import styles from "./styles.module.css";
+import { useFormik } from "formik";
++ import validations from "./validations";
 
+function RegisterForm() {
+	const formik = useFormik({
+		initialValues: {
+			firstName: "",
+			lastName: "",
+		},
+		onSubmit: (values, bag) => {
+			console.log(values);
 
+			setTimeout(() => {
+				bag.setSubmitting(false);
+			}, 1000);
+		},
++   validationSchema: validations,
+	});
 
+	return (
+		<div>
+			<form onSubmit={formik.handleSubmit}>
+				<div>isDirty: {formik.dirty.toString()}</div>
+				<div>isSubmitting: {formik.isSubmitting.toString()}</div>
+				<br />
+				<br />
+				<div>
+					<label>First Name</label>
+					<input
+						id="firstName"
+						name="firstName"
+						placeholder="First Name"
+						value={formik.values.firstName}
+						onChange={formik.handleChange}
++						onBlur={formik.handleBlur}
+						disabled={formik.isSubmitting}
+					/>
++					{formik.errors.firstName && formik.touched.firstName && (
++						<div className={styles.error}>{formik.errors.firstName}</div>
++					)}
+				</div>
+
+				<div>
+					<label>Last Name</label>
+					<input
+						id="lastName"
+						name="lastName"
+						placeholder="Last Name"
+						value={formik.values.lastName}
+						onChange={formik.handleChange}
++						onBlur={formik.handleBlur}
+						disabled={formik.isSubmitting}
+					/>
++					{formik.errors.lastName && formik.touched.lastName && (
++						<div className={styles.error}>{formik.errors.lastName}</div>
++					)}
+				</div>
+
+				<button type="submit" disabled={formik.isSubmitting}>
+					{formik.isSubmitting ? "Loading..." : "Submit"}
+				</button>
+			</form>
+		</div>
+	);
+}
+
+export default RegisterForm;
+
+```
+
+```js
+		{formik.errors.firstName && formik.touched.firstName && (
+						<div className={styles.error}>{formik.errors.firstName}</div>
+    )}
+```
+Bu kullanım ile **yup**'un bizim için belirlediği hata mesajlarını ekrana basıyoruz. `touched` imput'a dokunmak şartı ile çalışmasını sağlıyor. 
+
+onBlur'da aynı amaca hizmet ediyor. Burada kullanıcı input'a veri girerken onu rahatsız etmeden input'dan ayrıldıktan sonra onu uyarmak!.
 
 
 
