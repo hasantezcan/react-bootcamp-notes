@@ -16,7 +16,6 @@ konularından bahsedeceğiz.
 
 # React Form Managment - Formik
 
-
 Formk, form işlemlerini yaparken bize yardımcı olan bir araçtır. Form işlemlerini manual olarak da yapmak pekala mümkündür. Manual stateler ile her input için tanımlar oluşturp bunu sağlayabiliriz fakat bi yerden sonra bu idare edilmesi zor hale gelmektedir. Bu sebplerden ötürü Formik gibi bu iş için özel oluşturulmuş araçlardan faydalanırız.
 
 Gelin şimdi formik hakkında konuşalım.
@@ -80,7 +79,7 @@ Burada örnek bir formik kullanımı görmektesiniz.
     lastName: "",
   }}
 ```
-`initialValues` içinde o form serisi içinde kullanacağımız field'ları yerleştiriyoruz bu alanda belirlediğimiz tanımlar ile inputlar içindeki name'lerin aynı olması gereklidir.
+`initialValues` içinde o form serisi içinde kullanacağımız field'ları yerleştiriyoruz bu alanda belirlediğimiz tanımlar ile inputlar içindeki `value`'lerIn aynı olması gereklidir.
 
 ```diff
 <Formik
@@ -143,20 +142,112 @@ eğer input field içindeki `disabled` özelliğini isSubmitting'e göre ayarlar
   />
 ```
 
-> **Aslında bu formik'i kullanmanın uzun yöntemiydi.**
+- bag içinde submitting esansında kullanabileceğimiz eşyalar var. "**Submitting çantası**"
+
+<p align="center">
+  <img alt="img-name" src="../images/day-5/2021-03-05-04-30-01.png" width="800">
+  <br>
+	<em>bag</em>
+</p>
 
 
+> ## **Aslında bu formik'i kullanmanın uzun yöntemiydi.**
+
+Formik hook'undan faydalanıp daha temiz sonuçlar elde edebiliriz.
+
+<p align="center">
+  <img alt="img-name" src="../images/day-5/2021-03-05-04-26-11.png" width="800">
+  <br>
+	<em>
+    <a href="https://formik.org/docs/api/useFormik">useFormik</a>
+  </em>
+</p>
+
+```js
+import React from "react";
+
+import axios from "axios";
+
+import styles from "./styles.module.css";
+import { useFormik } from "formik";
+import validations from "./validations";
+
+function RegisterForm() {
+	const formik = useFormik({
+		initialValues: {
+			firstName: "",
+			lastName: "",
+		},
+		onSubmit: (values, bag) => {
+			console.log(values);
+
+			setTimeout(() => {
+				bag.setSubmitting(false);
+			}, 1000);
+		},
+	});
+
+	return (
+		<div>
+			<form onSubmit={formik.handleSubmit}>
+				<div>isDirty: {formik.dirty.toString()}</div>
+				<div>isSubmitting: {formik.isSubmitting.toString()}</div>
+				<br />
+				<br />
+				<div>
+					<label>First Name</label>
+					<input
+						id="firstName"
+						name="firstName"
+						placeholder="First Name"
+						value={formik.values.firstName}
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						disabled={formik.isSubmitting}
+					/>
+					{formik.errors.firstName && formik.touched.firstName && (
+						<div className={styles.error}>{formik.errors.firstName}</div>
+					)}
+				</div>
+
+				<div>
+					<label>Last Name</label>
+					<input
+						id="lastName"
+						name="lastName"
+						placeholder="Last Name"
+						value={formik.values.lastName}
+						onChange={formik.handleChange}
+						onBlur={formik.handleBlur}
+						disabled={formik.isSubmitting}
+					/>
+					{formik.errors.lastName && formik.touched.lastName && (
+						<div className={styles.error}>{formik.errors.lastName}</div>
+					)}
+				</div>
+
+				<button type="submit" disabled={formik.isSubmitting}>
+					{formik.isSubmitting ? "Loading..." : "Submit"}
+				</button>
+			</form>
+		</div>
+	);
+}
+
+export default RegisterForm;
+
+```
+
+<p align="center">
+  <img alt="img-name" src="../images/day-5/2021-03-05-05-41-03.png" width="800">
+</p>
 
 
+Bu gördüğümüz üzere daha temiz bir kullanım.
 
 
-
-
-
-
-
-
-
+# Form Validation - Yupjs
+> https://github.com/jquense/yup
 
 
 
