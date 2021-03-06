@@ -1,7 +1,7 @@
 ### `Kodluyoruz Earlybird Front-End Talent Bootcamp`
 
 ## `GÜN 5 - 2021.01.09`
-> desc
+> İlk backend'imizi hazırladık. 
 
 Bu bölümde;
 
@@ -11,6 +11,10 @@ Bu bölümde;
   - [Microservices vs Monolithic](#microservices-vs-monolithic)
   - [Monolotih apps and single page application apps](#monolotih-apps-and-single-page-application-apps)
   - [Dynamic Websites vs Static Pages vs Single Page Apps (SPAs)](#dynamic-websites-vs-static-pages-vs-single-page-apps-spas)
+- [Formumuz için basit bir Backend yazıyoruz.](#formumuz-için-basit-bir-backend-yazıyoruz)
+    - [cors](#cors)
+  - [bodyparser](#bodyparser)
+- [Ek bilgi](#ek-bilgi)
 - [Kaynakça](#kaynakça)
 
 konularından bahsedeceğiz.
@@ -398,166 +402,98 @@ onBlur'da aynı amaca hizmet ediyor. Burada kullanıcı input'a veri girerken on
 > [Dynamic Websites vs Static Pages vs Single Page Apps (SPAs)](https://www.youtube.com/watch?v=Kg0Q_YaQ3Gk)- Apr 16, 2019 - Academind
 
 ---
+# Formumuz için basit bir Backend yazıyoruz.
+### cors
 
+3000 portundan(client) 4000 portuna(server) istek yaparken backend'imiz bize izin vermedi.
 
+<p align="center">
+  <img alt="img-name" src="../images/day-5/2021-03-06-10-54-10.png" width="600">
+</p>
 
+Bu sorunu çözmek için CORS adında bir paketi (middleware'ı) backend serverimizie kurmamzı gerekiyor.
 
+```diff
+const express = require("express");
++ const cors = require("cors");
 
+const app = express();
 
++ app.use(cors());
 
+app.get("/users", (req, res) => {
+	res.json([{ name: "Mehmet" }, { name: "Ahmet" }]);
+});
 
+app.post("/add-user", (req, res) => {
+	res.json(req.body);
+});
 
+app.listen(4000, () => console.log("Server is up!"));
 
+```
 
+<p align="center">
+  <img alt="img-name" src="../images/day-5/2021-03-06-10-58-06.png" width="600">
+</p>
 
+## bodyparser
+Request'de gelen body'de gelen verileri anlamlı şekilde kılmamıza yarıyan ara katman.
 
+Request ile response arasında bulunan bir middleware.
 
+[How bodyParser() works](https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90) - Jul 2, 2015 - Adam Zerner
 
+> You need to use bodyParser() if you want the form data to be available in req.body.
 
+- [Express JS— body-parser and why may not need it](https://medium.com/@mmajdanski/express-body-parser-and-why-may-not-need-it-335803cd048c) - May 24, 2019 - Michael Majdanski
 
+  - Express 4.16+ sürümünden sonra bodyparser express içine de konmuş. 
+```diff
+- app.use(bodyparser.json()); //utilizes the body-parser package
 
++ app.use(express.json()); //Used to parse JSON bodies
+```
 
+https://www.youtube.com/watch?v=nySS7ILaSQU olaynı alamak için izlenebilir.
 
+```diff
+const express = require("express");
+const cors = require("cors");
++ const bodyParser = require("body-parser");
 
+const app = express();
 
+app.use(cors());
++ app.use(bodyParser.json());
 
+app.get("/users", (req, res) => {
+	res.json([{ name: "Mehmet" }, { name: "Ahmet" }]);
+});
 
+app.post("/add-user", (req, res) => {
+	res.json(req.body);
+});
 
+app.listen(4000, () => console.log("Server is up!"));
+```
 
+bu adımlardan sonra formya yazdığımız veri backend serverimizin console'una düşütü. Yani veriyi backend'imize aktardık.
 
+<p align="center">
+  <img alt="img-name" src="../images/day-5/2021-03-06-11-04-37.png" width="600">
+</p>
 
+Bu noktadan sonra elimize gelen bu veri ile istediğimiz her şeyi yapabiliriz. Bir database'e yazabiliriz bu veriyi manupile edebiliriz.
 
+--- 
+# Ek bilgi
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Hasura Türk developer eğitim 
+  - [https://www.youtube.com/watch?v=lrYo_n-9LM8&t=0s](https://www.youtube.com/watch?v=lrYo_n-9LM8&t=0s)
 
 
 ---
-
 # Kaynakça 
 
 1. 
