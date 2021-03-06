@@ -492,7 +492,6 @@ Bu noktadan sonra elimize gelen bu veri ile istediğimiz her şeyi yapabiliriz. 
 - Hasura Türk developer eğitim 
   - [https://www.youtube.com/watch?v=lrYo_n-9LM8&t=0s](https://www.youtube.com/watch?v=lrYo_n-9LM8&t=0s)
 
-
 ---
 # Kaynakça 
 
