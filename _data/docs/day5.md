@@ -5,7 +5,12 @@
 
 Bu bölümde;
 
-- [title](#title)
+- [React Form Managment - Formik](#react-form-managment---formik)
+- [Form Validation - Yupjs](#form-validation---yupjs)
+- [System design paterns and concepts for WEB development](#system-design-paterns-and-concepts-for-web-development)
+  - [Microservices vs Monolithic](#microservices-vs-monolithic)
+  - [Monolotih apps and single page application apps](#monolotih-apps-and-single-page-application-apps)
+  - [Dynamic Websites vs Static Pages vs Single Page Apps (SPAs)](#dynamic-websites-vs-static-pages-vs-single-page-apps-spas)
 - [Kaynakça](#kaynakça)
 
 konularından bahsedeceğiz.
@@ -351,16 +356,48 @@ Bu kullanım ile **yup**'un bizim için belirlediği hata mesajlarını ekrana b
 
 onBlur'da aynı amaca hizmet ediyor. Burada kullanıcı input'a veri girerken onu rahatsız etmeden input'dan ayrıldıktan sonra onu uyarmak!.
 
+---
+
+# System design paterns and concepts for WEB development
+## Microservices vs Monolithic
+
+[Microservices vs Monolithic](https://sterling.com/microservices-vs-monolithic/) - September 10, 2020 - Sterling
+
+## Monolotih apps and single page application apps
+
+[Single page application: from monolithic to modular](https://medium.com/thron-tech/single-page-application-from-monolithic-to-modular-c1d413c10292) - Oct 9, 2018 - Alessandro Grosselle
+
+[Bir Sistem Birçok Platformda Nasıl Çalışıyor? Web-iOS-Android](https://www.youtube.com/watch?v=sgoSGVNmCps&t=455s) - Jan 11, 2021 - Uğur Arıcı
+
+[SPAs vs MPAs/MVC - Are Single Page Apps always better?](https://www.youtube.com/watch?v=F_BYg2QGsC0) - Jul 25, 2017 - Academind
 
 
+> - SPA ile MVC'yi kıyaslamak pek doğru değil. SPA MVC gibi bir sistem mimarisi değil. Bu sebeple kıyaslamayı şu şekild sürdürmek lazım. SPA vs MPA (Multi page applications)
+> - SPA - Angular, React, Vue
+> - MPA - Laravel, Rails, Node-Express
 
+> - [Newyork times](https://www.nytimes.com/) bir MPA uygulama neden mi? Çünkü her linke bastığımızda sayfa yenileniyor baştan yapılandırıylıyor. Girdiğimiz her sayfa için serverdan yeni verileri çekiyor ve her seferinde sayfayı bizim için yüklüyor.
 
+> - Ama [angular](https://angular.io/)'ın sitesi SPA bir uygulama nerden anlıyoruz sayfa hiç yenilenmeden içinde değişklikler yapıyor serverden bir seferde ihtiyacı olan her şeyi indiriyor ve sonrasında local'de onu kullanarak bize sayfalar üretiyor.
 
+> - SPA'lere örnek olarak google ads, slack bu uygulamalar bu özelliklerinden dolayı sanki bir masa üstü program gibi çalışıyorlar.
+> - SPA'lerde SEO büyük sorun yaratıyor. Her şeyi js ile ürettiğimiz için bunu arama motorların anlaması pek de kolay olmuyor.
+> - Ve SPA'ler çalışmak için js'e gebeler js olmadan çalışmları mümkün değil.
+> - Daha çok yeni versiyon tarayıcılar uygunlar eski versiyonlarda çalışmama ihtimallleri çok yüksek.
 
+> - MPA'ler eski nesil tarıyıcı desteği daha iyi.
+> - SPA'lere göre sayfa açma hızları daha yavaş.
+> - SEO için çok daha ideal.
 
+> [Bu yazı](https://clockwise.software/blog/single-page-applications-are-they-a-good-choice-for-your-project/) aradaki farkı gerçekten çok iyi özetlemiş. Burada  ufak bir SPA uygulama yapmak için [kaynak](https://www.youtube.com/watch?v=wR42ApafA0U) bırakıyorum.
 
+[Common web application architectures](https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures%20) - 12/01/2020 - Microsoft  
+[Common client-side web technologies](https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-client-side-web-technologies) - 12/01/2020 - Microsoft
+ 
+## Dynamic Websites vs Static Pages vs Single Page Apps (SPAs)
+> [Dynamic Websites vs Static Pages vs Single Page Apps (SPAs)](https://www.youtube.com/watch?v=Kg0Q_YaQ3Gk)- Apr 16, 2019 - Academind
 
-
+---
 
 
 
