@@ -62,6 +62,10 @@ Projenizde kullnadığınız ENV variable'ları da buraya ekeleyebilirsiniz.
   <img alt="img-name" src="../images/day-6/2021-03-08-07-08-06.png" width="450">
 </p>
 
+<p align="center">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-56-46.png" width="600">
+</p>
+
 Bu işlem de bittikten sonra ilk deployunuz alınmaya başlayacak. Bundan sonrasında siz her commit attıktan sonra sizin için yeni bir deploy alıp paylaşılacak. Yapılan her deployun live halini de netlify üzerinde bulabilirsiniz.
 
 <p align="center">
@@ -72,6 +76,20 @@ Ayrıca github üzerinde deployment durumlarını da sizin için monitör ediyor
 
 <p align="center">
   <img alt="img-name" src="../images/day-6/2021-03-08-07-23-49.png" width="600">
+</p>
+
+Ayrıca deployment'larınzdan custom olarak bildirim almak için de çözümleri mevucut.
+
+<p align="center">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-58-57.png" width="600">
+</p>
+
+Web hook denemesi yapmak için kullanabilceğiniz bir servis. [**Hookbin**](https://hookbin.com/2qjGVgnMPOH9BBKGpZzp)
+
+Bu servis ile webhook'ları test edebiliyoruz.
+
+<p align="center">
+  <img alt="img-name" src="../images/day-6/2021-03-08-08-01-25.png" width="600">
 </p>
 
 ### Custom DNS
