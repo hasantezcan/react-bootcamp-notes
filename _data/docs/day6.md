@@ -18,6 +18,11 @@ Bu bölümde;
     - [Port ile ilgili bir sorunumuz oluyor mu 4000 portu dışında bir yerde çalışmasını nasıl sağlayabiliriz? - `Nginx`](#port-ile-ilgili-bir-sorunumuz-oluyor-mu-4000-portu-dışında-bir-yerde-çalışmasını-nasıl-sağlayabiliriz---nginx)
     - [Neden bu port yönlendirmesini yaptık?](#neden-bu-port-yönlendirmesini-yaptık)
     - [Özet](#özet)
+    - [Bu deployment işlemlerini otomatize hale getirmek için](#bu-deployment-işlemlerini-otomatize-hale-getirmek-için)
+    - [Bir backend server ayakta tutmak için ne kadar kapasitede bir sunucuya ihtiyacımız var?](#bir-backend-server-ayakta-tutmak-için-ne-kadar-kapasitede-bir-sunucuya-ihtiyacımız-var)
+  - [Heroku deployment](#heroku-deployment)
+- [Travis CI ve Heroku Entegrasyonu](#travis-ci-ve-heroku-entegrasyonu)
+- [Contex API](#contex-api)
 
 konularından bahsedeceğiz.
 
@@ -392,13 +397,32 @@ DNS servisine 4000 portu ile bir A kaydı girmemiz mümkün olmadığından serv
 
 6- Bunu çözmek için nginx'i kurduk ve sunucumuzu default portu 4000 portuna yönlendirdik.
 
+
+### Bu deployment işlemlerini otomatize hale getirmek için 
+
+> https://dev.to/chathula/how-to-set-up-a-ci-cd-pipeline-for-a-node-js-app-with-github-actions-32h0
+
+### Bir backend server ayakta tutmak için ne kadar kapasitede bir sunucuya ihtiyacımız var?
+
+Buna deneme yanılma yöntemi ile karar verebilirsiniz. Digitalocean üzerinde sistemi monitör edebilir ve aşırıya kaçan noktalarada dikey bir genişlemeye gidebilirsiniz.
+
+Ayrıca yatay genişleme yapmak için optimizasyona başvurabilirsiniz.
+**Load blancer**'lar sizin bu noktada işinizi görecektir.
+
+> https://mehmetseven.net/nginx-ve-nodejs-ile-load-balancing/
+
+> Bu konu ile ilgili load balencer algoritmaları incelenebilir. (Round robin algoritması bknz açıklamsı: [hasantezcan.dev/round robin algoritması](https://hasantezcan.dev/blog/cpu-scheduling.html#:~:text=4.%20Round%20Robin%20Scheduling,%20%22RR%22))
+
 ----
 
+## Heroku deployment
+
+# Travis CI ve Heroku Entegrasyonu
+<!-- CI gitlab servisleri test ortami kurup ona göre  -->
 
 
 
-
-
+# Contex API
 
 
 
