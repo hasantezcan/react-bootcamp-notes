@@ -112,6 +112,29 @@ Aldığım ilk algortima dersinde `"hello world!"` için yazılımcının Bismil
 console.log('Hello Node!');
 ```
 
+## Truthy and Falsy
+> [Truthy and Falsy: When All is Not Equal in JavaScript](https://www.sitepoint.com/javascript-truthy-falsy/#:~:text=The%20following%20values%20are%20always%20falsy:)
+
+Bu ifadeler conditions (koşullarda `if'lerde`) doğru ya da yanlış olarak kabul edilen değerler.
+
+Bu değerler herzaman **falsy** (yanlış) olarak döner:
+- `false`
+- `0` (zero)
+- `''` or `""` (empty string)
+- `null`
+- `undefined`
+- `NaN`
+  
+Yukardakiler dışında her şey **truthy** (doğru) olarak döner.   
+Doğru olark dönenler:
+
+- `'0'` (a string containing a single zero)
+- `'false'` (a string containing the text “false”)
+- `[]` (an empty array)
+- `{}` (an empty object)
+- `function(){}` (an “empty” function)
+
+
 ## Var, let, const
 
 Es6 ile birlikte değişkenlerimize hayat veren iki yeni tanımlayıcı ile tanıştık. **let** ve **const** 
