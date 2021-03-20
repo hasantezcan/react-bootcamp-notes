@@ -4,13 +4,13 @@
 > Tanışma ve derslerin başlangıçı
 
 Bu bölümde;
-
 - **[NodeJS nedir?](#nodejs-nedir)**
 - [**Versiyon kontrol sistemi Nedir?**](#versiyon-kontrol-sistemi-nedir)
 - [**Git Nedir**](#git-nedir)
 - [**GIT != GITHUB**](#git-nasıl-kullanılır)
 - [**JS Temelleri**](#js-temelleri)
   - [Hello world](#hello-world)
+  - [Truthy and Falsy](#truthy-and-falsy)
   - [Var, let, const](#var-let-const)
   - [Template-literals](#template-literals)
   - [Functions](#fonskiyonlar)
@@ -18,6 +18,7 @@ Bu bölümde;
   - [Desctructing](#object-destructuring)
   - [Callbacks](#callbacks)
   - [Fetch](#fetch) 
+
 
 konularından bahsedeceğiz.
 
@@ -112,28 +113,50 @@ Aldığım ilk algortima dersinde `"hello world!"` için yazılımcının Bismil
 console.log('Hello Node!');
 ```
 
-## Truthy and Falsy
+## [Truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) and [Falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
 > [Truthy and Falsy: When All is Not Equal in JavaScript](https://www.sitepoint.com/javascript-truthy-falsy/#:~:text=The%20following%20values%20are%20always%20falsy:)
+
+> The Boolean value is named after English mathematician [George Boole](https://en.wikipedia.org/wiki/George_Boole), who pioneered the field of mathematical logic. - [***[MDN]***](https://developer.mozilla.org/en-US/docs/Glossary/Boolean#:~:text=The%20Boolean%20value%20is%20named%20after%20English%20mathematician%20George%20Boole,%20who%20pioneered%20the%20field%20of%20mathematical%20logic.)
+
+```js
+/* JavaScript if statement */
+if (boolean conditional) {
+   // code to execute if the conditional is true
+}
+```
 
 Bu ifadeler conditions (koşullarda `if'lerde`) doğru ya da yanlış olarak kabul edilen değerler.
 
 Bu değerler herzaman **falsy** (yanlış) olarak döner:
-- `false`
-- `0` (zero)
-- `''` or `""` (empty string)
-- `null`
-- `undefined`
-- `NaN`
+
+```js
+if (false)
+if (null)
+if (undefined)
+if (0)
+if (-0)
+if (0n)
+if (NaN)
+if ("")
+```
   
 Yukardakiler dışında her şey **truthy** (doğru) olarak döner.   
 Doğru olark dönenler:
-
-- `'0'` (a string containing a single zero)
-- `'false'` (a string containing the text “false”)
-- `[]` (an empty array)
-- `{}` (an empty object)
-- `function(){}` (an “empty” function)
-
+```js
+if (true)
+if ({})
+if ([])
+if (42)
+if ("0")
+if ("false")
+if (new Date())
+if (-42)
+if (12n)
+if (3.14)
+if (-3.14)
+if (Infinity)
+if (-Infinity)
+```
 
 ## Var, let, const
 
