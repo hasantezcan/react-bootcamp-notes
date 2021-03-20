@@ -5,7 +5,10 @@
 
 Bu bölümde;
 
-- [React Testing](#react-testing)
+- [React Testing Library](#react-testing-library)
+  - [**🤔 Ne yaptık burada?**](#-ne-yaptık-burada)
+  - [**Bir başka örnek yapalım!**](#bir-başka-örnek-yapalım)
+- [React Native](#react-native)
 
 konularından bahsedeceğiz.
 
@@ -21,12 +24,14 @@ konularından bahsedeceğiz.
 **Integration test:** Birimlerin birbiri arasındaki işleyişini test eden test türü. 
 
 **Unit test**:   
-
-...
+...  
+...  
+...  
 
 > [React Uygulamalarında TDD](https://oguzkilic.medium.com/react-uygulamalar%C4%B1nda-tdd-48f93335d8fb) - Oğuz Kılıç - Oct 31, 2017
 
-# React Testing
+# React Testing Library
+> https://testing-library.com/
 
 Basit bir counter yapalım ve sonrasında bunun için bir test yazalım.
 
@@ -91,7 +96,7 @@ describe("Counter bileşen testleri", () => {
 });
 ```
 
-**🤔 Ne yaptık burda?**  
+## **🤔 Ne yaptık burada?**  
 Öncelikle yazcağımız bu test Counter componet'ı için olduğundan bunu bu şekilde **tarif ediyoruz (describe).** 
 
 `BeforEach` burada test'e başlaman önce yapaılmasını istediğimiz şeylerin yapıldığı yer. Bu sebeple test edeceğimiz öğeleri burada deklare ediyoruz. `render(<Counter />)` tabi counter componetini render edelim ki içindeki öğelere ulaşabilelim. 
@@ -139,6 +144,114 @@ yarn test
     <br>
     <em></em>
 </p>
+
+## **Bir başka örnek yapalım!**
+
+Şimdi de basit bir todo uygulaması hazırlayalım ve onun testlerini yazalım.
+
+```js
+// Todo.js
+import { useState } from "react";
+
+function Todo() {
+	const [title, setTitle] = useState("");
+	const [todos, setTodos] = useState(["selam"]);
+
+	return (
+		<div>
+			<label>
+				Title
+				<input value={title} onChange={(e) => setTitle(e.target.value)} />
+			</label>
+			<button onClick={() => setTodos([...todos, title])}>Ekle</button>
+
+			{todos.map((item, key) => (
+				<div key={key}>{item}</div>
+			))}
+		</div>
+	);
+}
+
+export default Todo;
+```
+
+<p align="center">
+    <img alt="imgName" src="../images/day-10/2021-03-20-17-08-32.png" width="400">
+    <br>
+    <em>Basit todo uygulamamız</em>
+</p>
+
+Şimdi gelin testini yazalım.   
+> Bu örneğe [burdan](../pratice/day-10/1-testing) ulaşabilirsiniz. 
+```js
+// Todo.test.js
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
+import Todo from "./Todo";
+
+describe("Todo bileşen testleri", () => {
+	let button, input;
+
+	beforeEach(() => {
+		render(<Todo />);
+		button = screen.getByText("Ekle");
+		input = screen.getByLabelText("Title");
+	});
+
+	it("Button ve input elemanları sayfaya yüklenmeli", () => {
+		expect(button).toBeInTheDocument();
+		expect(input).toBeInTheDocument();
+	});
+
+	it("Form gönderilince ilgili title listeye eklenmeli", () => {
+		const title = "Test Title";
+		userEvent.type(input, title);
+		userEvent.click(button);
+
+		expect(screen.getByText(title)).toBeInTheDocument();
+	});
+});
+```
+
+<p align="center">
+    <img alt="imgName" src="../images/day-10/2021-03-20-16-52-37.png" width="300">
+    <br>
+    <em>Testimizi componentimizin dizine ekledik.</em>
+</p>
+
+Bu test ile birlikte `button` ve `input` sayfada mı diye kontrol ediyoruz.
+
+```js
+it("Button ve input elemanları sayfaya yüklenmeli", () => {
+		expect(button).toBeInTheDocument();
+		expect(input).toBeInTheDocument();
+	});
+```
+Sonrasında forma tıkladıktan sonra todo'muz eklendi mi diye bir test yapamak istersek;
+
+```js
+it("Form gönderilince ilgili title listeye eklenmeli", () => {
+		const title = "Test Title";
+		userEvent.type(input, title);
+		userEvent.click(button);
+
+		expect(screen.getByText(title)).toBeInTheDocument();
+	});
+```
+
+Tanımladığımız `title` input'a ekleniyor ve click edildikten sonra o girdiyi ekranda görmek istediğimizi söylüyoruz.
+
+<p align="center">
+    <img alt="imgName" src="../images/day-10/2021-03-20-16-59-10.png" width="600">
+    <br>
+    <em></em>
+</p>
+
+Evet.. Görüldüğü gibi test yazmak bu kadar basit. Gerisi sizin hayal gücünüze kalmış. İstediğiniz durumları [bu bağlantıdaki](https://testing-library.com/docs/example-react-router) methodları kullanarak test edebilirsiniz.
+
+# React Native
+> 1:46:40
 
 <!-- ---
 
