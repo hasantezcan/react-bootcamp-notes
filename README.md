@@ -20,7 +20,7 @@ Eğitim materyalleri: [**`github.com/kodluyoruz-react-bootcamp/sources`**](https
 |   7   | -- ,<br> -- ,<br> | *`7. Günün Notları`* | [*`7. Gün`*](/_data/practice/day7) |  |
 |   8   | -- ,<br> -- ,<br> | *`8. Günün Notları`* | [*`8. Gün`*](/_data/practice/day8) | [`4. Haftanın Ödevi`](https://github.com/kodluyoruz-react-bootcamp/odev-4-realtime-colors-app-hasantezcan) <br> "Realtime Colors App"  |
 |   9   | -- ,<br> -- ,<br> | *`9. Günün Notları`* | [*`9. Gün`*](/_data/practice/day9) |  |
-|   10   | Testing ,<br> Unit & Integration Test<br> React Native 101 ,<br> React Navigation ,<br> | [*`10. Günün Notları`*](/_data/docs/day10.md) | [*`10. Gün`*](/_data/practice/day10) | Projelere başlandı [`AddNoto`](https://github.com/adnoto-team)|
+|   10   | [React Testing Library](_data/docs/day10.md#react-testing-library) ,<br> Unit & Integration Test<br> React Native 101 ,<br> React Navigation ,<br> | [*`10. Günün Notları`*](/_data/docs/day10.md) | [*`10. Gün`*](/_data/practice/day10) | Projelere başlandı [`AddNoto`](https://github.com/adnoto-team)|
 |   11   | -- ,<br> -- ,<br> | *`11. Günün Notları`* | [*`11. Gün`*](/_data/practice/day11) |  |
 |   12   | -- ,<br> -- ,<br> | *`12. Günün Notları`* | [*`12. Gün`*](/_data/practice/day12) | Projelere devam edildi.. |
 
