@@ -11,7 +11,7 @@ Eğitim materyalleri: [**`github.com/kodluyoruz-react-bootcamp/sources`**](https
 
 |  Gün  |             Konu Başlıkları                    |                  Notlarım                   |         Ders Materyalleri          |                                          Ödev                                          |
 | :---: | :------: | :-----------------------------------------: | :-------------: | :----------------------: |
-|   1   | NodeJs nedir?,<br> Git Temelleri,<br> Modern Javascript ES6+| [*`1. Günün Notları`*](/_data/docs/day1.md) | [*`1. Gün`*](/_data/practice/day1) |        |
+|   1   | [NodeJs nedir?](_data/docs/day1.md#nodejs-nedir),<br> [Git Temelleri](_data/docs/day1.md#versiyon-kontrol-sistemi-nedir) ,<br> [Modern Javascript ES6+](_data/docs/day1.md#js-temelleri)  | [*`1. Günün Notları`*](/_data/docs/day1.md) | [*`1. Gün`*](/_data/practice/day1) |        |
 |   2   | JavaScript Paket yöneticileri,<br> Npm,Yarn,<br> async-await then chain,<br> ES6,<br> Create React App ve Next.js | [*`2. Günün Notları`*](/_data/docs/day2.md) | [*`2. Gün`*](/_data/practice/day2) | [`1. Haftanın Ödevi`](https://github.com/kodluyoruz-react-bootcamp/odev-1-hasantezcan) <br> "Temel JS becerileri" |
 |   3   | Neden React?,<br> Component Nedir?,<br> JSX,<br> Props,<br> States,<br> Hooks, useEffect | [*`3. Günün Notları`*](/_data/docs/day3.md) | [*`3. Gün`*](/_data/practice/day3) |       |
 |   4   | React ile API kullanımı,<br> .js ile .jsx arasındaki fark?,<br> React.memo(),<br> React Styling and CSS,<br> React Router DOM | [*`4. Günün Notları`*](/_data/docs/day4.md) | [*`4. Gün`*](/_data/practice/day4) | [`2. Haftanın Ödevi`](https://github.com/kodluyoruz-react-bootcamp/odev-2-todo-app-hasantezcan) <br> "Todo App" |
