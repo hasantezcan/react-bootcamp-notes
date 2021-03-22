@@ -11,6 +11,7 @@ Bu bölümde;
 - [**JS Temelleri**](#js-temelleri)
   - [Hello world](#hello-world)
   - [Truthy and Falsy](#truthy-and-falsy)
+  - [What is the diff between arguments and parameters](#what-is-the-diff-between-arguments-and-parameters)
   - [Var, let, const](#var-let-const)
   - [Template-literals](#template-literals)
   - [Functions](#fonskiyonlar)
@@ -157,6 +158,54 @@ if (-3.14)
 if (Infinity)
 if (-Infinity)
 ```
+
+## What is the diff between arguments and parameters
+> [Argüman ve parametre arasındaki fark?](https://medium.com/swlh/parameters-and-arguments-in-javascript-2260bcbc8d4f)
+
+- Fonksiyonu **tanımlarken** içine istediklerimiz **`parametreleri`** oluyor.  
+- Fonksiyonu **kullanırken** (çağırdığımızda) içine verdiğimiz değerler ise **`argümanları`** oluyor.
+
+```js
+//function declaration
+function LessArgument(param1, param2, param3, param4){
+     console.log(param1, param2 ,param3 , param4);
+}
+
+//function call
+LessArgument("arg1" , "arg2" ,"arg3");
+
+// result 
+arg1 arg2 arg3 undefined
+```
+
+> *Bir fonksiyon için gereken **parameteleri** `yanlızca bir defa` tanımlarız. Fakat o fonksiyonu kullanırken içine `her seferinde farklı` **argümanlar** göndeririz.*
+
+### `Rest` Parameters
+Fonskiyona gereken parameteleri bu şekilde değişekenlik gösterecek şekilde tanımlayabiliriz.
+
+```js
+let arr = [1, 2, 3];
+let arrTwo = [...arr , 4, 5, 6]; //arrTwo = [1, 2, 3, 4, 5, 6]
+
+//function declaration
+function FindLength(...params){
+      console.log(arguments)
+      return (params.length);
+}
+
+//function call
+FindLength(...arr); //3
+FindLength(...arrTwo); //6
+FindLength(arr); //1
+```
+
+<p align="center">
+    <img alt="imgName" src="../images/day-1/2021-03-23-01-32-08.png" width="600">
+    <br>
+    <em>
+        Gönderilen argümanları log ettiğimiz için görebilirsin. Her fonksiyon tanımı için farklı değerler göndermişiz.
+    </em>
+</p>
 
 ## Var, let, const
 
