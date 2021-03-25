@@ -780,6 +780,8 @@ Testimizi düzenleyip tekar geçer hale getirdikten sonra kodu tekrar pushladı�
     <em></em>
 </p>
 
+
+> Ayrıca Mehmet Hocannın [bu bloğuna](https://mehmetseven.net/github-travis-ci-heroku-entegrasyonu/) da bakabilirsin.
 # Contex API
 
 
