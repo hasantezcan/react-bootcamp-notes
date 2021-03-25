@@ -21,6 +21,7 @@ Bu bölümde;
     - [Bu deployment işlemlerini otomatize hale getirmek için](#bu-deployment-işlemlerini-otomatize-hale-getirmek-için)
     - [Bir backend server ayakta tutmak için ne kadar kapasitede bir sunucuya ihtiyacımız var?](#bir-backend-server-ayakta-tutmak-için-ne-kadar-kapasitede-bir-sunucuya-ihtiyacımız-var)
   - [Heroku deployment](#heroku-deployment)
+    - [Port sorunu](#port-sorunu)
 - [Travis CI ve Heroku Entegrasyonu](#travis-ci-ve-heroku-entegrasyonu)
 - [Contex API](#contex-api)
 
@@ -416,6 +417,162 @@ Ayrıca yatay genişleme yapmak için optimizasyona başvurabilirsiniz.
 ----
 
 ## Heroku deployment
+> **https://devcenter.heroku.com/articles/deploying-nodejs**  
+
+Heroku ile yapcağımız deployment'ler nispeten digitalocean'a göre daha kolayca gerçekleşecektir.  
+
+İçinde sadece backend'imizin buldunğu bir repo ile işe koyuluyoruz.
+
+### Port sorunu
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-02-15-18.png" width="800">
+    <br>
+    <em></em>
+</p>
+
+Bu hali ile deployment işlemini yaptığımızda heroku bize **"application error"** verecektir. Bunun sebebi projeyi hangi portta ayağa kaldıracağını bilememsidir. Yapacağımız güncelleme ile birlikte eğer bir ortam değişkeni varsa onu kullan yoksa 3000 portunu kullanması gerektiğini söyleyeceğiz.
+
+```js
+app.listen(process.env.PORT || 3000, () => console.log("Server is up!"));
+```
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-02-20-10.png" width="500">
+    <br>
+    <em></em>
+</p>
+
+Bu hatayı çözdükten sonra deployment işlemine başlıyoruz.   
+Herokuya deployment yapmanın iki yolu mevcut biri direk `CLI` üzerinden biri de `GUI` üzerinden. Biz şimdi bu örnekte `CLI` üzerinden bu işlemlere devam edeceğiz. 
+
+Öncelikle herokuya login olmamız gerek. 
+> Tabi önce bilgisyarınıza `herokunun CLI` uygulamasını yüklemelisiniz.   
+> 
+Ardından komut satırına;
+
+```bash
+heroku login
+```
+
+diyoruz ve bizi bir web sayfasına yönlendriyor ve oradan login olmamızı istiyor bu noktadan sonra login olmuş şekilde kendi hesabımız ile çalışabileceğiz.
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-02-24-05.png" width="500">
+    <br>
+    <em></em>
+</p>
+
+Ardından bu uygulamanın heroku içinde çalışabilmesi için bir app oluşturmamız lazım bunu yaparken terminal'e
+
+```bash
+$ heroku create
+Creating app... done, ⬢ stormy-caverns-47195
+https://stormy-caverns-47195.herokuapp.com/ | https://git.heroku.com/stormy-caverns-47195.git
+```
+
+yazıyoruz ve o bizim için gerekli tüm kurumları ayarlıyor.
+
+Bize verdiği aderese gittiğimizde boş bir heroku projesi görmekteyiz 
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-02-26-58.png" width="500">
+    <br>
+    <em></em>
+</p>
+
+Bu arada bu adımı direk GUI izerinden de yapabilirdik.
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-02-29-08.png" width="600">
+    <br>
+    <em></em>
+</p>
+
+Gördüğümüz üzere şu an ayakta olan sadece boş bir proje şimdi kodlarımızı buraya göndermemiz gerekli.
+
+```bash
+$ git push heroku main
+
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (13/13), 7.40 KiB | 2.47 MiB/s, done.
+Total 13 (delta 3), reused 4 (delta 0), pack-reused 0
+remote: Compressing source files... done.
+remote: Building source:
+remote: 
+remote: -----> Building on the Heroku-20 stack
+remote: -----> Determining which buildpack to use for this app
+remote: -----> Node.js app detected
+remote:        
+remote: -----> Creating runtime environment
+remote:        
+remote:        NPM_CONFIG_LOGLEVEL=error
+remote:        NODE_VERBOSE=false
+remote:        NODE_ENV=production
+remote:        NODE_MODULES_CACHE=true
+remote:        
+remote: -----> Installing binaries
+remote:        engines.node (package.json):  unspecified
+remote:        engines.npm (package.json):   unspecified (use default)
+remote:        
+remote:        Resolving node version 14.x...
+remote:        Downloading and installing node 14.16.0...
+remote:        Using default npm version: 6.14.11
+remote:        
+remote: -----> Installing dependencies
+remote:        Installing node modules
+remote:        added 52 packages in 1.047s
+remote:        
+remote: -----> Build
+remote:        
+remote: -----> Caching build
+remote:        - node_modules
+remote:        
+remote: -----> Pruning devDependencies
+remote:        audited 52 packages in 0.774s
+remote:        found 0 vulnerabilities
+remote:        
+remote:        
+remote: -----> Build succeeded!
+remote: -----> Discovering process types
+remote:        Procfile declares types     -> (none)
+remote:        Default types for buildpack -> web
+remote: 
+remote: -----> Compressing...
+remote:        Done: 32.6M
+remote: -----> Launching...
+remote:        Released v3
+remote:        https://stormy-caverns-47195.herokuapp.com/ deployed to Heroku
+remote: 
+remote: Verifying deploy... done.
+To https://git.heroku.com/stormy-caverns-47195.git
+ * [new branch]      main -> main
+```
+
+Bu adamında localimizdeki kodu direkt herokuya push ediyoruz.
+
+`heroku create` dediğimizde bizim için bir uzak repo oluşturmuşu ve şimdi biz bu repoya kodlarımı manuel olarak yüklemiş olduk.
+
+> **Bu projeye bağlı uzak repoları görmek için** 
+
+>```bash
+>$ git remote -v
+>
+>heroku  https://git.heroku.com/stormy-caverns-47195.git (fetch)
+>heroku  https://git.heroku.com/stormy-caverns-47195.git (push)
+>origin  git@github.com:hasantezcan/kodluyoruz-api.git (fetch)
+>origin  git@github.com:hasantezcan/kodluyoruz-api.git (push)
+>```
+> orgin olarak githubdaki repomuz tanımlanmış ayrıca herokunun da bu projeye bağlı olduğunu görmekteyiz. 
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-12-04-28.png" width="600">
+    <br>
+    <em></em>
+</p>
 
 # Travis CI ve Heroku Entegrasyonu
 <!-- CI gitlab servisleri test ortami kurup ona göre  -->
