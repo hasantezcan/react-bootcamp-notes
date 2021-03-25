@@ -22,6 +22,7 @@ Bu bölümde;
     - [Bir backend server ayakta tutmak için ne kadar kapasitede bir sunucuya ihtiyacımız var?](#bir-backend-server-ayakta-tutmak-için-ne-kadar-kapasitede-bir-sunucuya-ihtiyacımız-var)
   - [Heroku deployment](#heroku-deployment)
     - [Port sorunu](#port-sorunu)
+    - [Github Heroku deploy entegrasyonu](#github-heroku-deploy-entegrasyonu)
 - [Travis CI ve Heroku Entegrasyonu](#travis-ci-ve-heroku-entegrasyonu)
 - [Contex API](#contex-api)
 
@@ -572,6 +573,47 @@ Bu adamında localimizdeki kodu direkt herokuya push ediyoruz.
     <img alt="imgName" src="../images/day-6/2021-03-25-12-04-28.png" width="600">
     <br>
     <em></em>
+</p>
+
+### Github Heroku deploy entegrasyonu
+
+Bu deployment'i `github` ile entegre etmek isterseniz de `heroku GUI` üzerinden deployment kısmına github reponuzu bağlayarak github'a her commit attğınızda kodunuzun **aynı zamanda `heroku` üzerine de** `deploy olmasını` sağlayabilirsiniz.
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-13-13-49.png" width="600">
+    <br>
+    <em></em>
+</p>
+
+- Ayrıca bu kısım üzerinden **hangi brach'in** deploy olacağına da karar verebilirsiniz. 
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-13-17-07.png" width="1000">
+    <br>
+    <em></em>
+</p>
+
+> **`Enable Automatic Deploys` tuşuna basmayı unutmayın!**
+
+- Bir continues intergaration'unuz mevcutsa onu da beklemesini sağlayabilirsiniz. Böylece testler yapıldıktan (testleri geçtikten) sonra deploy işlemi gerçekleşecektir. 
+
+Şimdi denemek için bir commit atalım.
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-13-21-46.png" width="600">
+    <br>
+    <em></em>
+</p>
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-13-25-19.png" width="600">
+    <br>
+    <em>Görüldüğü üzere otomaik olark deployumuz alındı</em>
+</p>
+
+**Kodumuz otomatik olarak canlıda!**
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-13-26-05.png" width="400">
 </p>
 
 # Travis CI ve Heroku Entegrasyonu
