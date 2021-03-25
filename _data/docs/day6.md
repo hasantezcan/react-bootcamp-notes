@@ -45,11 +45,11 @@ konularından bahsedeceğiz.
 - Kullanımı gayet basit.
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-00-46.png" width="600">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-00-46.png" width="100%">
 </p>
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-02-22.png" width="600">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-02-22.png" width="100%">
 </p>
 
 ## Netlify
@@ -57,47 +57,47 @@ konularından bahsedeceğiz.
 Netlify'a tüm github repolarınıza erişsin diye izin verebilirsiniz. Ama isterseniz sadece istediğiniz repolara erişimini de sağlayabilirsiniz.
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-05-21.png" width="500">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-05-21.png" width="60%">
 </p>
 
 Netlifay'a izin verdiğiniz repolar sizin için listelenecek istediğiniz repoyu seçip ilerleyebilirsiniz.
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-06-45.png" width="600">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-06-45.png" width="100%">
 </p>
 
 Projeneizi build etmek için kullandığınız komudu buraya girebilirsiniz ama genellikle default olan sizin işinizi görecektir.
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-18-26.png" width="600">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-18-26.png" width="50%">
 </p>
 
 Projenizde kullnadığınız ENV variable'ları da buraya ekeleyebilirsiniz.
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-08-06.png" width="450">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-08-06.png" width="70%">
 </p>
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-56-46.png" width="600">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-56-46.png" width="100%">
 </p>
 
 Bu işlem de bittikten sonra ilk deployunuz alınmaya başlayacak. Bundan sonrasında siz her commit attıktan sonra sizin için yeni bir deploy alıp paylaşılacak. Yapılan her deployun live halini de netlify üzerinde bulabilirsiniz.
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-09-08.png" width="600">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-09-08.png" width="100%">
 </p>
 
 Ayrıca github üzerinde deployment durumlarını da sizin için monitör ediyor olacak.
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-23-49.png" width="600">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-23-49.png" width="100%">
 </p>
 
 Ayrıca deployment'larınzdan custom olarak bildirim almak için de çözümleri mevucut.
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-58-57.png" width="600">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-58-57.png" width="100%">
 </p>
 
 Web hook denemesi yapmak için kullanabilceğiniz bir servis. [**Hookbin**](https://hookbin.com/2qjGVgnMPOH9BBKGpZzp)
@@ -105,7 +105,7 @@ Web hook denemesi yapmak için kullanabilceğiniz bir servis. [**Hookbin**](http
 Bu servis ile webhook'ları test edebiliyoruz.
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-08-01-25.png" width="600">
+  <img alt="img-name" src="../images/day-6/2021-03-08-08-01-25.png" width="100%">
 </p>
 
 ### Custom DNS
@@ -113,15 +113,15 @@ Bu servis ile webhook'ları test edebiliyoruz.
 Netlify üzerine paylaşılan deploy'ları kendi domainiz içinde gösterebilirsiniz. Yapmanız gereken tek şey domain'inize gerekli DNS kaydlarını eklemek.
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-31-52.png" width="600">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-31-52.png" width="60%">
 </p>
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-32-31.png" width="600">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-32-31.png" width="100%">
 </p>
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-32-55.png" width="600">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-32-55.png" width="100%">
 </p>
 
 ### Netlify Redirect Hatası çözümü
@@ -135,7 +135,7 @@ Netlify üzerine paylaşılan deploy'ları kendi domainiz içinde gösterebilirs
 Daha optimize deployment almamıza yarayan bir araç.
 
 <p align="center">
-  <img alt="img-name" src="../images/day-6/2021-03-08-07-41-31.png" width="300">
+  <img alt="img-name" src="../images/day-6/2021-03-08-07-41-31.png" width="50%">
 </p>
 
 > **Adem ilter'in konu ile ilgili [`anlatım videosu.`](https://www.youtube.com/watch?v=D2dDbhWNBII)**
@@ -150,7 +150,7 @@ Daha optimize deployment almamıza yarayan bir araç.
 Bunu yapmak için önce digitalocean üzerinden bir droplet açmamız gerkiyor. Bu kısımda en düşük opsiyonlar ile bir sunucu ayağa kaldırıyoruz. 
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-11-41-23.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-08-11-41-23.png" width="100%">
     <br>
     <em>5 dolarlık sunucuyu seçiyoruz.</em>
 </p>
@@ -158,7 +158,7 @@ Bunu yapmak için önce digitalocean üzerinden bir droplet açmamız gerkiyor. 
 `ubuntu s` adında bir droplet hazırladık şimdi bu sunucu üzerinde çalışmaya başlayacağız.
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-11-42-43.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-08-11-42-43.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -171,7 +171,7 @@ ssh root@161.35.221.191
 Sunucumuz içinde `nodejs` kurulu değil.
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-11-46-43.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-08-11-46-43.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -200,7 +200,7 @@ v14.16.0
 Ardından `npm install`'ı çalıştırarak gerekli paketleri sunucumuza kuruyoruz.
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-12-49-21.png" width="700">
+    <img alt="imgName" src="../images/day-6/2021-03-08-12-49-21.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -211,7 +211,7 @@ node index.js
 diyerek serverimizi çalıştırıyoruz. 
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-12-50-02.png" width="700">
+    <img alt="imgName" src="../images/day-6/2021-03-08-12-50-02.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -219,7 +219,7 @@ diyerek serverimizi çalıştırıyoruz.
 Test edelim...
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-12-51-56.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-08-12-51-56.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -242,7 +242,7 @@ npm i -g pm2
 - **`pm2 start index.js`** dediğimizde çalışmaya başlıyor
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-12-54-46.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-08-12-54-46.png" width="60%">
     <br>
     <em></em>
 </p>
@@ -250,13 +250,13 @@ npm i -g pm2
 - **`pm2 status`** ile de o an çalışan prosessleri görebiliyorsunu.
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-12-55-28.png" width="700">
+    <img alt="imgName" src="../images/day-6/2021-03-08-12-55-28.png" width="100%">
     <br>
     <em></em>
 </p>
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-12-55-45.png" width="500">
+    <img alt="imgName" src="../images/day-6/2021-03-08-12-55-45.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -268,7 +268,7 @@ npm i -g pm2
 > servermizde alakalı bir log tuyor olacağız
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-12-56-25.png" width="700">
+    <img alt="imgName" src="../images/day-6/2021-03-08-12-56-25.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -277,7 +277,7 @@ npm i -g pm2
 > **process'i durdurmak istersek**
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-12-57-21.png" width="500">
+    <img alt="imgName" src="../images/day-6/2021-03-08-12-57-21.png" width="60%">
     <br>
     <em></em>
 </p>
@@ -286,7 +286,7 @@ npm i -g pm2
 > **bu şekilde tanımladığımızda farklı bir isimle görüntüleyebliyorz.**
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-12-59-10.png" width="700">
+    <img alt="imgName" src="../images/day-6/2021-03-08-12-59-10.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -299,7 +299,7 @@ eğer kullanmadığınız process'leri silmek isterseniz;
 
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-12-59-52.png" width="700">
+    <img alt="imgName" src="../images/day-6/2021-03-08-12-59-52.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -322,7 +322,7 @@ sudo apt install nginx
 * nginx'i kurduktan sonra
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-13-07-40.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-08-13-07-40.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -372,7 +372,7 @@ ardından default port'da uygulamamızın çalıştığını görmekteyiz.
 
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-08-13-18-00.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-08-13-18-00.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -429,7 +429,7 @@ Heroku ile yapcağımız deployment'ler nispeten digitalocean'a göre daha kolay
 ### Port sorunu
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-02-15-18.png" width="800">
+    <img alt="imgName" src="../images/day-6/2021-03-25-02-15-18.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -441,9 +441,7 @@ app.listen(process.env.PORT || 3000, () => console.log("Server is up!"));
 ```
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-02-20-10.png" width="500">
-    <br>
-    <em></em>
+    <img alt="imgName" src="../images/day-6/2021-03-25-02-20-10.png" width="60%">
 </p>
 
 Bu hatayı çözdükten sonra deployment işlemine başlıyoruz.   
@@ -461,9 +459,7 @@ heroku login
 diyoruz ve bizi bir web sayfasına yönlendriyor ve oradan login olmamızı istiyor bu noktadan sonra login olmuş şekilde kendi hesabımız ile çalışabileceğiz.
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-02-24-05.png" width="500">
-    <br>
-    <em></em>
+    <img alt="imgName" src="../images/day-6/2021-03-25-02-24-05.png" width="50%">
 </p>
 
 Ardından bu uygulamanın heroku içinde çalışabilmesi için bir app oluşturmamız lazım bunu yaparken terminal'e
@@ -479,7 +475,7 @@ yazıyoruz ve o bizim için gerekli tüm kurumları ayarlıyor.
 Bize verdiği aderese gittiğimizde boş bir heroku projesi görmekteyiz 
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-02-26-58.png" width="500">
+    <img alt="imgName" src="../images/day-6/2021-03-25-02-26-58.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -487,7 +483,7 @@ Bize verdiği aderese gittiğimizde boş bir heroku projesi görmekteyiz
 Bu arada bu adımı direk GUI izerinden de yapabilirdik.
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-02-29-08.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-25-02-29-08.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -572,7 +568,7 @@ Bu adamında localimizdeki kodu direkt herokuya push ediyoruz.
 > orgin olarak githubdaki repomuz tanımlanmış ayrıca herokunun da bu projeye bağlı olduğunu görmekteyiz. 
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-12-04-28.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-25-12-04-28.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -582,7 +578,7 @@ Bu adamında localimizdeki kodu direkt herokuya push ediyoruz.
 Bu deployment'i `github` ile entegre etmek isterseniz de `heroku GUI` üzerinden deployment kısmına github reponuzu bağlayarak github'a her commit attğınızda kodunuzun **aynı zamanda `heroku` üzerine de** `deploy olmasını` sağlayabilirsiniz.
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-13-13-49.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-25-13-13-49.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -590,7 +586,7 @@ Bu deployment'i `github` ile entegre etmek isterseniz de `heroku GUI` üzerinden
 - Ayrıca bu kısım üzerinden **hangi brach'in** deploy olacağına da karar verebilirsiniz. 
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-13-17-07.png" width="1000">
+    <img alt="imgName" src="../images/day-6/2021-03-25-13-17-07.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -602,20 +598,20 @@ Bu deployment'i `github` ile entegre etmek isterseniz de `heroku GUI` üzerinden
 Şimdi denemek için bir commit atalım.
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-13-21-46.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-25-13-21-46.png" width="100%">
     <br>
     <em></em>
 </p>
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-13-25-19.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-25-13-25-19.png" width="100%">
     <br>
     <em>Görüldüğü üzere otomaik olark deployumuz alındı</em>
 </p>
 
 **Kodumuz otomatik olarak canlıda!**
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-13-26-05.png" width="400">
+    <img alt="imgName" src="../images/day-6/2021-03-25-13-26-05.png" width="100%">
 </p>
 
 # Travis CI ve Heroku Entegrasyonu
@@ -623,7 +619,7 @@ Bu deployment'i `github` ile entegre etmek isterseniz de `heroku GUI` üzerinden
 Şimdi `Travis` kullanrak bir continues integration yapısı hazırlayacağız.
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-16-11-06.png" width="800">
+    <img alt="imgName" src="../images/day-6/2021-03-25-16-11-06.png" width="100%">
 </p>
 
 Bunun için önce heroku üzerinden `Wait for CI to pass before deploy` kısmını aktive ettik.
@@ -640,7 +636,7 @@ before_install:
 ```
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-16-13-17.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-25-16-13-17.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -648,7 +644,7 @@ before_install:
 Travis'i **limitsiz olarak kullanmak için** reponuzu herkese açık hale getirmeniz gerekli. Ardından Travis üzerinden içinden etegrasyon kurmak istediğiniz repoyu aktif hale getirebilirsiniz.
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-16-26-38.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-25-16-26-38.png" width="100%">
     <br>
     <em>Kodluyoruz-api projesini travis'e ekledik!</em>
 </p>
@@ -665,7 +661,7 @@ Tam bu noktada fark ettiğim bir şey oldu. İki adet `travis-ci` sitesi mevcut.
 > **`Her` deployment'da `10 kredi` harcamış oluyorsunuz. Bu da ayda private repolarda `ücretsiz` olarak kullanabilceğiniz `1000 deployment`'a karşılık geliyor!**
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-17-27-06.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-25-17-27-06.png" width="50%">
     <br>
     <em>Free plan kalan kredi ekranı</em>
 </p>
@@ -673,13 +669,13 @@ Tam bu noktada fark ettiğim bir şey oldu. İki adet `travis-ci` sitesi mevcut.
 - Fakat bu bedava planı seçmezseniz gizli repolarda CI'larınızı çalıştıramıyorsunuz illa bu free planı seçmeniz gerekiyor.
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-17-31-19.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-25-17-31-19.png" width="100%">
     <br>
     <em></em>
 </p>
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-17-19-44.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-25-17-19-44.png" width="100%">
     <br>
     <em>Travis ödeme planları</em>
 </p>
@@ -689,7 +685,7 @@ Ve bu dokümanı hazırladığım tarih itibari ile (25 Mart 2021) kısa süre s
 `.org` dan `.com`'a geçerken nasıl bir yol izleyeceğinize [**burada**](https://docs.travis-ci.com/user/migrate/open-source-repository-migration) ayrıntılı şekilde anlatmışlar. 
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-17-07-54.png" width="800">
+    <img alt="imgName" src="../images/day-6/2021-03-25-17-07-54.png" width="100%">
 </p>
 
 Ben de bu noktadan sonra travis.com üzerinde çalışmaya devam edeceğim...
@@ -741,7 +737,7 @@ tabiki bu script önceliklte packge.json içinde bulunmalı
 ```
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-19-02-33.png" width="800">
+    <img alt="imgName" src="../images/day-6/2021-03-25-19-02-33.png" width="100%">
     <br>
     <em>Testimiz geçiyor!</em>
 </p>
@@ -753,7 +749,7 @@ Fakat şimdi bu testi bozacağız ve test'de hata aldığımızda travis'in test
 Kodumuzu bu hali ile github'a gönderidiğimizde. Deploy olmadığını bize bildiren hatayı göreceksiniz. 
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-19-06-14.png" width="800">
+    <img alt="imgName" src="../images/day-6/2021-03-25-19-06-14.png" width="100%">
     <br>
     <em>Test geçmediği içi burada travis bizi uyarmakta!</em>
 </p>
@@ -761,13 +757,13 @@ Kodumuzu bu hali ile github'a gönderidiğimizde. Deploy olmadığını bize bil
 Travis'in sitesinde gittiğimzde ise testin geçmediğini görüyor olacağız.
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-19-07-31.png" width="800">
+    <img alt="imgName" src="../images/day-6/2021-03-25-19-07-31.png" width="100%">
 </p>
 
 Ayrıca travis bize bir sorun olduğunu bildirmek için bir mail de atıyor. `Status: Broken` 
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-19-08-10.png" width="800">
+    <img alt="imgName" src="../images/day-6/2021-03-25-19-08-10.png" width="100%">
     <br>
     <em></em>
 </p>
@@ -775,7 +771,7 @@ Ayrıca travis bize bir sorun olduğunu bildirmek için bir mail de atıyor. `St
 Testimizi düzenleyip tekar geçer hale getirdikten sonra kodu tekrar pushladığımızda ise bize sorun çözüldü adında bir mail atıyor. `Status: FIX`
 
 <p align="center">
-    <img alt="imgName" src="../images/day-6/2021-03-25-19-12-55.png" width="600">
+    <img alt="imgName" src="../images/day-6/2021-03-25-19-12-55.png" width="100%%">
     <br>
     <em></em>
 </p>
