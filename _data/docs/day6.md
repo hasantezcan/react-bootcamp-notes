@@ -24,6 +24,8 @@ Bu bölümde;
     - [Port sorunu](#port-sorunu)
     - [Github Heroku deploy entegrasyonu](#github-heroku-deploy-entegrasyonu)
 - [Travis CI ve Heroku Entegrasyonu](#travis-ci-ve-heroku-entegrasyonu)
+  - [travis-ci.com vs travis-ci.org](#travis-cicom-vs-travis-ciorg)
+  - [Bir test yazalım](#bir-test-yazalım)
 - [Contex API](#contex-api)
 
 konularından bahsedeceğiz.
@@ -617,9 +619,166 @@ Bu deployment'i `github` ile entegre etmek isterseniz de `heroku GUI` üzerinden
 </p>
 
 # Travis CI ve Heroku Entegrasyonu
-<!-- CI gitlab servisleri test ortami kurup ona göre  -->
 
+Şimdi `Travis` kullanrak bir continues integration yapısı hazırlayacağız.
 
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-16-11-06.png" width="800">
+</p>
+
+Bunun için önce heroku üzerinden `Wait for CI to pass before deploy` kısmını aktive ettik.
+
+Ve projenin kök dizininde **`.travis.yml`** içine bir görev tanımı yazıyoruz.
+
+```yml
+language: node_js
+node_js:
+  - 8
+before_install:
+  - npm install
+  - export NODE_ENV=production
+```
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-16-13-17.png" width="600">
+    <br>
+    <em></em>
+</p>
+
+Travis'i **limitsiz olarak kullanmak için** reponuzu herkese açık hale getirmeniz gerekli. Ardından Travis üzerinden içinden etegrasyon kurmak istediğiniz repoyu aktif hale getirebilirsiniz.
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-16-26-38.png" width="600">
+    <br>
+    <em>Kodluyoruz-api projesini travis'e ekledik!</em>
+</p>
+
+## travis-ci.com vs travis-ci.org
+
+Tam bu noktada fark ettiğim bir şey oldu. İki adet `travis-ci` sitesi mevcut. Birisi **`travis-ci.com`** diğeri **`travis-ci.org`**
+
+2 Mayıs 2018 tarihinden itibaren Travis CI yapılarının ücretli version dışında gizli repolarda da travis-ci.com altında belli bir sınır dahilinde bedava çalışabilceğini [duyurmuş](https://docs.travis-ci.com/user/migrate/open-source-on-travis-ci-com/#:~:text=On%20May%202nd,%202018%20Travis%20CI%20announced%20that%20open%20source%20projects%20will%20be%20joining%20private%20projects%20on%20travis-ci.com!).  
+
+`travis-ci.org` üzerinden ücretsiz şekilde private repolar ile çalışamıyorsunuz.   
+**`travis-ci.com`** üzerinde ise **private repolar ile belli bir sınır dahilinde ücretsiz şekilde çalışabiliyorsunuz.** Bu sınır aşmanı dahilinde ücretli programlara yönelebilirsiniz. [(Travis CI bizlere her ay için private replarda `10000 bedava deploy kredisi` tanımlıyor.)](https://docs.travis-ci.com/user/travis-ci-for-private/) 
+
+> **`Her` deployment'da `10 kredi` harcamış oluyorsunuz. Bu da ayda private repolarda `ücretsiz` olarak kullanabilceğiniz `1000 deployment`'a karşılık geliyor!**
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-17-27-06.png" width="600">
+    <br>
+    <em>Free plan kalan kredi ekranı</em>
+</p>
+
+- Fakat bu bedava planı seçmezseniz gizli repolarda CI'larınızı çalıştıramıyorsunuz illa bu free planı seçmeniz gerekiyor.
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-17-31-19.png" width="600">
+    <br>
+    <em></em>
+</p>
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-17-19-44.png" width="600">
+    <br>
+    <em>Travis ödeme planları</em>
+</p>
+
+Ve bu dokümanı hazırladığım tarih itibari ile (25 Mart 2021) kısa süre sonra **`travis-ci.org`**'ın kapatılacağını ve tamamı ile **`travis-ci.com`**'a geçileceğini söylüyor. 
+
+`.org` dan `.com`'a geçerken nasıl bir yol izleyeceğinize [**burada**](https://docs.travis-ci.com/user/migrate/open-source-repository-migration) ayrıntılı şekilde anlatmışlar. 
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-17-07-54.png" width="800">
+</p>
+
+Ben de bu noktadan sonra travis.com üzerinde çalışmaya devam edeceğim...
+
+## Bir test yazalım
+
+Serverin ayakta olduğunu test eden bir test yazcağız.
+
+```js
+# test/index.test.js
+
+const chai = require("chai");
+const chaiHttp = require("chai-http");
+const should = chai.should();
+const server = require("../index");
+
+chai.use(chaiHttp);
+
+describe("Node Server", () => {
+	it("should be have 200 status code", (done) => {
+		chai
+			.request(server)
+			.get("/")
+			.end((err, res) => {
+				res.should.have.status(200);
+				done();
+			});
+	});
+});
+```
+Ve ayrıca `.travis.yml`'a testlerimizi çalıştıracak script'i de eklememiz gerekiyor.
+
+```yml
+# .travis.yml
+script:
+  - npm run test
+```
+
+tabiki bu script önceliklte packge.json içinde bulunmalı
+
+```diff
+## package.json
+
+"scripts": {
+		"start": "node index.js",
+		"dev": "nodemon index.js",
++		"test": "./node_modules/.bin/mocha --exit --recursive"
+	},
+```
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-19-02-33.png" width="800">
+    <br>
+    <em>Testimiz geçiyor!</em>
+</p>
+
+Testimizi çalıştırıdğımızda bir sorun olmadığını görmekteyiz. 
+
+Fakat şimdi bu testi bozacağız ve test'de hata aldığımızda travis'in test geçmediğinde bizi uyardığını görebilelim!
+
+Kodumuzu bu hali ile github'a gönderidiğimizde. Deploy olmadığını bize bildiren hatayı göreceksiniz. 
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-19-06-14.png" width="800">
+    <br>
+    <em>Test geçmediği içi burada travis bizi uyarmakta!</em>
+</p>
+
+Travis'in sitesinde gittiğimzde ise testin geçmediğini görüyor olacağız.
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-19-07-31.png" width="800">
+</p>
+
+Ayrıca travis bize bir sorun olduğunu bildirmek için bir mail de atıyor. `Status: Broken` 
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-19-08-10.png" width="800">
+    <br>
+    <em></em>
+</p>
+
+Testimizi düzenleyip tekar geçer hale getirdikten sonra kodu tekrar pushladığımızda ise bize sorun çözüldü adında bir mail atıyor. `Status: FIX`
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-03-25-19-12-55.png" width="600">
+    <br>
+    <em></em>
+</p>
 
 # Contex API
 
