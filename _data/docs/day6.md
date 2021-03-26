@@ -27,6 +27,7 @@ Bu bölümde;
   - [travis-ci.com vs travis-ci.org](#travis-cicom-vs-travis-ciorg)
   - [Bir test yazalım](#bir-test-yazalım)
 - [Contex API](#contex-api)
+  - [useContext vs. Consumer](#usecontext-vs-consumer)
 
 konularından bahsedeceğiz.
 
@@ -779,20 +780,162 @@ Testimizi düzenleyip tekar geçer hale getirdikten sonra kodu tekrar pushladı�
 
 > Ayrıca Mehmet Hocannın [bu bloğuna](https://mehmetseven.net/github-travis-ci-heroku-entegrasyonu/) da bakabilirsin.
 # Contex API
+> Contex = kaynak - içerik
 
+React'ın çekirdeğinde bulunan bir state management yöntemidir. Componentler arasındaki veri akşını arap saçına dönürmeden (**[props drilling](https://medium.com/@jeromefranco/how-to-avoid-prop-drilling-in-react-7e3a9f3c8674)**) sağlamak için state management araçları kullanılır. Bunlardan en popülerleri **Redux** ve **Context API**'dır. Redux'ı kullanması Contex API'ye göre biraz daha komplexdir. 
 
+Bu bölümde Contex API ile nasıl stateleri idare edebilceğimize bakacağız. 
 
+![](../images/day-6/2021-03-26-18-15-41.png)
+React Props drilling vs Context API [image source](https://www.freecodecamp.org/news/clever-react-context-tricks-using-typescript-not-redux-7e2b9c7e5bf6/)
 
+> Propları en uç köke kadar taşımak zorunda kaldığımız için propları derinlere matkaplamak gibi bir ifade ile bunu ismimlendirmişler.
 
+Şimdi bir contex yapısı kuralım ve bu state mekanizması bir sitenin css temasını idare etsin.  Yani **dark modda mı** **ligth modda mı** olduğu bilgisini **contex'imiz içinden** componetlere göndereceğiz.
 
+Contex API'nin mantığı temel de şu şekilde işler bir provider (sağlayıcı) -verileri gönderen bölüm- verileri servis etmek üzere hazır olarak bekler. Eğer bir consumer (alıcı) o veriye ulaşmak isterse provider'dan o veriyi alır ve kullanır. Bu iki birim aralarında bu şekilde bir iletişime sahiptir. 
 
+Haydi işe koyulalım.
 
+Kök dizinimizde **`contexts`** adında bir klasör oluşturuyoruz.
 
+İçersine ne ile ilgili bir context üreteceksek ona uygun bir isimlendirme ile context'imizi üretiyoruz biz bu örnekte sitenin temasını kontrol edecek bir context yapısı kuracağımızdan dosyanın ismini **`ThemeContext.js`** olarak belirliyorum.
 
+Şimdi gelelim bu dosaynın içeriğine;
 
+ilk iş olarak react'ın core'unda bulunan **`createContext`** methodu ile bir context üretiyoruz.
 
+```js
+import { createContext, useState, useEffect } from "react";
 
+const ThemeContext = createContext(null);
+```
+Context'i üretirken içini boş bırakabilceğiniz gibi [**`default bir Context değeri`**](https://reactjs.org/docs/context.html#:~:text=defaultValue%20argument) de verebilirsiniz. Bu değer provider çalışmadığı zaman kullanılır.
 
+```js
+const defaultContext = {
+  theme: light
+};
+```
+
+Ardından bir provider oluşturmamız gereklidir. Provider'ı oluşturuken üreteceğimiz methodun ismine **`ThemeProvider`** diyebiliriz.**(Bunu bir high order componet gibi düşebilirsiniz)** 
+
+Bu fonksiyon parametre olarak içine gönderilen her şeyi almalıdır. Bu provider'dan faydalanan tüm componetlerin içeriği children ile buraya gelmektedir. Bu sebeple içine **`{ children }`** propsunu veririz. 
+
+Return ederken de **`ThemeContext.Provider`** ile birlikte **(context'imizin provider'ı asıl olarak burasıdır `ThemeProvider` olarak isimlendirdiğimiz bölümün bir ehemmiyeti yoktur.)** geriye provider içine tanımladığımız **değerler** (**value**) ve provider'a gönderilen tüm children'lar ile birlikte geri döndürürüz. 
+
+```js
+export const ThemeProvider = ({ children }) => {
+	const theme = localStorage.getItem("defaultTheme");
+
+	return (
+		<ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+	);
+};
+```
+
+Hepsi ile birleşmiş halde görmek istersek ise;
+
+```js
+// context/ThemeContext.js
+import { createContext, useState, useEffect } from "react";
+
+const ThemeContext = createContext(null);
+
+const defaultTheme = localStorage.getItem("defaultTheme");
+
+export const ThemeProvider = ({ children }) => {
+	const [theme, setTheme] = useState(defaultTheme || "light");
+
+	const values = {
+		theme,
+		setTheme,
+	};
+
+	useEffect(() => {
+		localStorage.setItem("defaultTheme", theme);
+	}, [theme]);
+
+	return (
+		<ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>
+	);
+};
+
+export default ThemeContext;
+```
+
+Bu şeklide contextimizi oluşturmuş olduk. Şimdi bu contextimizi componetler içine yerleştirmemiz gerekiyor.
+
+İlk uğratacağımız durak `App.js` 
+
+`ThemeProvider` **highOrder Component'ini** **`ThemeContext'imiz`** içinden buraya import ediyoruz.
+
+Bu noktadan sonra ThemeProvider Component'ini tüm projeyi saracak şekilde yerleştiriyoruz. Bu sayaede köklere doğru gidildikçe provider'a ulaşmak isteyen tüm componentler ile bir bağ kurmuş oluyoruz.
+
+```js
+// App.js
+import "./App.css";
+
+import { ThemeProvider } from "./contexts/ThemeContext";
+import Container from "./Container";
+
+function App() {
+	return (
+		<ThemeProvider>
+			<Container />
+		</ThemeProvider>
+	);
+}
+
+export default App;
+```
+App.js'de yapammız gereken implementasyonu gerçekleştirdik.
+
+Şimdi de componentlerimizden birine gidelim ve oradan contex'deki statelerimize erişmeye çalışalım. 
+
+Title componentimizde şu an aktif olan temayı göstermek istiyoruz bunu yapmak için;
+
+Öncelikle React'ın core'unda bulunan **`useContext`** Hook'u ile kullanmak istediğimiz context'i de bu componenet'e dahil edip o context içinden ulaşmak istediğimiz value'lere uzanabilriz. 
+
+İşte context API'ı kullanmak bu kadar basit.
+
+```js
+// src/components/Title.js
+import { useContext } from "react";
+
+import ThemeContext from "../contexts/ThemeContext";
+
+function Title() {
+	const { theme } = useContext(ThemeContext);
+
+	return <div>Active Theme: {theme}</div>;
+}
+
+export default Title;
+```
+## useContext vs. Consumer
+> Referance: [Dave Ceddia Oct 22, 2020](https://daveceddia.com/usecontext-hook/#:~:text=useContext%20vs.%20Consumer:%20First,%20the%20hard%20way) 
+
+Component içinden bu context'e ulaşamanın bir yolu daha var. Bu yol nispeten artık daha az kullanılsada görmeniz muhtemel o sebeple görünce bu da ne be! demeyin diye bundan da bahsetmek istedim.  
+
+```js
+// src/components/Title.js
+import React from "react";
+
+import ThemeContext from "../contexts/ThemeContext";
+
+function Title() {
+
+  return (
+      <ThemeContext.Consumer>
+        {theme => <div>Active Theme: {theme}</div>}
+      </ThemeContext.Consumer>
+    );
+}
+
+export default Title;
+```
+**`useContext`** Hook'u olmadan önce provide ettiğimiz verileri bu şekilde consume ediyoruduk. Şimdi elimizde useContext Hook'u olduğunan ileriye dönük projelerde onu kullanmaızı tavisye ederim. 
 
 
 
