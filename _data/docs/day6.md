@@ -28,6 +28,7 @@ Bu bölümde;
   - [Bir test yazalım](#bir-test-yazalım)
 - [Contex API](#contex-api)
   - [useContext vs. Consumer](#usecontext-vs-consumer)
+  - [Custom Context API Hook'ları](#custom-context-api-hookları)
 
 konularından bahsedeceğiz.
 
@@ -920,7 +921,8 @@ Component içinden bu context'e ulaşamanın bir yolu daha var. Bu yol nispeten 
 
 ```js
 // src/components/Title.js
-import React from "react";
+import React from "react"; 
+//EK BILGI: Artık react'ı import etmenize gerek yok!
 
 import ThemeContext from "../contexts/ThemeContext";
 
@@ -936,6 +938,244 @@ function Title() {
 export default Title;
 ```
 **`useContext`** Hook'u olmadan önce provide ettiğimiz verileri bu şekilde consume ediyoruduk. Şimdi elimizde useContext Hook'u olduğunan ileriye dönük projelerde onu kullanmaızı tavisye ederim. 
+
+Genel kullanım bu şekilde.. 
+
+## Custom Context API Hook'ları
+> **Context API with Hocs**
+
+Şimdi işleri biraz daha değiştiricez. Context'lerin içinde var olan provider'ları `HOCS` adlı bir klasör altında toplayacağız. Bu sayede contex ile logic kısmını context'den ayırmış olacağız. 
+
+Ayrıca bu kullanım ile birlikte ayrıdığımız provider'lar birer `customHook` olmuş olacaklar. Component'ler içinde onları `useContext` ile çağırmak yerine `useContex'inAdı` şekilde bir kullanım ile çağırmış olacağız. Bu durum **kod okunurluğunu** bir hayli artırmış olacak. 
+
+Biraz soyut kalmış olabilir hızlı bir **pratikle** bunu deneyelim. 
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/practice.gif" width="50%">
+    <br>
+    <em>Practice Progress GIF By <a href="https://giphy.com/gifs/nuevacreative-practice-progress-makes-lSyKs4YESHzlt87gBE">Nueva Creative</a></em>
+</p>
+
+Şimdi yine bir **tema kontrol contex'i** kuracağız. Bu aradaki farkı daha rahat görebilmemizi sağlayacak.
+
+Başlangıç olarak yine `src dizini` altına `Context` ismi ile bir klasör açıyoruz context'lerimizi bu klasör altında birktireceğiz. 
+
+Context'imizi yazmaya başlayalım.
+
+```js
+// src/Cotext/Theme.js
+
+import { createContext, useContext } from "react";
+
+const defaultContext = {
+  theme: {},
+  changeTheme: () => {}
+};
+
+const ThemeContext = createContext(defaultContext);
+
+export const ThemeProvider = ThemeContext.Provider;
+export const useTheme = () => useContext(ThemeContext);
+```
+
+Evet deminki örnekten farklı olan bir çok şey görüyoruz burada. Hadi bunlara detaylıca değinelim.
+
+**1-** Bu örnekte `useContext`'i direk Context içinde kullandığımızı görmekteyiz. Bunun sebebi `ThemeContext`'i direkt useContext kullnarak export etmemiz.  
+
+```diff
+// src/Cotext/Theme.js
+
++ import { createContext, useContext } from "react";
+
+const defaultContext = {
+  theme: {},
+  changeTheme: () => {}
+};
+
+const ThemeContext = createContext(defaultContext);
+
+export const ThemeProvider = ThemeContext.Provider;
++ export const useTheme = () => useContext(ThemeContext);
+```
+
+Bunu bu şekilde servis ettiğimiz için componetler içinde **context** çağırılırken `useContext`  yerine `useTheme`'i kullanılacak. Bu da **kod okunurluğuna** katkı sağlayan bir detay.
+
+```js
+// App.js - Call Context inside of Component
+... 
+...
+...
+import { useInfo } from "../../Context/Info";
+import { useTheme } from "./Context/Theme";
+
+import "./App.scss";
+
+const App = () => {
+  const { theme } = useTheme();
+  const { group } = useInfo();
+
+  useEffect(() => {
+    window.send({ event: `PageView` });
+  }, []);
+...  
+...  
+...  
+```
+
+Görüldüğü gibi sadece `useTheme`'i import ederek kullanmak istediği state'lere onun aracılığı ile ulaşıyor.
+
+```js
+// App.js - Theme Context'inin kullanımı
+// Bir önceki code bloğunun daha da temizlenmiş hali!
+import { useTheme } from "./Context/Theme";
+
+const App = () => {
+  const { theme } = useTheme();
+...  
+...  
+```
+
+
+Diğer kullanımda **useContext**'i sadece contex'i kullancağımız zaman componet'ler içinde kullanıyorduk!
+
+Nasıl kullandığımızı hatırlayalım! 
+> Bu örneği yukarda da bulabilirsiniz...
+
+```js
+// HATIRLATMA - Bir önceki kulanım!
+// src/components/Title.js
+
+import { useContext } from "react";
+
+import ThemeContext from "../contexts/ThemeContext";
+
+function Title() {
+	const { theme } = useContext(ThemeContext);
+
+	return <div>Active Theme: {theme}</div>;
+}
+
+export default Title;
+```
+
+
+Ayrıca diğer kullanımda bütün logic işlemler context içinde gerçekleştiği için `useState`, `useEffect` gibi bir çok hook'u Context içinde kullanmıştık burada o kalabalıktan ziyade sadece `useContext` kullanıyoruz.
+
+```js
+// Bu yöntem !
+  import { createContext, useContext } from "react";
+```
+
+```js
+// Önceki kulanım !
+import { createContext, useState, useEffect } from "react";
+```
+
+**2- Peki logic kısmı nerede?**
+
+<p align="center">
+    <img alt="imgName" src="../images/day-6/2021-04-03-18-31-18.png" width="50%">
+    <br>
+    <em>File Structure</em>
+</p>
+
+Logic işlemleri kısmı tamami ile **Hocs** dizini içinde gerçekleşiyor. Bu dizin altında her context'in bir hocs'u oluyor. Hocs'lar içinde provider'lar çalışıyor. İsimlendirmesini de **With-theme** şeklinde yapıyoruz. Böylece bu dosya, theme context'ine yardımcı gibi bir mana veriyor.
+
+Şimdi gelin `With-theme.js` yani Theme contex'inin provider'ının içeriğine bakalım...
+
+```js
+import { useState } from "react";
+import { ThemeProvider } from "../Context/Theme";
+
+const themes = {
+  dark: {
+    name: 'dark',
+    background: '#343b42'
+  },
+  light: {
+    name: 'light',
+    background: '#fff'
+  }
+}
+
+const themeName = localStorage.getItem('theme');
+
+const WithTheme = ({ children }) => {
+  const [theme, setTheme] = useState(themes[themeName] || themes.light);
+
+  const changeTheme = () => {
+    if (theme === themes.dark) {
+      localStorage.setItem('theme', 'light');
+      setTheme(themes.light);
+    } else {
+      localStorage.setItem('theme', 'dark');
+      setTheme(themes.dark);
+    }
+  }
+
+  const props = {
+    theme,
+    changeTheme,
+  };
+
+  return <ThemeProvider value={props}>{children}</ThemeProvider>;
+};
+
+export { WithTheme };
+```
+
+Görüldüğü gibi mantıksal operasyonun tümü burada gerçekleşmiş. Öncelikle Contex'in provider'ı içeriye dahil edilmiş. 
+
+```js
+import { ThemeProvider } from "../Context/Theme";
+```
+
+Sonrasında **withTheme** high order componet'i içinde işlemler yapılmış ve provider içine taşınacak value'ler yani state'ler ile geri döndürülmüş.
+
+```js
+return <ThemeProvider value={props}>{children}</ThemeProvider>;
+```
+
+Ve `withTheme` provider componet'i bu stateleri kullanacak componet grubunu kapsayacak component'in içinde çağırlmak üzere export edilir.
+
+```js
+export { WithTheme };
+```
+
+Bu örnekte provider'larımızı **index.js** içinde çağırdık. **index.js**'i en tepede bulunan component olarak düşünebilirsiniz. 
+
+```js
+// src/index.js
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.scss";
+import App from "./App";
+
+import { WithInfo } from "./Hocs/With-info";
+import { WithTheme } from "./Hocs/With-theme";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <WithTheme>
+      <WithInfo>
+        <App />
+      </WithInfo>
+    </WithTheme>
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+```
+
+**DİKKAT!** Context'ler genel olarak App.js içinde çağırıldığını görebilirsiniz. Bu kafanızı karıştırmasın. App.js component'i içinde kullanılan tüm component'leri **container** adında bir component'e taşıyıp. Tüm provider'ları yine App.js'de çağırabilirdik. Bu sadece yoğurt yeme şekli. Onun dışında değişen bir şey olmuyor. 
+
+
+Sonuç olarak bu şekilde de bir contex yapısı kurmuş olduk. Verdiği sonuç bakımından diğer yöntem ile bu yöntem arasında hiç bir fark yok. Sadece ikinci yöntem biraz daha titiz bir kullanım. 
+
+Tercih sizin :)
+
+
+
+
 
 
 
