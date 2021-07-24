@@ -7,15 +7,16 @@ Bu bölümde;
 
 - **[Neden React'ı kullanmalıyız?](#neden-reactı-kullanmalıyız)**
 - [**React Nasıl Ortaya Çıktı?**](#react-nasıl-ortaya-çıktı)
-- [**Component Nedir?**]()
+- [**Component Nedir?**](#web-componentleri-nedir)
 - [**React'ın Temelleri**]()
+  - [**JSX Nedir ?**](#jsx-nedir-)
   - [**Props**](#props)
     - [prop type](#proptypes)
     - [prop childre](#propschildren)
     - [default props](#defaultprops)
     - [...props nasıl kullanılır?](#props-nedir)
   - [**Öğeleri map etmek (unique key)**](#reactda-item-listelemek-unique-key)
-  - [**State**]()
+  - [**State**](#state)
     - [prevState](#prevstate)
     - [Global state managment - REDUX contex API](#global-state-management)
   - [**JSX'de koşula bağlı element render etme**](#jsx-içinde-koşula-bağlı-element-render-etmek)
