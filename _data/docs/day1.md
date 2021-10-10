@@ -64,7 +64,7 @@ NodeJS hakkında daha çok detaya ulaşmak için;
 
 ## Babel nedir?
 
-Babel tarayıcıların anlayamadağı yeni gelen js özellikleri eskisine çevirerek -tabi bize belli etmeden- tarayıcının bu kodları anlamasını sağlar dönüştüren dönüştürücü. Babel gibi bir başkası daha mevcut o da [sucres](https://github.com/alangpierce/sucrase)
+Babel, tarayıcıların anlayamadığı yeni gelen js özelliklerini eskisine çevirerek -tabi bize belli etmeden- tarayıcının bu kodları anlamasını sağlayan dönüştüren dönüştürücü. Babel gibi bir başkası daha mevcut o da [sucres.](https://github.com/alangpierce/sucrase)
 
 
 ## Versiyon Kontrol Sistemi nedir?
