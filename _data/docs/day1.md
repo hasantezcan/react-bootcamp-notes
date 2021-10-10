@@ -39,9 +39,9 @@ konularından bahsedeceğiz.
 
 > **V8 Google tarafından geliştirilen, Chrome web browserlarının da üzerinde çalıştığı C, C++ ve javascript dilleri ile kodlanan bir enginedir. Tek amacı Javascript kodunu makine koduna çevirmektir.**
 
-**Tek bir thread** ile bloklanmadan çalışabilme imkanı sunması, onun getirdiği en büyük avantajlardan bir tanesidir. Çünkü thread sayısı arttıkça thread'lerin kontolü de bir o kadar zorlaşır.
+**Tek bir thread** ile bloklanmadan çalışabilme imkanı sunması, onun getirdiği en büyük avantajlardan bir tanesidir. Çünkü thread sayısı arttıkça thread'lerin kontrolü de bir o kadar zorlaşır.
 
-**Asenkron mimari**: JavaScript’in olay güdümlü (event-driven), asenkron yapısı ise bunu oldukça kolaylaştırıyor. Veritabanı, başka bir web servise erişim vb. konularda, buralardan cevap gelene kadar beklemek yerine yeni istekleri hazırlayabilirsiniz.
+**Asenkron Mimari**: JavaScript’in olay güdümlü (event-driven), asenkron yapısı ise bunu oldukça kolaylaştırıyor. Veri tabanı, başka bir web servise erişim vb. konularda, buralardan cevap gelene kadar beklemek yerine yeni istekleri hazırlayabilirsiniz.
 
 
 <p align="center">
@@ -53,7 +53,7 @@ konularından bahsedeceğiz.
 </p>
 
 
-**Npm package manager** sayesinde, node ve npm yükledikten sonra verimli, stabil web servisi geliştirme ortamını bizlere sunmaktadır. Ne yapmak isterseniz isteyin istediğiniz şey büyük ihtimalle modül olarak bulunmaktadır. Npm üzerinden yapacağınız arama ile istediğiniz paketi bulabilir ve kolaylıkla kullanmaya başlayabilirsiniz.[**[0]**](https://webmaster.kitchen/node-js-nedir-ve-avantajlari-nelerdir/)
+**Npm package manager** sayesinde, node ve npm yükledikten sonra verimli, stabil web servisi geliştirme ortamını bizlere sunmaktadır. Ne yapmak isterseniz isteyin, istediğiniz şey büyük ihtimalle modül olarak bulunmaktadır. Npm üzerinden yapacağınız arama ile istediğiniz paketi bulabilir ve kolaylıkla kullanmaya başlayabilirsiniz.[**[0]**](https://webmaster.kitchen/node-js-nedir-ve-avantajlari-nelerdir/)
 
 > **NodeJS için yakın** [**tarihi geçmişi**](https://nodejs.dev/learn/a-brief-history-of-nodejs#a-little-bit-of-history).
 
