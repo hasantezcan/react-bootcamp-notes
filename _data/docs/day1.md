@@ -70,9 +70,9 @@ Babel, tarayıcıların anlayamadığı yeni gelen js özelliklerini eskisine ç
 ## Versiyon Kontrol Sistemi nedir?
 Versiyon kontol sistemleri herhangi bir proje üzerine çalışırken size yaptığınız değişiklikler ve yenilikler arasında boğulmadan temiz bir şekilde çalışabilme imkanı sunar.
 
-Version kontol sistemleri ile çalışmayı öğrendikten sonra bir proje üzerinde zamanda geri gidebilir projenizin falanca zamanki halini o günkü hali ile inceleyebilir ya da projenizin o anki halini bozmadan üzerine yeni denemeler yapabilir ve bu denemeniz istediğiniz gibi olursa ana projenize bu özelliği ekleyebilirsiniz.
+Versiyon kontol sistemleri ile çalışmayı öğrendikten sonra bir proje üzerinde zamanda geri gidebilir, projenizin falanca zamanki halini o günkü hali ile inceleyebilir ya da projenizin o anki halini bozmadan üzerine yeni denemeler yapabilir ve bu denemeniz istediğiniz gibi olursa ana projenize bu özelliği ekleyebilirsiniz.
 
-Bu söylediklerimi en başta gördüğümüz insan beyninin direk oluşturduğu versiyon kontrol sistemi ile yapmaya kalkmak bir yerde mantıklı olsa da bu yöntemle devam etmek bir yerden sonra sizi sinir krizlerine sokabilir hatta ve hatta projenizi geliştireceğim derken çalışır halinden de olmanıza sebep olablir.[**[1]**](https://hasantezcan.dev/blog/versiyon-kontrol-sistemi-git.html#:~:text=Versiyon%20Kontrol%20Sistemi%20Nedir?)
+Bu söylediklerimi, en başta gördüğümüz insan beyninin direk oluşturduğu versiyon kontrol sistemi ile yapmaya kalkmak bir yerde mantıklı olsa da bu yöntemle devam etmek bir yerden sonra sizi sinir krizlerine sokabilir hatta ve hatta projenizi geliştireceğim derken çalışır halinden de olmanıza sebep olabilir.[**[1]**](https://hasantezcan.dev/blog/versiyon-kontrol-sistemi-git.html#:~:text=Versiyon%20Kontrol%20Sistemi%20Nedir?)
 
 ## Git Nedir?
 
