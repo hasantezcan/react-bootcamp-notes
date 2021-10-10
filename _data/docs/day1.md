@@ -23,7 +23,7 @@ Bu bölümde;
 
 konularından bahsedeceğiz.
 
-## NodeJS nedir?
+## NodeJS Nedir?
 
 **NodeJS, server-side, runtime environment** uygulamalar geliştirebileceğimiz, **Javascript** ile kod geliştirilmesine imkan sağlayan “Google Chrome’un v8 Javascript Engine” üzerinde çalışan bir platformdur. **2009** yılında [Ryan Dahl](https://tr.wikipedia.org/wiki/Ryan_Dahl) üzerinde çalışması ile hayat bulmuştur.
 
@@ -62,12 +62,12 @@ NodeJS hakkında daha çok detaya ulaşmak için;
   - [**developer.ibm.com/node-js**](https://developer.ibm.com/languages/node-js/gettingstarted/)
 
 
-## Babel nedir?
+## Babel Nedir?
 
 Babel, tarayıcıların anlayamadığı yeni gelen js özelliklerini eskisine çevirerek -tabi bize belli etmeden- tarayıcının bu kodları anlamasını sağlayan dönüştüren dönüştürücü. Babel gibi bir başkası daha mevcut o da [sucres.](https://github.com/alangpierce/sucrase)
 
 
-## Versiyon Kontrol Sistemi nedir?
+## Versiyon Kontrol Sistemi Nedir?
 Versiyon kontol sistemleri herhangi bir proje üzerine çalışırken size yaptığınız değişiklikler ve yenilikler arasında boğulmadan temiz bir şekilde çalışabilme imkanı sunar.
 
 Versiyon kontol sistemleri ile çalışmayı öğrendikten sonra bir proje üzerinde zamanda geri gidebilir, projenizin falanca zamanki halini o günkü hali ile inceleyebilir ya da projenizin o anki halini bozmadan üzerine yeni denemeler yapabilir ve bu denemeniz istediğiniz gibi olursa ana projenize bu özelliği ekleyebilirsiniz.
