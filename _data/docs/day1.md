@@ -23,7 +23,7 @@ Bu bölümde;
 
 konularından bahsedeceğiz.
 
-## NodeJS nedir?
+## NodeJS Nedir?
 
 **NodeJS, server-side, runtime environment** uygulamalar geliştirebileceğimiz, **Javascript** ile kod geliştirilmesine imkan sağlayan “Google Chrome’un v8 Javascript Engine” üzerinde çalışan bir platformdur. **2009** yılında [Ryan Dahl](https://tr.wikipedia.org/wiki/Ryan_Dahl) üzerinde çalışması ile hayat bulmuştur.
 
@@ -39,9 +39,9 @@ konularından bahsedeceğiz.
 
 > **V8 Google tarafından geliştirilen, Chrome web browserlarının da üzerinde çalıştığı C, C++ ve javascript dilleri ile kodlanan bir enginedir. Tek amacı Javascript kodunu makine koduna çevirmektir.**
 
-**Tek bir thread** ile bloklanmadan çalışabilme imkanı sunması, onun getirdiği en büyük avantajlardan bir tanesidir. Çünkü thread sayısı arttıkça thread'lerin kontolü de bir o kadar zorlaşır.
+**Tek bir thread** ile bloklanmadan çalışabilme imkanı sunması, onun getirdiği en büyük avantajlardan bir tanesidir. Çünkü thread sayısı arttıkça thread'lerin kontrolü de bir o kadar zorlaşır.
 
-**Asenkron mimari**: JavaScript’in olay güdümlü (event-driven), asenkron yapısı ise bunu oldukça kolaylaştırıyor. Veritabanı, başka bir web servise erişim vb. konularda, buralardan cevap gelene kadar beklemek yerine yeni istekleri hazırlayabilirsiniz.
+**Asenkron Mimari**: JavaScript’in olay güdümlü (event-driven), asenkron yapısı ise bunu oldukça kolaylaştırıyor. Veri tabanı, başka bir web servise erişim vb. konularda, buralardan cevap gelene kadar beklemek yerine yeni istekleri hazırlayabilirsiniz.
 
 
 <p align="center">
@@ -53,7 +53,7 @@ konularından bahsedeceğiz.
 </p>
 
 
-**Npm package manager** sayesinde, node ve npm yükledikten sonra verimli, stabil web servisi geliştirme ortamını bizlere sunmaktadır. Ne yapmak isterseniz isteyin istediğiniz şey büyük ihtimalle modül olarak bulunmaktadır. Npm üzerinden yapacağınız arama ile istediğiniz paketi bulabilir ve kolaylıkla kullanmaya başlayabilirsiniz.[**[0]**](https://webmaster.kitchen/node-js-nedir-ve-avantajlari-nelerdir/)
+**Npm package manager** sayesinde, node ve npm yükledikten sonra verimli, stabil web servisi geliştirme ortamını bizlere sunmaktadır. Ne yapmak isterseniz isteyin, istediğiniz şey büyük ihtimalle modül olarak bulunmaktadır. Npm üzerinden yapacağınız arama ile istediğiniz paketi bulabilir ve kolaylıkla kullanmaya başlayabilirsiniz.[**[0]**](https://webmaster.kitchen/node-js-nedir-ve-avantajlari-nelerdir/)
 
 > **NodeJS için yakın** [**tarihi geçmişi**](https://nodejs.dev/learn/a-brief-history-of-nodejs#a-little-bit-of-history).
 
@@ -62,17 +62,17 @@ NodeJS hakkında daha çok detaya ulaşmak için;
   - [**developer.ibm.com/node-js**](https://developer.ibm.com/languages/node-js/gettingstarted/)
 
 
-## Babel nedir?
+## Babel Nedir?
 
-Babel tarayıcıların anlayamadağı yeni gelen js özellikleri eskisine çevirerek -tabi bize belli etmeden- tarayıcının bu kodları anlamasını sağlar dönüştüren dönüştürücü. Babel gibi bir başkası daha mevcut o da [sucres](https://github.com/alangpierce/sucrase)
+Babel, tarayıcıların anlayamadığı yeni gelen js özelliklerini eskisine çevirerek -tabi bize belli etmeden- tarayıcının bu kodları anlamasını sağlayan dönüştüren dönüştürücü. Babel gibi bir başkası daha mevcut o da [sucres.](https://github.com/alangpierce/sucrase)
 
 
-## Versiyon Kontrol Sistemi nedir?
+## Versiyon Kontrol Sistemi Nedir?
 Versiyon kontol sistemleri herhangi bir proje üzerine çalışırken size yaptığınız değişiklikler ve yenilikler arasında boğulmadan temiz bir şekilde çalışabilme imkanı sunar.
 
-Version kontol sistemleri ile çalışmayı öğrendikten sonra bir proje üzerinde zamanda geri gidebilir projenizin falanca zamanki halini o günkü hali ile inceleyebilir ya da projenizin o anki halini bozmadan üzerine yeni denemeler yapabilir ve bu denemeniz istediğiniz gibi olursa ana projenize bu özelliği ekleyebilirsiniz.
+Versiyon kontol sistemleri ile çalışmayı öğrendikten sonra bir proje üzerinde zamanda geri gidebilir, projenizin falanca zamanki halini o günkü hali ile inceleyebilir ya da projenizin o anki halini bozmadan üzerine yeni denemeler yapabilir ve bu denemeniz istediğiniz gibi olursa ana projenize bu özelliği ekleyebilirsiniz.
 
-Bu söylediklerimi en başta gördüğümüz insan beyninin direk oluşturduğu versiyon kontrol sistemi ile yapmaya kalkmak bir yerde mantıklı olsa da bu yöntemle devam etmek bir yerden sonra sizi sinir krizlerine sokabilir hatta ve hatta projenizi geliştireceğim derken çalışır halinden de olmanıza sebep olablir.[**[1]**](https://hasantezcan.dev/blog/versiyon-kontrol-sistemi-git.html#:~:text=Versiyon%20Kontrol%20Sistemi%20Nedir?)
+Bu söylediklerimi, en başta gördüğümüz insan beyninin direk oluşturduğu versiyon kontrol sistemi ile yapmaya kalkmak bir yerde mantıklı olsa da bu yöntemle devam etmek bir yerden sonra sizi sinir krizlerine sokabilir hatta ve hatta projenizi geliştireceğim derken çalışır halinden de olmanıza sebep olabilir.[**[1]**](https://hasantezcan.dev/blog/versiyon-kontrol-sistemi-git.html#:~:text=Versiyon%20Kontrol%20Sistemi%20Nedir?)
 
 ## Git Nedir?
 
