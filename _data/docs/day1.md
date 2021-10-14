@@ -76,9 +76,9 @@ Bu söylediklerimi, en başta gördüğümüz insan beyninin direk oluşturduğu
 
 ## Git Nedir?
 
-[**Git**](https://git-scm.com/) özgür ve dağıtık bir version kontrol sistemidir. GIT, linux’ü geliştiren ekibin o zamanlar kullandıkları [**BitKeeper**](https://www.bitkeeper.org/) adlı proje yönetim araçının ücretsiz lisans anlaşmasının bitmesi ile Linus Toravalds ve ekibinin BitKeeper’ı kullanırken yaşadıkları sıkıntıları da göz ederek tasarladıkları 2005 yılında ortaya çıkan bir versiyon kontrol sistemidir.
+[**Git**](https://git-scm.com/) özgür ve dağıtık bir version kontrol sistemidir. GIT, linux’ü geliştiren ekibin o zamanlar kullandıkları [**BitKeeper**](https://www.bitkeeper.org/) adlı proje yönetim aracının ücretsiz lisans anlaşmasının bitmesi ile Linus Toravalds ve ekibinin BitKeeper’ı kullanırken yaşadıkları sıkıntıları da göz ederek tasarladıkları 2005 yılında ortaya çıkan bir versiyon kontrol sistemidir.
 
-Git ismi, Linus Torvalds tarfından Git’in ilk versiyonunun yayımlanması ile verilmişitir. Aslında Git kelimesi İngiliz ingilicesinde **“aptal”** anlamına gelen argo bir kelime. [**[2]**](https://hasantezcan.dev/blog/versiyon-kontrol-sistemi-git.html#:~:text=Git%20Nedir?)
+Git ismi, Linus Torvalds tarfından Git’in ilk versiyonunun yayımlanması ile verilmiştir. Aslında Git kelimesi İngiliz ingilizcesinde **“aptal”** anlamına gelen argo bir kelime. [**[2]**](https://hasantezcan.dev/blog/versiyon-kontrol-sistemi-git.html#:~:text=Git%20Nedir?)
 
 <p align="center">
     <img alt="imgName" src="../images/day-1/git_dictionary.png" width="500">
@@ -94,7 +94,7 @@ Ayrıca [Linus Torvalds](https://tr.wikipedia.org/wiki/Linus_Torvalds) “**GIT*
 - Düzgün çalışıp iş gördüğünde ve sizi mutlu ettiğinde **Global Information Tracker** (Küresel bilgi takip sistemi)
 - İstediğiniz gibi çalışmazsa ve sizi çıldırtırsa da **“Goddamn Idiotic Truckload of shit”**
 
-## Git nasıl kullanılır?
+## Git nasıl Kullanılır?
 
 Bu konuyu geçtiğimiz sene topluluk için yaptığım bir sunumda kaynak olsun diye yazıya geçirmiştim. Sizi direkt oraya yönlendiriyorum... [**hasantezcan.dev/versiyon-kontrol-sistemi-git**](https://hasantezcan.dev/blog/versiyon-kontrol-sistemi-git.html#:~:text=Git%20Nas%C4%B1l%20kullan%C4%B1l%C4%B1r?)
 
@@ -108,7 +108,7 @@ Ayrıca github nasıl kullanılır kısmında ise github'ın hazırlamış oldu�
 Bu başlık altında en yaygın ve temel JS kavramlarını kısa kısa üzerinden geçerek bilgi edineceğiz.
 
 ## Hello world
-Aldığım ilk algortima dersinde `"hello world!"` için yazılımcının Bismillah'ı demişti Mustafa Tosun hocam. Buradan ona selamlar olsun. Hadi başlayalım.
+Aldığım ilk algoritma dersinde `"hello world!"` için yazılımcının Bismillah'ı demişti Mustafa Tosun hocam. Buradan ona selamlar olsun. Hadi başlayalım.
 
 ```js
 console.log('Hello Node!');
@@ -142,7 +142,7 @@ if ("")
 ```
   
 Yukardakiler dışında her şey **truthy** (doğru) olarak döner.   
-Doğru olark dönenler:
+Doğru olarak dönenler:
 ```js
 if (true)
 if ({})
@@ -181,7 +181,7 @@ arg1 arg2 arg3 undefined
 > *Bir fonksiyon için gereken **parameteleri** `yanlızca bir defa` tanımlarız. Fakat o fonksiyonu kullanırken içine `her seferinde farklı` **argümanlar** göndeririz.*
 
 ### `Rest` Parameters
-Fonskiyona gereken parameteleri bu şekilde değişekenlik gösterecek şekilde tanımlayabiliriz.
+Fonksiyona gereken parametreleri bu şekilde değişkenlik gösterecek şekilde tanımlayabiliriz.
 
 ```js
 let arr = [1, 2, 3];
