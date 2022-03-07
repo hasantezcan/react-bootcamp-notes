@@ -19,17 +19,17 @@ Bu bölümde;
   - [Module oluşturmak ve export etmek](#module-oluşturmak-ve-export-etmek)
   - [`Module.exports` ile `exports` arasındaki fark nedir?](#moduleexports-ile-exports-arasındaki-fark-nedir)
   - [Export default nedir?](#export-default-nedir)
-- [Ek bilgiler](#ek-bilgiler)
-  - [gereksiz çalışan portları kapatma](#gereksiz-çalışan-portları-kapatma)
-  - [express generator](#express-generator)
-- [ES6+ standartları ile export import](#es6-standartları-ile-export-import)
-  - [nodemon](#nodemon)
-  - [sucrase](#sucrase)
-- [`async, await` vs `then chain`](#async-await-vs-then-chain)
-- [Bir React Projesi başlatmak](#bir-react-projesi-başlatmak)
-  - [create react app](#create-react-app)
+- [Ek Bilgiler](#ek-bilgiler)
+  - [Gereksiz Çalışan Portları Kapatma](#gereksiz-çalışan-portları-kapatma)
+  - [Express Generator](#express-generator)
+- [ES6+ Standartları İle Export İmport](#es6-standartları-i̇le-export-i̇mport)
+  - [Nodemon](#nodemon)
+  - [Sucrase](#sucrase)
+- [`Async, Await` vs `Then Chain`](#async-await-vs-then-chain)
+- [Bir React Projesi Başlatmak](#bir-react-projesi-başlatmak)
+  - [Create React App](#create-react-app)
   - [NextJs](#nextjs)
-  - [Ne zaman next.js kullanmalıyız?](#ne-zaman-nextjs-kullanmalıyız)
+  - [Ne Zaman Next.js Kullanmalıyız?](#ne-zaman-nextjs-kullanmalıyız)
   - [Ne zaman Create-React-App kullanmalıyız?](#ne-zaman-create-react-app-kullanmalıyız)
   - [Nedir bu `server-side-rendering` ve `client-side-redering` ?](#nedir-bu-server-side-rendering-ve-client-side-redering-)
 - [Kaynakça](#kaynakça)
@@ -50,7 +50,7 @@ Açılımı **Node Package Manager**'dır. Isaac [Z. Schlueter](https://twitter.
 
 > “npm makes it easy for JavaScript developers to share and reuse code, and it makes it easy to update the code that you’re sharing” — npmjs.org
 
-Yeni bir js projesine başladman önce bir js projesi künyesi oluşturmak isterseniz (önerilir); önce npm'i o dizine kurmalısnız.
+Yeni bir js projesine başlamadan önce bir js projesi künyesi oluşturmak isterseniz (önerilir); önce npm'i o dizine kurmalısnız.
 
 ```bash
 npm init
@@ -168,7 +168,7 @@ Yeni veya mevcut projeler için tüm npm iş akışınızı çok az çabayla Yar
 
   Yarn `(released 2016)`, npm'e`(2010)` göre daha yeni bir paket yöneticisi olduğundan sürüm desteği npm kadar geniş değil.
   
-  > **Bir projeye paket yüklemeye hangi paket yöneticisi ile başladıysanız onunla devam etmeniz önerilir. Diyelim `npm` ile birsürü paket kurulumu yaptınız ve bir sonraki paketi `yarn` ile kurdunuz. Projenin ilerleyen zamanlarında bu gittiğimiz yol bize sorun yaratabilir.**
+  > **Bir projeye paket yüklemeye hangi paket yöneticisi ile başladıysanız onunla devam etmeniz önerilir. Diyelim `npm` ile bir sürü paket kurulumu yaptınız ve bir sonraki paketi `yarn` ile kurdunuz. Projenin ilerleyen zamanlarında bu gittiğimiz yol bize sorun yaratabilir.**
   
   > **Projede hangi paket yöneticisine sahip olduğunuzu öğrenmek isterseniz proje dizininize bakmalısınız. `Npm` kullanıyorsanız `package.json.lock` olacaktır. Eğer `yarn` kullanıyosanız `yarn.lock`'ı proje dizininizde görebilirsiniz.**
 
@@ -243,7 +243,7 @@ npm install komutunu çalıştırdığınız anda `package-lock.json` da güncel
 
 - Tutarlı bir yükleme ve uyumlu bağımlılıklar sağlamak için `package-lock`'ı kullanmalısınız
 
-- `package-lock` dosyanızı versiyon kontrol ile takip etmelisiniz. *(`.gitignore` içne koyMAMALSINIZ!)*
+- `package-lock` dosyanızı versiyon kontrol ile takip etmelisiniz. *(`.gitignore` içne koyMAMALISINIZ!)*
 
 - `package-lock`'ı her seferinde silmenize gerek yok! `npm install`ı çalıştırmak `package.lock`'ı sizin için tekrar oluşturacaktır.
 
@@ -340,7 +340,7 @@ console.log(`User: ${user.getName()}`);
 ```
 `user.js` içinde oluşturduğumuz getName fonksiyonunu `index.js` içinde `require` (ihtiyacı olmak) ile çağırarak user değişkenine atadık ve sonrasında user içinden `getName` fonksiyonuna ulaştık. 
 
-export etmek istediğimiz birden fazla fonskiyon olsayıdı.
+export etmek istediğimiz birden fazla fonksiyon olsaydı.
 
 ```js
 // user.js
@@ -446,17 +446,17 @@ console.log(
 // Hasan lives in Denizli and he was born on 19.08.1998
 ```
 ----
-# Ek bilgiler
+# Ek Bilgiler
 
-## gereksiz çalışan portları kapatma
+## Gereksiz Çalışan Portları Kapatma
 
 3000 portu ya da herhangi port'da açık kalmış bir servis var ise o servisi **`npx kill-port 8080`** ile kapatabilirsiniz. - 
 > [Stackoverflow](https://stackoverflow.com/a/62406427/10694425)
 
-## express generator
+## Express Generator
 > https://expressjs.com/en/starter/generator.html
 
-Express generator ile hılzı bir uygulama iskeleti oluşturabilirsiniz.
+Express generator ile hızlı bir uygulama iskeleti oluşturabilirsiniz.
 
 
 <p align="center">
@@ -469,7 +469,7 @@ Express generator ile hılzı bir uygulama iskeleti oluşturabilirsiniz.
 
 ---
 
-# ES6+ standartları ile export import
+# ES6+ Standartları İle Export İmport
 
 [Biraz önce](#js-different-module-formats) ES6 öncesi export import nasıl yapılır görmüştük şimdi ise bu işlerin es6 ile birlikte nasıl değiştiğini göreceğiz.
 
@@ -491,15 +491,15 @@ import { name, surname, fullName } from "./myModule";
 console.log(name, surname, fullName);
 ```
 
-## nodemon
+## Nodemon
 > https://github.com/remy/nodemon
 
 Yazdığınız kod'a yaptığınız değişiklikleri canlı olarak takip etmenizi sağlar.
 
-## sucrase
+## Sucrase
 > https://github.com/alangpierce/sucrase
 
-**Sucrase**, [babel'a](https://github.com/babel/babel) aleternatif olarak kullanılabilcek bir compalier. Desteklenen ortamlarınız belirli özellikleri yerel olarak desteklemediğinde, Sucrase bu özellikleri desteklenen bir sürüme indirmenize yardımcı olacaktır. 
+**Sucrase**, [babel'a](https://github.com/babel/babel) alternatif olarak kullanılabilcek bir compalier. Desteklenen ortamlarınız belirli özellikleri yerel olarak desteklemediğinde, Sucrase bu özellikleri desteklenen bir sürüme indirmenize yardımcı olacaktır. 
 
 Bu yazım ile yazdığınız kodlar
 
@@ -519,7 +519,7 @@ function greet(input) {
 Nodemon ve sucrase kurulumu.
 
 ---
-# `async, await` vs `then chain`
+# `Async, Await` vs `Then Chain`
 > **Promises, async/await**
 
  **Bu aşağıda gördüğünüz iki kod praçası da aynı işi yapmakta. `Hangisi daha derli toplu görünüyor?` `Aralarındaki fark nedir?`**
@@ -564,7 +564,7 @@ ES6 ile birlikte gelen async await yapısı ile birbirini beklemesi gereken iste
 `Callback`'ler içinde hata yakalamalarını `catch` ile yapabiliyorduk. `Async await` yapısında hata yakalaması yapmak için de bir `try catch` yapısı kurmamız gerekiyor.
 
 ---
-# Bir React Projesi başlatmak
+# Bir React Projesi Başlatmak
 React Js'i bir çok şekilde kullanma imkanınız mevcut. En temelde yapmanız gerekten tek şey React'ı proje dizininize dahil etmek. 
 
 Fakat React Js'i dahil etmekten sonra bir proje oluşturma yolunda yapmanız gereken bir çok konfigurasyon olacak. Her proje başlangıçında bu ayarlamaları tekrar tekrar yapmamak bi yerden sonra baş edilebilir olmaktan çıkıyor. Bu sebeple hem bu ayarları önceden hazırlamış hem de daha iyi optimize ayarlar ile bunu yapmış olan proje başlatıcılardan faydalanırız.
@@ -573,33 +573,33 @@ Proje başlatıcıları sizin için öncesinde bir çok ayarlamayı hazırlamı�
 
 Şimdi gelin bu proje başlatıcılarını tanıyalım.
 
-## create react app
+## Create React App
 > https://create-react-app.dev/
 
 Bir ReactJS uygulamasını sıfırdan kurmak uzun ve karmaşık bir süreç olabilir. Babel, tüm eklentileri olan Webpack, kütüphaneleri test etme vb. Gibi her şeyi düşünmelisiniz. Ayrıca çözülmesi birkaç saat sürebilen bazı sorunları da beraberinde getirebilir.
 
-Ancak neyse ki, birçok durumda kullanılabilecek hızlı ve kolay bir çözüm var ve bu, React Uygulaması Oluşturma aracı. Basit bir ReactJS uygulaması oluşturmak ve onunla çalışmaya başlamak için bunu bilgisayarınıza kurmanız ve basit komutu çalıştırmanız yeterlidir.
+Neyse ki, birçok durumda kullanılabilecek hızlı ve kolay bir çözüm var ve bu, React Uygulaması Oluşturma aracı. Basit bir ReactJS uygulaması oluşturmak ve onunla çalışmaya başlamak için bunu bilgisayarınıza kurmanız ve basit komutu çalıştırmanız yeterlidir.
 
 Create React App, tek komutla basit bir konfigürasyonla yeni bir tek sayfalı uygulama oluşturarak yeni bir ReactJS projesinin önyüklenmesine yardımcı olan, Facebook geliştiricileri tarafından oluşturulan bir araçtır.
 
-> ### Create React App'in avantajları
+> ### Create React App'in Avantajları
 
 - **İyileştirilmemiş. (It’s unopinionated.)**
   İstediğiniz kütüphaneleri kullanabilirsiniz, kural veya öneri yoktur. Tercih ettiğiniz routing kütüphanesi kullanabilirsiniz.
 -  **Client-side'da render edilir. (İstemci tarafında oluşturulur)** 
 
-> ### Create React App'in dezavantajları
+> ### Create React App'in Dezavantajları
 
 - **Özelleştirmesi zahmetlidir**
   Uygulamanızı özelleştirmenin belirli bir yolu yoktur. Webpack yapılandırmanızı özelleştirmeniz gerekiyorsa, tek seçeneğiniz craco veya eject gibi üçüncü taraf bir araç kullanmaktır.
 
 - **SEO tarafında başarısız**
- CRA ile oluşturudğumuz uygulamlar istemci tarfında render edildiğinden dolayı google tarafından indexlenmesi kolay olmuyor bu durum da bizi SEO açısından başarısız kılıyor.  
+ CRA ile oluşturduğumuz uygulamalar istemci tarfında render edildiğinden dolayı google tarafından indexlenmesi kolay olmuyor bu durum da bizi SEO açısından başarısız kılıyor.  
 
 ## NextJs
-NextJS'yi Create-React-App ile karşılaştırmak neredeyse haksızlıktır çünkü NextJS çok daha fazlasıdır. CRA, React uygulamaları oluşturuken kullanılan bir iskeletken (template) NextJS başlı başına bir **Framework**'tür. Kutudan çıkar çıkmaz size sserver-side rendering, static-site generation, serverless functions ve çok daha fazlasını sunar. Performanslı web uygulamaları oluşturmak için ihtiyacınız olan her şeyi size veren bir araç kutusudur.
+NextJS'yi Create-React-App ile karşılaştırmak neredeyse haksızlıktır çünkü NextJS çok daha fazlasıdır. CRA, React uygulamaları oluştururken kullanılan bir iskeletken (template) NextJS başlı başına bir **Framework**'tür. Kutudan çıkar çıkmaz size server-side rendering, static-site generation, serverless functions ve çok daha fazlasını sunar. Performanslı web uygulamaları oluşturmak için ihtiyacınız olan her şeyi size veren bir araç kutusudur.
 
-> ### NextJs'in avantajları
+> ### NextJs'in Avantajları
 
 - **It blazing fast.**
   Sunucu tarafında işleme ve statik site oluşturma sayesinde, NextJS uygulamaları çok hızlı. NextJS, bizim için birçok performans optimizasyonuyla ilgilenir ve bize varsayılan olarak performanslı olarak gelir.
@@ -611,16 +611,16 @@ NextJS'yi Create-React-App ile karşılaştırmak neredeyse haksızlıktır çü
   NextJS, uygulamalarımızda API'ler oluşturmanın hızlı ve kolay bir yolunu sağlıyor.
 
 - **Özelleştirmesi gayet kolaydır.**
-  extJS, babel veya webpack yapılandırmamızı özelleştirmemize izin verir. Web paketi yükleyicileri veya babel eklentileri eklemek oldukça kolaydır.
+  NextJS, babel veya webpack yapılandırmamızı özelleştirmemize izin verir. Web paketi yükleyicileri veya babel eklentileri eklemek oldukça kolaydır.
 
 
-> ### Create React App'in dezavantajları
+> ### Create React App'in Dezavantajları
 
 - **Bağnazıdır**
   NextJS kendi route sistemi dışında bir şey kullanmanıza izin vermez.
 
 
-## Ne zaman next.js kullanmalıyız?
+## Ne Zaman Next.js Kullanmalıyız?
 
 - **landing page hazırlarken**
   NextJS, landing page'ler gibi sunum sayfaları hazırlamada bir numaradır.
@@ -634,7 +634,7 @@ NextJS'yi Create-React-App ile karşılaştırmak neredeyse haksızlıktır çü
 ## Ne zaman Create-React-App kullanmalıyız?
 
 - **Üye bazlı bir sisteminiz varsa**
-  Uygulamanız yalnızca kimliği doğrulanmış kullanıcılar tarafından kullanılabiliyorsa, SSRfaydalarının çoğunu kaybeder. Bu kullanım örneği için, istemci tarafından oluşturulan uygulamalar gayet iyi çalışır ve barındırılması daha kolay ve daha ucuzdur.
+  Uygulamanız yalnızca kimliği doğrulanmış kullanıcılar tarafından kullanılabiliyorsa, SSR faydalarının çoğunu kaybeder. Bu kullanım örneği için, istemci tarafından oluşturulan uygulamalar gayet iyi çalışır ve barındırılması daha kolay ve daha ucuzdur.
 
 - **Web uygulamaları oluştururken**
   Web uygulamaları genel olarak SSR'dab daha az yararlanır. Genellikle tekrar eden kullanıcılar tarafından kullanılırlar ve önbelleğe almayı, SSR maliyeti veya sıkıntısı olmadan onlara ışık hızında yükleme süreleri sağlamak için kullanabiliriz.
