@@ -219,7 +219,7 @@ Es6 ile birlikte değişkenlerimize hayat veren iki yeni tanımlayıcı ile tan�
 ### `var`
 
 ES6 öncesi kullanılan tek tanımlama ifadesidir.
-> Arkdaşlar bu arada geçtiğimiz haziranda -2020 Haziran- [**ES11**](https://en.wikipedia.org/wiki/ECMAScript#ES2020) duyurldu. Bunu kısa bir bilgi olarak geçmek istedim. 
+> Arkadaşlar bu arada geçtiğimiz haziranda -2020 Haziran- [**ES11**](https://en.wikipedia.org/wiki/ECMAScript#ES2020) duyuruldu. Bunu kısa bir bilgi olarak geçmek istedim. 
 
 Var ile tanımladığımız değişkenleri **tekrar tanımlayabiliriz.**
 
@@ -302,14 +302,14 @@ console.log(pokemons);
 
 // TypeError: Assignment to constant variable.
 ```
-Tekrar tanımlamaya kaltığımızda demin de olduğu gibi JS bize değişmez değişken hatası verecektir.
+Tekrar tanımlamaya kalktığımızda biraz önce de olduğu gibi JS bize değişmez değişken hatası verecektir.
 
 ## Scope
 > **Kapsam Alanı**
 
 ### `var`
 
-**Global Scope:** var ile fonksiyon dışında tanımlanan değişkenler **global scope** olarak isimlendirilir.
+**Global Scope:** `var` ile fonksiyon dışında tanımlanan değişkenler **global scope** olarak isimlendirilir.
 
 Global scope'lara bu dosya içindeki her yerden erişilebilir.
 
@@ -330,7 +330,7 @@ Local scope'da tanımlı değişkenler fonksiyon dışından erişilemezler.
 
 > **That from outer to inner works! but the other direction does not work!**
 
-> Fonskiyon içi tanımlanmış değşkenleri fonksiyon dışına çağıramayız. Fakat global scope'ları local scope'lar içine çağırabiliriz.
+> Fonskiyon içinde tanımlanmış değişkenleri fonksiyon dışında çağıramayız. Fakat global scope'ları local scope'ların içinden çağırabiliriz.
 
 ```js
 var fonksiyon=() => {
@@ -369,7 +369,7 @@ if(true) {
     SCOPE B
 
     Farklı block'lar içerisinde tekrar tanımlanmışlar. 
-    DECLARTION
+    DECLARATION
 */
 ```
 
@@ -419,7 +419,7 @@ Bunun sebebi scopların dışardan içeriye erişilebilirken içeriden dışarı
 
 ### **`let ve const`** **global scope**'muş gibi de davranabilir. **Nasıl mı?**
 
-Yeni açtığınız bir js dosyasını düşünün bu sayfanın başında ve sonunda birer süslü parantez vardır.Sayfanın let ve const için bir block scope'u dur. Sayfanın en üstünde olduğundan bunu global scope gibi de kabul edebiliriz.
+Yeni açtığınız bir js dosyasını düşünün. Bu sayfanın başında ve sonunda birer süslü parantez vardır. Sayfanın let ve const için bir block scope'u dur. Sayfanın en üstünde olduğundan bunu global scope gibi de kabul edebiliriz.
 
 ```js
 const myName = 'Hasan' // block scope, similar to global scope
@@ -444,7 +444,7 @@ console.log(myName)
 */
 ```
 
-Block scope'lar ile çalışmak bizi kısıtladığından bu bizi daha temiz kod yazma yönünde yönlendirecektir. 
+Block scope'lar ile çalışmak bizi kısıtladığından dolayı bu bizi daha temiz kod yazma yönünde yönlendirecektir. 
 
 <p align="center">
     <img alt="imgName" src="../images/day-1/scope-kavrami.png" width="800">
@@ -467,7 +467,7 @@ Block scope'lar ile çalışmak bizi kısıtladığından bu bizi daha temiz kod
 
 ## Template Literals
 
-Template Literal ES6 ile birlikte duyurulan string üretmek için yeni bir yöntemdir. Bununla birlikte, programlarımızdaki dinamik dizeler üzerinde daha fazla kontrol sahibi olmamızı sağlar.
+Template Literal ES6 ile birlikte duyurulan string üretmek için yeni bir yöntemdir. Bununla birlikte, programlarımızdaki dinamik dizeler üzerinde daha fazla kontrol sahibi olmamıza olanak sağlar.
 
 backtick'lerin arasına bu şekilde yapılarla değişken çağırabiliyoruz.`${expression}` 
 
@@ -477,7 +477,7 @@ let tax = 1.13;
 
 let total = `The total prices is ${price * tax}`;
 ```
-eskiden olsa bunu yazmak için 
+eskiden olsa, bunu şu şekilde yazardık:
 
 ```js
 let price = 19.99;
@@ -488,12 +488,12 @@ let total = "The total prices is " + price * tax;
 daha fazla bilgi [**için**](https://css-tricks.com/template-literals/) 
 
 ---
-## Fonskiyonlar
+## Fonksiyonlar
 
-JavaScript'teki neredeyse her şey fonskiyonlarda gerçekleşir. Şimdi hızlı bir şekilde fonskiyonları nasıl tanımladığımıza bakalım.
+JavaScript'teki neredeyse her şey fonksiyonlarda gerçekleşir. Şimdi hızlı bir şekilde fonksiyonları nasıl tanımladığımıza bakalım.
 
-### function declaration 
-> **ES6 öncesi fonskiyonları bu şekilde tanımlardık.** Şimdilerde bu tanımlamaya normal fonskiyon tanımlaması diyoruz.
+### Function Declaration 
+> **ES6 öncesi fonksiyonları bu şekilde tanımlardık.** Şimdilerde bu tanımlamaya normal fonksiyon tanımlaması diyoruz.
 
 ```js
 function dosomething(foo) {
@@ -501,8 +501,8 @@ function dosomething(foo) {
 }
 ```
 
-### function expression
-> **Fonksiyonlar değişkenler ile tanımlanabilirler. Bu tür fonskiyonlara "function expression" deriz.**
+### Function Expression
+> **Fonksiyonlar değişkenler ile tanımlanabilirler. Bu tür fonksiyonlara `"function expression"` deriz.**
 
 ```js
 const dosomething = function(foo) {
@@ -510,8 +510,8 @@ const dosomething = function(foo) {
 }
 ```
 
-### arrow function
-Arrow function,  fonksiyon yazarken daha kısa bir söz dizimi kullanmamızı sağlar. Sadece bir gösterim performans olarak bir artısı yok. [devamı için](https://medium.com/@abdurrahmanarslanta/arrow-function-nedir-f4ef50cda66c)
+### Arrow Function
+Arrow function,  fonksiyon yazarken daha kısa bir söz dizimi kullanmamızı sağlar. Bize sadece gösterim olarak fayda sağlar, bunun yanında performans olarak herhangi bir artısı yoktur. [devamı için](https://medium.com/@abdurrahmanarslanta/arrow-function-nedir-f4ef50cda66c)
 
 ```js
 const dosomething = foo => {
@@ -534,7 +534,7 @@ const dosomethingElseAgain = (foo, bar) => {
   //do something
 }
 ```
-ES6 ile birlikte fonskiyonlara bu şekilde varsayılan parametre verebilirsiniz.
+ES6 ile birlikte fonksiyonlara bu şekilde varsayılan parametre verebilirsiniz.
 
 ```js
 const dosomething = (foo = 1, bar = 'hey') => {
@@ -550,11 +550,11 @@ henüz tamamlanmadı...
 ...  
 ...  
 
-## Spread operator
+## Spread Operator
 
-Spread türkçe karşılık olarak yaymak, yayılmış demek. Bu operatörde tam anlamıyla bunu yapıyor aslında.
+Spread türkçe karşılık olarak; yaymak, yayılmış demek. Bu operatörde tam anlamıyla bunu yapıyor aslında.
 
-Spread operatörü ile iterable nesneleri tek tek öğelerine bölebiliyoruz. iterable nesneden kastım ise Array Map Set DOM NodeList vb.
+Spread operatörü ile iterable nesneleri tek tek öğelerine bölebiliyoruz. İterable nesneden kastım ise; Array, Map, Set, DOM, NodeList vb.
 
 > **Array Kopyalama örneği**
 
@@ -588,7 +588,7 @@ console.log(userCopy)
 
 > **Dizileri Birleştirmek**
 
-İki ve ya daha fazla diziyi birleştirmek, dizinin başına ya da sonuna yeni değer ekleyerek bir dizi oluşturmak içinde bu operatör kullanılır. Örneğin;
+İki veya daha fazla diziyi birleştirmek, dizinin başına ya da sonuna yeni değer ekleyerek bir dizi oluşturmak için de bu operatör kullanılır. Örneğin;
 
 ```js
 const maleNames = ["Alper", "Hasan"]
@@ -602,7 +602,7 @@ console.log(['başında', ...names, 'sonunda'])
 
 ---
 
-## Object destructuring
+## Object Destructuring
 
 ```js
 const user = {
@@ -630,7 +630,7 @@ henüz tamamlanmadı...
 
 JavaScript varsayılan olarak synchronous çalışan tek çekirdekli bir dildir. Bu da yeni bir thread oluşturup paralelde işlem yapamayacağı anlamına gelir. **Peki Asynchronous kod nedir ve nasıl çalışır?**
 
-Asynchronous işlem yapmak çok dakik olmak gerek tek başınıza bir yığın işin üstesinden herbirine doğru zamanı ayırıp parça parça halletmek demek.  
+Asynchronous işlem yapmak çok dakik olmak, gerek tek başınıza bir yığın işin üstesinden her birine doğru zamanı ayırıp parça parça halletmek demek.  
   
 Callback'ler bir değeri bir fonksiyondan başka bir fonksiyona geçirmek için kullanılan basit fonksiyonlardır ve sadece event gerçekleştiğinde çalışırlar.
 
@@ -656,7 +656,7 @@ uyan(yuzunuYika);
 **CallStack** setTimteout, setInterval gibi fonksiyonların içinde sonrasında sırası ile çalışması için atıldığı queue.
 
 
-### Callback'lerdeki sorun
+### Callback'lerdeki sorun;
 Callback'ler basit durumlar için harikadır.
 
 Ancak her callback, koda bir iç içelik düzeyi ekler ve çok sayıda callback oluşmaya başladığında, kod çok hızlı bir şekilde karmaşıklaşmaya başlar:
@@ -673,7 +673,7 @@ window.addEventListener('load', () => {
 })
 ```
 
-Burada sadece 4 seviyeli bir iç içelik söz konusu ,şimdiden cok karışık görünmüyor mu?
+Burada sadece 4 seviyeli bir iç içelik söz konusu, şimdiden cok karışık görünmüyor mu?
 
 Biraz daha karmaşıklaştıktan sonra işin gideceği yer burası..
 
@@ -688,7 +688,7 @@ Biraz daha karmaşıklaştıktan sonra işin gideceği yer burası..
 > **Peki bu cendereden nasıl kurtulabiliriz?**
 
 ## Callback'e alternatifler
-ES 6 ile birlikte JS bize callback'lere ihtiyaç duyulmadan asynchronous çalışan özellekler tanıttı.
+ES6 ile birlikte JS bize callback'lere ihtiyaç duyulmadan asynchronous çalışan özellikler tanıttı.
 
 Bunlar; 
   - Promises (ES2015)
@@ -699,7 +699,7 @@ Bunlar;
 ## Fetch
 Bir fetch denemesi yapalım. Axios'u kullanacağız. Bunu seçmemizin özel bir nedeni yok aşinalık gibi isimlendirebiliriz.
 
-Fetch ile axios'un en bilinen belirgin farkları fetch'in JSON'u parse etmesi gerekmesi axios bunu otomatik şekilde hallettmekte. 
+Fetch ile axios'un en bilinen belirgin farkları fetch'in JSON'u parse etmesi gerekmesi, axios ise bunu otomatik şekilde halletmektedir. 
 
 ```js
 // fetch
@@ -708,7 +708,7 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then(json => console.log(json))
 ```
 
-fetch'de json parse etmemız gerkıyor
+fetch'de json parse etmemiz gerekiyor..
 
 ```js
 //axios
