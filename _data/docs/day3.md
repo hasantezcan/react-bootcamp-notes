@@ -28,7 +28,7 @@ konularından bahsedeceğiz.
 
 ---
 
-İnsanlar bir şeylere başlarken çoğu zaman neden bunu yaptığını sorgulamazlar. Onları yönlendiren belli başlı sebeplere inanırlar ve peşinden giderler. Bu sebepler; herkesin o şeyi yapıyor/kulanıyor olması olabilir, reklamının iyi yapılmış ve alternatifleri değerlendirilmeden en iyisinin o olduğuna inanmışlık olabilir. Lafına güvendiği birinin tavsiyesi olabilir ya da elindeki kaynakların ona yetmesi olabilir. 
+İnsanlar bir şeylere başlarken çoğu zaman neden bunu yaptığını sorgulamazlar. Onları yönlendiren belli başlı sebeplere inanırlar ve peşinden giderler. Bu sebepler; herkesin o şeyi yapıyor/kullanıyor olması olabilir, reklamının iyi yapılmış ve alternatifleri değerlendirilmeden en iyisinin o olduğuna inanmışlık olabilir. Lafına güvendiği birinin tavsiyesi olabilir ya da elindeki kaynakların ona yetmesi olabilir. 
 
 Bu yaklaşım birbirinden bağımsız bir çok konu için geçerlidir. *(dizi, film, meslek seçimi, düşünce seçimi ya da kullanılan araç/alet seçimi şekilde)*   
 
@@ -36,11 +36,11 @@ Eee, bizim de konumuz bir web geliştirme aracı olan  **`React`**.
 O zaman soru geliyor..   
 **Neden React?** 
 
-## Neden `React`'ı kullanmalıyız?
+## Neden `React`'ı Kullanmalıyız?
 
-> Aslında böyle sorular sorumak yerine direk konuya girmek, bir an evvel detaylardan bahsetmek bir çok kişinin istediği şey. Ama bu kısa girişte, yazının devamında konuşacağımız onca şeyin niye anlatıldığını sağlam bir temele oturtmak için bunu girişi gerekli buluyorum.
+> Aslında böyle sorular sorumak yerine direk konuya girmek, bir an evvel detaylardan bahsetmek bir çok kişinin istediği şey. Ama bu kısa girişte, yazının devamında konuşacağımız onca şeyin niye anlatıldığını sağlam bir temele oturtmak için bu girişi gerekli buluyorum.
 
-Evet, bu soruyu ben de google amcaya soruduğumda bir çok yanıt aldım. Genelde bu yanıtlar eski bir yöntem ile -yeni diyebiliceğimiz- React'ın kıyaslaması şeklinde. Tabi bu işlerde yeni iseniz eskiden ne kullanıldığı hakkında bir bilginiz olmadığından bu kıyaslamalı örnekler sizde diğerlerine nazaran çok daha az etki gösteriyor. Direkt yenisini öğrenmek ile başlıyorsunuz. Ama yinede ufak bi kıyaslama ile React'ı diğerlerinden ayıran temel bir farka değinelim.
+Evet, bu soruyu ben de google amcaya sorduğumda bir çok yanıt aldım. Genelde bu yanıtlar eski bir yöntem ile -yeni diyebiliceğimiz- React'ın kıyaslaması şeklinde. Tabi bu işlerde yeni iseniz eskiden ne kullanıldığı hakkında bir bilginiz olmadığından bu kıyaslamalı örnekler sizde diğerlerine nazaran çok daha az etki gösteriyor. Direkt yenisini öğrenmek ile başlıyorsunuz. Ama yinede ufak bi kıyaslama ile React'ı diğerlerinden ayıran temel bir farka değinelim.
 
 ### Virtual DOM
 
@@ -57,7 +57,7 @@ React hali hazırda olan **DOM**'un yani **document object model**'i daha da yan
 
 Hadi bunu kısa bir demo ile görelim.
 
-> Google chorme içinde dev tools adlı bir bölüm ve onun altında sayfada gerçekleşen değişklikleri daha net görmemizi sağlayan [**paint flashing**](https://developer.mozilla.org/en-US/docs/Tools/Paint_Flashing_Tool) isimli bir seçenek var bunu açtığınızda sayfada o an neresi güncellenirse size bunu net bir şekilde gösteriyor şimdi bu araçtan faydalanıp bir demo yapacağız.
+> Google chrome içinde dev tools adlı bir bölüm ve onun altında sayfada gerçekleşen değişklikleri daha net görmemizi sağlayan [**paint flashing**](https://developer.mozilla.org/en-US/docs/Tools/Paint_Flashing_Tool) isimli bir seçenek var bunu açtığınızda sayfada o an neresi güncellenirse size bunu net bir şekilde gösteriyor şimdi bu araçtan faydalanıp bir demo yapacağız.
 
 Şimdi ekrana bir buton koyup bu butona basıldığında ekrandaki 1 numarasını 2 yapan bir kod yazacağız. Bunu bi jQuery ile bir de React ile yapacağız ve Virtual DOM'un nasıl bir fayda sağladığını direk görmüş olcağız.
 
@@ -79,7 +79,7 @@ Hadi bunu kısa bir demo ile görelim.
 
 Burada da gördüğünüz gibi React sayıyı 1'den 2'ye çevirdikten sonra 2 elementini tekrar güncellemiyor çünkü orada bir değişiklik yok ama jQuery'de böyle bir yapı olmadığından 1'i 2 yaptıktan sonra bile tekrar tekrar 2'yerine 2 yazmaya devam ediyor.
 
-> 💡 **Virtual dom arakda nasıl güncelleniyor? React değişiklikleri nasıl kıyaslıyor?**  
+> 💡 **Virtual dom arkada nasıl güncelleniyor? React değişiklikleri nasıl kıyaslıyor?**  
 [Inside Fiber: in-depth overview of the new reconciliation algorithm in React](https://indepth.dev/posts/1008/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react) - Max Koretskyi
 
 ### **`React gerekmedikçe dom'u güncellemez!`**
@@ -88,7 +88,7 @@ Burada da gördüğünüz gibi React sayıyı 1'den 2'ye çevirdikten sonra 2 el
 
 Bu react'ın jQuery'a karşı güçlü olduğu noktaydı. Peki diğerleri yani Vue, Angular için durum nasıl.
 
-Bu saydıklarımızdan Vue'de de Virtual DOM uygulaması bulunmakta. Ama React'ın başka özellikleri/artıları da mevcut. Bunlara yeri geldikçe değincek olsak da şimdi bir kaç başlıla bunlaradan bahsedelim.
+Bu saydıklarımızdan Vue'de de Virtual DOM uygulaması bulunmakta. Ama React'ın başka özellikleri/artıları da mevcut. Bunlara yeri geldikçe değinecek olsak da şimdi bir kaç başlıkla bunlardan bahsedelim.
 
 - JSX
 - React Native
@@ -132,7 +132,7 @@ Facebook, 18 Nisan 2017'de kullanıcı arayüzleri oluşturmak için React Fiber
 ## Web Component'leri Nedir?
 Component kavramı React özelinde bir konu değil. Web componentleri yıllardır var olan bir uygulama ve buna bir çok framework kütüphane içinde benzerleri ile karşılaşabilirsiniz. 
 
-Componentler ile küçük parçarlardan bir bütünü inşa ediyoruz. Ve bu tekrar kullanıbilir şekilde tasarlıyoruz. Aynı işi yapan bölümleri tek bi seferde oluşturup tekrar tekrar o parçalari kullanıyoruz. [[5]](https://css-tricks.com/an-introduction-to-web-components/), [[6]](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
+Componentler ile küçük parçarlardan bir bütünü inşa ediyoruz. Ve bu tekrar kullanılabilir şekilde tasarlıyoruz. Aynı işi yapan bölümleri tek bi seferde oluşturup tekrar tekrar o parçaları kullanıyoruz. [[5]](https://css-tricks.com/an-introduction-to-web-components/), [[6]](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 
 
 <p align="center">
@@ -143,7 +143,7 @@ Componentler ile küçük parçarlardan bir bütünü inşa ediyoruz. Ve bu tekr
     </em>
 </p>
 
-React bize [tekrar tekrar kullanılabilien](https://reactjs.org/docs/components-and-props.html) component'leri üretmemize yardımcı olur. [[7]](https://reactjs.org/docs/components-and-props.html)
+React bize [tekrar tekrar kullanılabilen](https://reactjs.org/docs/components-and-props.html) component'leri üretmemize yardımcı olur. [[7]](https://reactjs.org/docs/components-and-props.html)
 
 ---
 
@@ -159,7 +159,7 @@ React bize [tekrar tekrar kullanılabilien](https://reactjs.org/docs/components-
 
 İlk olarak JSX'i HTML kodları ile javascript kodlarının bir karşımı gibi düşünebilirsiniz. Ama bu doğru değil. 
 
-JSX yazarken html tag'leri kullanak sanki HTML yazdığınızı düşünsenizde yazdığınız kod bir javaScript kodu oluyor siz sadece bunu html gibi görüyorsunuz. JSX size bu ilizyonu sağlayarak javaScript ile html elemanları üretiyor.
+JSX yazarken html tag'leri kullanak sanki HTML yazdığınızı düşünseniz de yazdığınız kod bir javaScript kodu oluyor siz sadece bunu html gibi görüyorsunuz. JSX size bu ilizyonu sağlayarak javaScript ile html elemanları üretiyor.
 
 Siz bunu yazdığınızda kodunuz arkaplanda ....
 ```js
@@ -186,9 +186,9 @@ ReactDOM.render(
 )
 ```
 
-Bu dönüşümü sağlayan ise [Babel](https://babeljs.io/). Projenizine Babel'i kurduktan ve ayarladıktan sonra JSX yazmanın keyfini sürebilirsiniz. Ya da [`create-react-app`](https://github.com/facebook/create-react-app) kullanark projenizi başlatabilir önceden hazırlanmış -babel dahil- konfügre edilmiş paketlerle çalışmaya başlayabilirsiniz.  
+Bu dönüşümü sağlayan ise [Babel](https://babeljs.io/). Projenizine Babel'i kurduktan ve ayarladıktan sonra JSX yazmanın keyfini sürebilirsiniz. Ya da [`create-react-app`](https://github.com/facebook/create-react-app) kullanarak projenizi başlatabilir önceden hazırlanmış -babel dahil- konfügre edilmiş paketlerle çalışmaya başlayabilirsiniz.  
 
-### **Peki JSX içinede JS kullanabiliryor muyuz?**
+### **Peki JSX İçinde JS Kullanabiliyor Muyuz?**
 
 Evet, JSX yazımı içinde yalın JS kodları çalıştırmanıza izin verir. JS çalıştırmak istediğiniz yeri süslü parantezler `{}` ile çevreleyip kullanabilirsiniz.
 
@@ -206,15 +206,15 @@ ReactDOM.render(
 
 ### **`className` ve `htmlFor`**
 
-JSX'in aslında bir html kodu olmanığını sadece çevilirdikten sonra bu çıktıları verdiğini konuşmuştuk. Bu yüzden html yazarken kullandığımız bazı ifadeleri JSX yazarken biraz değiştirerk yazıyoruz. Bunlardan en çok kullanları `for` ile `class` js için **ayrılmış tanımlar (reserved words**) olan bu iki ifade yerine `htmlFor` ve `className` ifadelerini kullanıyoruz.
+JSX'in aslında bir html kodu olmadığını sadece çevirildikten sonra bu çıktıları verdiğini konuşmuştuk. Bu yüzden html yazarken kullandığımız bazı ifadeleri JSX yazarken biraz değiştirerk yazıyoruz. Bunlardan en çok kullanları `for` ile `class` js için **ayrılmış tanımlar (reserved words**) olan bu iki ifade yerine `htmlFor` ve `className` ifadelerini kullanıyoruz.
 
-ayrıca bilinmesi gerken bir ayrıtı daha var bu da componentler içinde belirtilen tüm elementler tek div içinde return edilmelidir. Eğer ifadelerinizi birden fazla div içinde hazırladıysanız [**React'ın Fragment özelliğini**](https://reactjs.org/docs/fragments.html) kullanabilirsiniz. 
+ayrıca bilinmesi gereken bir ayrıntı daha var bu da componentler içinde belirtilen tüm elementler tek div içinde return edilmelidir. Eğer ifadelerinizi birden fazla div içinde hazırladıysanız [**React'ın Fragment özelliğini**](https://reactjs.org/docs/fragments.html) kullanabilirsiniz. 
 
 > JSX için daha fazla detay için [[8]](https://flaviocopes.com/jsx/#introduction-to-jsx)
 
 > [`Adem İlter`](https://twitter.com/ademilter)'den "JSX Nedir ne değildir? Çok kısa özet! Örneklerle.." [[9]](https://twitter.com/hasantezcann/status/1277191021001129984)
 
-## ES7 Çok kullanılan snippet'lar
+## ES7 Çok Kullanılan Snippet'lar
 
 <p align="center">
   <img alt="img-name" src="./../images/day-3/es7-react-extension.png" width="600">
@@ -326,7 +326,7 @@ function Button({children, isDisabled}) {
 ```
 ---
 
-## React inline css
+## React İnline Css
 > https://reactjs.org/docs/dom-elements.html#style
 
 İkişer süslü parentez kullanıyoruz.
@@ -345,7 +345,7 @@ function Button({children, isDisabled}) {
 
 ---
 
-## React'da item listelemek (unique key)
+## React'da İtem Listelemek (Unique Key)
 > https://reactjs.org/docs/lists-and-keys.html#keys
 
 React DOM'a bastığı eleman listelerken her eleman için bir unique key vermemiz gerkeiyor. React bu şekilde DOM'a bastığı elemanları takip edebiliyor.
@@ -358,7 +358,7 @@ const todoItems = todos.map((todo) =>
 );
 ```
 
-## ...props nedir?
+## ...props Nedir?
 Gönderilen tüm props'ları ifade eder. Component içinde kullanlıması gereken porp'ları **destruct** edip geri kalan propsları **...props**  olarak ifade edebiliriz.
 
 <p align="center">
@@ -393,7 +393,7 @@ function Example() {
 }
 ```
 
-buradaki count ve setCount state'imizi oluşturuken kullandığımız tanımlayıcılar. count direk değeri tutan değişken; setCount ise count üzerindeki değişiklikleri yapmamızı sağlayan fonksiyon. [[11]](https://reactjs.org/docs/hooks-state.html#tip-what-do-square-brackets-mean)
+buradaki count ve setCount state'imizi oluştururken kullandığımız tanımlayıcılar. Count direk değeri tutan değişken; setCount ise count üzerindeki değişiklikleri yapmamızı sağlayan fonksiyon. [[11]](https://reactjs.org/docs/hooks-state.html#tip-what-do-square-brackets-mean)
 
 ```js
 <button onClick={() => this.setState({ count: this.state.count + 1 })}>
@@ -401,7 +401,7 @@ buradaki count ve setCount state'imizi oluşturuken kullandığımız tanımlay�
   </button>
 ```
 
-ayrıca functional componet'ler de state kullanmadan önce setState hook'unu o dosyaya dahil etmemiz gerekiyor. defautl olarak export edilmediği için de süslü parantezler içinde import ediyoruz.
+ayrıca functional component'ler de state kullanmadan önce setState hook'unu o dosyaya dahil etmemiz gerekiyor. default olarak export edilmediği için de süslü parantezler içinde import ediyoruz.
 
 ---
 
@@ -427,7 +427,7 @@ ardından bunu button'ın onClick eventine veriyoruz.
 <button onClick={()=> handleClick("name", "Ayşe")}>Change name</button>
 <button onClick={()=> handleClick("age", 24)}>Change age</button>
 ```
-### `Örnek:` user'in sadece adını değiştrmek istersek
+### `Örnek:` user'in sadece adını değiştirmek istersek
 
 User array'ını spread operator'ü ile birlikte kopayalıyoruz ve sonra name'i yeni değeri ile güncelliyoruz.
 
@@ -456,7 +456,7 @@ export default App
 
 ### `Örnek:` user state'ine yeni user eklemek
 
-user isimli bir state oluşturp bu state içine iki tane user atıyoruz sonrasında bu user'lara button'a basığımızda bir yenisi eklensin istiyoruz.
+user isimli bir state oluşturup bu state içine iki tane user atıyoruz sonrasında bu user'lara button'a basığımızda bir yenisi eklensin istiyoruz.
 
 ```js
 import {useState} from "react"
@@ -486,7 +486,7 @@ function App() {
 export default App
 ```
 
-> **`Önemli NOT:`** User'ı setUser ile değil de `.push` ile array'a yolladığımızda react uı'daki güncellemeyei takip edemez bu sebeple setUser'ı kullandık.
+> **`Önemli NOT:`** User'ı setUser ile değil de `.push` ile array'a yolladığımızda react uı'daki güncellemeyi takip edemez bu sebeple setUser'ı kullandık.
 
 
 
@@ -532,7 +532,7 @@ setState(prevState => {
 });
 ```
 ---
-### JSX içinde koşula bağlı element render etmek
+### JSX İçinde Koşula Bağlı Element Render Etmek
 > **Conditional Rendering** [[13]](https://reactjs.org/docs/conditional-rendering.html)
 
 return içinde block şekilde if else yazamıyoruz fakat mantıksal operatörlerle koşul işlemlerini yapabiliyoruz.
@@ -581,8 +581,8 @@ export default App
 
 ---
 
-## React inputtan veri almak
-Öncelikle inputdan alcağımız veriyi bir state'da tutmamız gerek.
+## React İnputtan Veri Almak
+Öncelikle inputtan alacağımız veriyi bir state'da tutmamız gerek.
 **name** adında bir state oluşturuyoruz.
 
 ```diff 
@@ -627,10 +627,10 @@ butona bastıktan sonra input'un içini temizlemek için **hadleClick** içine n
  }
 ```
 
-**NOT:** Bir inputtan veri almak için her seferine yeni bir state mi acıcaz? 
+**NOT:** Bir inputtan veri almak için her seferinde yeni bir state mi açacağız? 
 - Hayır!  
   
-Form'ları daha kolay kullanmamıza yarayan paketler mevcut bunlara ilerleyen derslerede değinceğiz. Örn: [**Formik**](https://formik.org/) 
+Form'ları daha kolay kullanmamıza yarayan paketler mevcut bunlara ilerleyen derslerde değineceğiz. Örn: [**Formik**](https://formik.org/) 
 
 
 ## Global State Management
@@ -663,7 +663,7 @@ Hook'lar genelde prefix olarak **use** ifadesini kullanır.
 
 
 ## useEffect
-> yan etikiler
+> yan etkiler
 
 Componet'in [yaşam döngüsünü (lifecycle)](https://reactjs.org/docs/state-and-lifecycle.html) takip ederek olan değişiklikleri ya ilk yükleme anlarını kontrol etmemize yarar. 
 
@@ -697,7 +697,7 @@ function Example() {
 
 sayfada birden fazla defa useEffect kullanabilirsiniz.
 
-## dependency array
+## Dependency Array
 
 Dependency array **useEffect** hook'unun isteye bağlı kullanılan ikinci argumanıdır. 
 Adından da anlaşılacağı üzere bir önceki render'da değiştirdiğimizi array'in bağımlılığıdır. [[18]](https://dennyscott.io/use-effect-dependency-array/#what-is-the-dependency-array)
@@ -833,7 +833,7 @@ export default App;
   <img alt="img-name" src="./../images/day-3/counter.png" width="200">
 </p>
 
-Button toggle olduğunda component artık görünürlüğünü kaybediyor yani unmount oluyor. Biz de counter.js içindeki useEffect içinde componet artık unmount olduğundan onu güncellemeye devam etmek istemiyoruz bu sebeple `return () => clearInterval(interval);` diyerek intervali sıfırlıyoruz. Aksi halde bu yapmasak react bize şu hatayı göseterecektir.
+Button toggle olduğunda component artık görünürlüğünü kaybediyor yani unmount oluyor. Biz de counter.js içindeki useEffect içinde componet artık unmount olduğundan onu güncellemeye devam etmek istemiyoruz bu sebeple `return () => clearInterval(interval);` diyerek intervali sıfırlıyoruz. Aksi halde bunı yapmazsak react bize şu hatayı göseterecektir.
 
 <p align="center">
   <img alt="img-name" src="./../images/day-3/unmount-error.png" width=600">
@@ -850,7 +850,7 @@ Button toggle olduğunda component artık görünürlüğünü kaybediyor yani u
 ---
 
 
-## Ders içinde konuşulan diğer konular 
+## Ders İçinde Konuşulan Diğer Konular 
 
 ### neal.fun
 > https://neal.fun/
