@@ -7,13 +7,13 @@ Bu bölümde;
 
 - [React Form Managment - Formik](#react-form-managment---formik)
 - [Form Validation - Yupjs](#form-validation---yupjs)
-- [System design paterns and concepts for WEB development](#system-design-paterns-and-concepts-for-web-development)
-  - [Microservices vs Monolithic](#microservices-vs-monolithic)
-  - [Monolotih apps and single page application apps](#monolotih-apps-and-single-page-application-apps)
-  - [Dynamic Websites vs Static Pages vs Single Page Apps (SPAs)](#dynamic-websites-vs-static-pages-vs-single-page-apps-spas)
-- [Formumuz için basit bir Backend yazıyoruz.](#formumuz-için-basit-bir-backend-yazıyoruz)
-    - [cors](#cors)
-  - [bodyparser](#bodyparser)
+- [System Design Paterns And Concepts For WEB Development](#system-design-paterns-and-concepts-for-web-development)
+	- [Microservices vs Monolithic](#microservices-vs-monolithic)
+	- [Monolotih Apps And Single Page Application Apps](#monolotih-apps-and-single-page-application-apps)
+	- [Dynamic Websites vs Static Pages vs Single Page Apps (SPAs)](#dynamic-websites-vs-static-pages-vs-single-page-apps-spas)
+- [Formumuz Için Basit Bir Backend Yazıyoruz.](#formumuz-için-basit-bir-backend-yazıyoruz)
+		- [Cors:](#cors)
+	- [Bodyparser:](#bodyparser)
 - [Ek bilgi](#ek-bilgi)
 - [Kaynakça](#kaynakça)
 
@@ -25,7 +25,7 @@ konularından bahsedeceğiz.
 
 # React Form Managment - Formik
 
-Formk, form işlemlerini yaparken bize yardımcı olan bir araçtır. Form işlemlerini manual olarak da yapmak pekala mümkündür. Manual stateler ile her input için tanımlar oluşturp bunu sağlayabiliriz fakat bi yerden sonra bu idare edilmesi zor hale gelmektedir. Bu sebplerden ötürü Formik gibi bu iş için özel oluşturulmuş araçlardan faydalanırız.
+Formik, form işlemlerini yaparken bize yardımcı olan bir araçtır. Form işlemlerini manual olarak da yapmak pekala mümkündür. Manual stateler ile her input için tanımlar oluşturup bunu sağlayabiliriz fakat bi yerden sonra bu idare edilmesi zor hale gelmektedir. Bu sebeplerden ötürü Formik gibi bu iş için özel oluşturulmuş araçlardan faydalanırız.
 
 Gelin şimdi formik hakkında konuşalım.
 
@@ -151,7 +151,7 @@ eğer input field içindeki `disabled` özelliğini isSubmitting'e göre ayarlar
   />
 ```
 
-- bag içinde submitting esansında kullanabileceğimiz eşyalar var. "**Submitting çantası**"
+- bag içinde submitting esnasında kullanabileceğimiz eşyalar var. "**Submitting çantası**"
 
 <p align="center">
   <img alt="img-name" src="../images/day-5/2021-03-05-04-30-01.png" width="800">
@@ -362,12 +362,12 @@ onBlur'da aynı amaca hizmet ediyor. Burada kullanıcı input'a veri girerken on
 
 ---
 
-# System design paterns and concepts for WEB development
+# System Design Paterns And Concepts For WEB Development
 ## Microservices vs Monolithic
 
 [Microservices vs Monolithic](https://sterling.com/microservices-vs-monolithic/) - September 10, 2020 - Sterling
 
-## Monolotih apps and single page application apps
+## Monolotih Apps And Single Page Application Apps
 
 [Single page application: from monolithic to modular](https://medium.com/thron-tech/single-page-application-from-monolithic-to-modular-c1d413c10292) - Oct 9, 2018 - Alessandro Grosselle
 
@@ -386,10 +386,10 @@ onBlur'da aynı amaca hizmet ediyor. Burada kullanıcı input'a veri girerken on
 
 > - SPA'lere örnek olarak google ads, slack bu uygulamalar bu özelliklerinden dolayı sanki bir masa üstü program gibi çalışıyorlar.
 > - SPA'lerde SEO büyük sorun yaratıyor. Her şeyi js ile ürettiğimiz için bunu arama motorların anlaması pek de kolay olmuyor.
-> - Ve SPA'ler çalışmak için js'e gebeler js olmadan çalışmları mümkün değil.
-> - Daha çok yeni versiyon tarayıcılar uygunlar eski versiyonlarda çalışmama ihtimallleri çok yüksek.
+> - Ve SPA'ler çalışmak için js'e gebeler js olmadan çalışmaları mümkün değil.
+> - Daha çok yeni versiyon tarayıcılar uygunlar eski versiyonlarda çalışmama ihtimalleri çok yüksek.
 
-> - MPA'ler eski nesil tarıyıcı desteği daha iyi.
+> - MPA'ler eski nesil tarayıcı desteği daha iyi.
 > - SPA'lere göre sayfa açma hızları daha yavaş.
 > - SEO için çok daha ideal.
 
@@ -402,8 +402,8 @@ onBlur'da aynı amaca hizmet ediyor. Burada kullanıcı input'a veri girerken on
 > [Dynamic Websites vs Static Pages vs Single Page Apps (SPAs)](https://www.youtube.com/watch?v=Kg0Q_YaQ3Gk)- Apr 16, 2019 - Academind
 
 ---
-# Formumuz için basit bir Backend yazıyoruz.
-### cors
+# Formumuz Için Basit Bir Backend Yazıyoruz.
+### Cors:
 
 3000 portundan(client) 4000 portuna(server) istek yaparken backend'imiz bize izin vermedi.
 
@@ -437,8 +437,8 @@ app.listen(4000, () => console.log("Server is up!"));
   <img alt="img-name" src="../images/day-5/2021-03-06-10-58-06.png" width="600">
 </p>
 
-## bodyparser
-Request'de gelen body'de gelen verileri anlamlı şekilde kılmamıza yarıyan ara katman.
+## Bodyparser:
+Request'de gelen body'de gelen verileri anlamlı şekilde kılmamıza yarayan ara katman.
 
 Request ile response arasında bulunan bir middleware.
 
@@ -478,7 +478,7 @@ app.post("/add-user", (req, res) => {
 app.listen(4000, () => console.log("Server is up!"));
 ```
 
-bu adımlardan sonra formya yazdığımız veri backend serverimizin console'una düşütü. Yani veriyi backend'imize aktardık.
+bu adımlardan sonra forma yazdığımız veri backend serverimizin console'una düştü. Yani veriyi backend'imize aktardık.
 
 <p align="center">
   <img alt="img-name" src="../images/day-5/2021-03-06-11-04-37.png" width="600">
