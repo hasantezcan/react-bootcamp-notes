@@ -5,11 +5,11 @@
 
 Bu bölümde;
 
-- [React ile API kullanımı](#react-ile-api-kullanımı)
-- [js ile jsx arasındaki fark nedir?](#js-ile-jsx-arasındaki-fark-nedir)
+- [React Ile API Kullanımı](#react-ile-api-kullanımı)
+- [Js Ile Jsx Arasındaki Fark Nedir?](#js-ile-jsx-arasındaki-fark-nedir)
 - [`React.memo()`](#reactmemo)
 - [React Styling and CSS](#react-styling-and-css)
-	- [css module nedir?](#css-module-nedir)
+	- [Css Module nedir?](#css-module-nedir)
 	- [Css design systems](#css-design-systems)
 - [REACT ROUTER](#react-router)
 	- [Exact kullanımı](#exact-kullanımı)
@@ -24,13 +24,13 @@ Temele git komutlarını özet şeklinde listeleyen faydalı bir kaynak (Türkç
   - https://rogerdudler.github.io/git-guide/index.tr.html
   - https://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf
 
-# React ile API kullanımı
+# React Ile API Kullanımı
 > **API'den Veri Almak ve React ile Olanları Göstermek**
 > **Fetching Data from API and show those with React**
 
 Axios ile `https://jsonplaceholder.typicode.com/users` endponint'inden verileri çekip react ile ekrana yazdırmak istiyoruz.
 
-Bunu operasyonu userList component'inde gerçekleştireceğiz. Bu sebeple App.js içinine userlist componentini tanımlayalım.
+Bunu operasyonu userList component'inde gerçekleştireceğiz. Bu sebeple App.js içerisine userlist componentini tanımlayalım.
 
 ```js
 // App.js
@@ -85,7 +85,7 @@ function UserList() {
 export default UserList;
 ```
 
-Burada endpointimizden verilerimizi componentler mount olduğunda çalışacak (tetiklenecek) bir **useEffect** içinde axios paketi yardımı ile çekiyoruz. Sonrasında aldığığmız verileri `users` isimli **state**'imiz içinde depoluyoruz.
+Burada endpointimizden verilerimizi componentler mount olduğunda çalışacak (tetiklenecek) bir **useEffect** içinde axios paketi yardımı ile çekiyoruz. Sonrasında aldığımız verileri `users` isimli **state**'imiz içinde depoluyoruz.
 
 `users` state'i içinde tuttuğumuz verileri map ederek; tekil verileri render edeceğimiz component olan `UserListItem` içine teker teker gönderiyoruz.
 
@@ -102,7 +102,7 @@ function UserListItem({ user }) {
 
 export default UserListItem;
 ```
-Burada gelen tekil user'ların id name ve username'lerini list itemler halinde teker teker DOM'a gönderiyoruz. Mapde dönen tüm userlerın rendermesinden sonra DOM'da şöyle bir çıktı alıyoruz.
+Burada gelen tekil user'ların id name ve username'lerini list itemler halinde teker teker DOM'a gönderiyoruz. Map de dönen tüm userlerın render edilmesinden sonra DOM'da şöyle bir çıktı alıyoruz.
 
 
 <p align="center">
@@ -115,11 +115,11 @@ Burada gelen tekil user'ların id name ve username'lerini list itemler halinde t
 
 ---
 
-# js ile jsx arasındaki fark nedir?
+# Js Ile Jsx Arasındaki Fark Nedir?
 
-Github'da gezinirken bazı react projerlerde uzantıların normal js iken bazılarında jsx olarak yazılmış olduğunu görebilirsiniz. Bu farkın bi önemi var mı? .jsx ile js arasındaki fark nedir? Gelin bu sora bir cevap arayalım. 
+Github'da gezinirken bazı react projelerde uzantıların normal js iken bazılarında jsx olarak yazılmış olduğunu görebilirsiniz. Bu farkın bi önemi var mı? .jsx ile js arasındaki fark nedir? Gelin bu soruya bir cevap arayalım. 
 
-vscode'da react componentlerinizi jsx uzatısı ile oluşturduğunuzda  fileicon'ları react logosu şeklini almakta. Öteyandan bazı tamamlamalar çalışmamakta. Js içinde html yazılmadığından h1 ya p gibi elementlerin tamamlamaları sadece .js yazdığınızda desteklenmiyor ama .jsx yazdığınızda destekleniyor.
+Vscode da react componentlerinizi jsx uzatısı ile oluşturduğunuzda  fileicon'ları react logosu şeklini almakta. Öteyandan bazı tamamlamalar çalışmamakta. Js içinde html yazılmadığından "h1" ya da "p" gibi elementlerin tamamlamaları sadece .js yazdığınızda desteklenmiyor ama .jsx yazdığınızda destekleniyor.
 
 Ben kendi kullanımda sırf bu sebeple başlarda hep jsx olarak dosyalarımı oluşturuyordum ya da vscode üzerinde bulunan change language mode ile js uzantısı ile oluşturduğum componet'lerde html tamamlamaları çalışsın diye her seferinde JavaScript React olacak şekilde o dosyanın dil modunu değiştiriyordum. Dediğim gibi eğer dosyanınz modunu jsx yaparsanız bu sorun zaten gündeme gelmiyordu. 
 
@@ -133,15 +133,15 @@ Ben kendi kullanımda sırf bu sebeple başlarda hep jsx olarak dosyalarımı ol
     <img alt="virtual-dom" src="../images/day-4/2021-02-21-06-34-14.png" width="500">
 </p>
 
-Ama sonrasında js uzantısı ile de istediğim html tamamlamalarını kullanabileceğim ve her seferinde language mod seçmemin gerekmeyeceği bir yöntem buldum. Yine vscode içide js uzantılı dosyalarıma react javascript ön tanımlı olarak davran şekilde bir ayar ile jsx ile js arasındaki farkı ben kendi dünyamda kaldırmış oldum.
+Ama sonrasında js uzantısı ile de istediğim html tamamlamalarını kullanabileceğim ve her seferinde language mod seçmemin gerekmeyeceği bir yöntem buldum. Yine vscode içinde js uzantılı dosyalarıma react javascript ön tanımlı olarak davran şekilde bir ayar ile jsx ile js arasındaki farkı ben kendi dünyamda kaldırmış oldum.
 
 <p align="center">
     <img alt="virtual-dom" src="../images/day-4/2021-02-21-06-32-59.png" width="500">
 </p>
 
-Peki bu fark niye var. Dikkatinizi çekerim burada js ya da jsx arasındaki fark kod çalışmıyor olduğundan falan değil. Sadece benim istediğim eklentilerin js olduğu zaman çalışamasından kaynaklıydı.
+Peki bu fark niye var. Dikkatinizi çekerim burada js ya da jsx arasındaki fark kod çalışmıyor olduğundan falan değil. Sadece benim istediğim eklentilerin js olduğu zaman çalışmamasından kaynaklıydı.
 
-Şu ufak bir araştırma ile baktığımızda react jsx kullanabilirsiniz ama kullanmasanız daha iyi demiş. Aşağıya bıraktığım github issular üzerinden yapılmış konuşmaları irdeleyebilirsiniz. Ben kendimce dikkat çekenleri ve son noktaları ss'leyip linkledim.
+Şu ufak bir araştırma ile baktığımızda react jsx kullanabilirsiniz ama kullanmasanız daha iyi demiş. Aşağıya bıraktığım github issuelar üzerinden yapılmış konuşmaları irdeleyebilirsiniz. Ben kendimce dikkat çekenleri ve son noktaları ss'leyip linkledim.
 
 <p align="center">
     <img alt="virtual-dom" src="../images/day-4/2021-02-21-03-51-19.png" width="600">
@@ -237,7 +237,7 @@ export default App;
 
 Bu sayfaya baktığımızda count state'i her güncellendiğinde Virtual DOM bu component içinde bir farklılık olduğunu fark eder ve tüm component'i rerender eder.
 
-Fakat biz bu component içindeki Title componetini tekarar render etmek istemezsek. Bu noktada react memo'dan faydalanabilriz.
+Fakat biz bu component içindeki Title componetini tekrar  render etmek istemezsek. Bu noktada react memo'dan faydalanabiliriz.
 
 ```js
 import { memo } from "react";
@@ -249,18 +249,18 @@ function Title({text}) {
 
 export default memo(Title);
 ```
-memo'yu react içinden çağırıyoruz ve export ederken memo ile birlikte export ediyoruz bu bu komponentden tasarruf edin manasına geliyor. 
+memo'yu react içinden çağırıyoruz ve export ederken memo ile birlikte export ediyoruz bu sayede bu komponentden tasarruf edin manasına geliyor. 
 
 ```js
 <Title text={count < 5 ? "Selam ben Title component" : "Yeni Başlık"} />
 ```
-fakat app.js'deki bu ibareden ötürü count 5 den büyük olduğunda başka bir text içine gönderileceğinden bu component tekrar render edilecektir.
+fakat app.js'deki bu ibareden ötürü count 5 den büyük olduğunda içerisine, başka bir text  gönderileceğinden bu component tekrar render edilecektir.
 
 YA DA
 
-componetleri doğru şekilde ayırırsanız bu kullanıma ihtiyacınız kalmayabilir. O zaman sadece ayramadığınız vakitrlerde kullanırsınız. 
+componetleri doğru şekilde ayırırsanız bu kullanıma ihtiyacınız kalmayabilir. O zaman sadece ayıramadığınız vakitlerde kullanırsınız. 
 
-Ayrmaktan kastım mesela bu örnekte title componneti dışındaki diğer elementleri de bir componet haline getirip app.js içinde o yeni oluşturulan componenti çağırmak gibi. O zaman update işlemi başka bir component içinde olacağından memoya ihtiyaç kalmayacaktır.
+Ayırmaktan kastım mesela bu örnekte title componenti dışındaki diğer elementleri de bir componet haline getirip app.js içinde o yeni oluşturulan componenti çağırmak gibi. O zaman update işlemi başka bir component içinde olacağından memoya ihtiyaç kalmayacaktır.
 
 
 ---
@@ -269,12 +269,12 @@ Ayrmaktan kastım mesela bu örnekte title componneti dışındaki diğer elemen
 > **https://reactjs.org/docs/faq-styling.html**
 
 
-## css module nedir?
+## Css Module nedir?
 > **https://css-tricks.com/css-modules-part-1-need/**
 
-Sadece tek bir component için yazılan ve sonrasında render edilirken üretilen clas isimlerini uniuqe halde getiren bir yapı. Genel kullanım amacı css conflitchlerinin önüne geçmek.
+Sadece tek bir component için yazılan ve sonrasında render edilirken üretilen class isimlerini unique halde getiren bir yapı. Genel kullanım amacı css conflitchlerinin önüne geçmek.
 
-css module'Ü kullanmak için ek bir şey kurmanıza gerek yok CRA (create react app) içinde otomatik olarak gelmekte.
+css module'ü kullanmak için ek bir şey kurmanıza gerek yok CRA (create react app) içinde otomatik olarak gelmekte.
 
 <p align="center">
     <img alt="virtual-dom" src="../images/day-4/2021-02-24-03-09-09.png" width="200">
@@ -320,7 +320,7 @@ Burada örnek bir react module css kullanımı görülmekte.
 
 > [`Örnek proje`](../practice/4-day/4-routing)
 
-React içinde dahili bir routing sistemi gelimyor bunu ihtiyacı `react-router-dom` paketi ile gideriyoruz. 
+React içinde dahili bir routing sistemi gelmiyor. Bu ihtiyacı `react-router-dom` paketi ile gideriyoruz. 
 
 ```js
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -371,9 +371,9 @@ export default App;
 
 Link'ler ile redirect işlemlerini gerçekleştiriyoruz. 
 
-Routerları belirlediğimiz nokta ise Switch içinde gerçekleşiyor. Bu kısım içine belirttiğiniz Router'lar ulaşılabilir hala geliyor. 
+Routerları belirlediğimiz nokta ise Switch içinde gerçekleşiyor. Bu kısım içine belirttiğiniz Router'lar ulaşılabilir hale geliyor. 
 
-Router'ların çalışma mantığı şu şekilde; sizin adres cubuğuna yazıdğınız routerlar ilk belittiğiniz routerdan başlayarak sıra sıra aşağı doğru hepsini dener. Eşleşen yerde kalır ve size ilgili sayfayı gösterir. Herhangi bir confiltch yaşandığında bu sıraya dikkat etmelisiniz.
+Router'ların çalışma mantığı şu şekilde; sizin adres cubuğuna yazddğınız routerlar ilk belittiğiniz routerdan başlayarak sıra sıra aşağı doğru hepsini dener. Eşleşen yerde kalır ve size ilgili sayfayı gösterir. Herhangi bir confiltch yaşandığında bu sıraya dikkat etmelisiniz.
 
 Tüm projeyi `<Router> ...whole app... </Router>` içinde tutarsanız alt sayfalarda redirect (Link'leme) yapabilirsiniz.
 
@@ -387,7 +387,7 @@ Eğer belittiğiniz path in sadece o path için geçerli olmasını isterseniz y
 <Route exact path="/hayvanlar"> 
 ```
 
-fakat `/hayvanlar/tembel-hayvan` ile eşleyşemeyecek alt pathlere bakmayacak.
+fakat `/hayvanlar/tembel-hayvan` ile eşleşemeyecek alt pathlere bakmayacak.
 
 ## param kullanmak - nesting routing
 > https://reactrouter.com/web/example/nesting
@@ -509,7 +509,7 @@ function UserDetail() {
 ```
 
 Ayrıca bu sayfayı gelen param'a göre axios isteği yapacağımızdan 
-yapılan istedği id'ye bağımlı şekilde gerçekleştirmemiz lazım
+yapılan isteği id'ye bağımlı şekilde gerçekleştirmemiz lazım
 
 ```js
 	useEffect(() => {
