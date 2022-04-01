@@ -6,8 +6,8 @@
 Bu bölümde;
 
 - [React Testing Library](#react-testing-library)
-  - [**🤔 Ne yaptık burada?**](#-ne-yaptık-burada)
-  - [**Bir başka örnek yapalım!**](#bir-başka-örnek-yapalım)
+	- [**🤔 Ne Yaptık Burada?**](#-ne-yaptık-burada)
+	- [**Bir Başka Örnek Yapalım!**](#bir-başka-örnek-yapalım)
 - [React Native](#react-native)
 
 konularından bahsedeceğiz.
@@ -21,7 +21,7 @@ konularından bahsedeceğiz.
     <em></em>
 </p>
 
-**Integration test:** Birimlerin birbiri arasındaki işleyişini test eden test türü. 
+**Integration Test:** Birimlerin birbiri arasındaki işleyişini test eden test türü. 
 
 **Unit test**:   
 - [Unit Test mi? Integration Test mi?](https://medium.com/devopsturkiye/unit-test-mi-integration-test-mi-34ddea054696) - Suat Köse - Jul 22, 2018  
@@ -97,10 +97,10 @@ describe("Counter bileşen testleri", () => {
 });
 ```
 
-## **🤔 Ne yaptık burada?**  
-Öncelikle yazcağımız bu test Counter componet'ı için olduğundan bunu bu şekilde **tarif ediyoruz (describe).** 
+## **🤔 Ne Yaptık Burada?**  
+Öncelikle yazacağımız bu test Counter componet'i için olduğundan bunu bu şekilde **tarif ediyoruz (describe).** 
 
-`BeforEach` burada test'e başlaman önce yapaılmasını istediğimiz şeylerin yapıldığı yer. Bu sebeple test edeceğimiz öğeleri burada deklare ediyoruz. `render(<Counter />)` tabi counter componetini render edelim ki içindeki öğelere ulaşabilelim. 
+`BeforEach` burada test'e başlamadan önce yapılmasını istediğimiz şeylerin yapıldığı yer. Bu sebeple test edeceğimiz öğeleri burada deklare ediyoruz. `render(<Counter />)` tabi counter componetini render edelim ki içindeki öğelere ulaşabilelim. 
 
 ```js
 render(<Counter />);
@@ -112,7 +112,7 @@ render(<Counter />);
 
 İşte bu noktadan sonra işlevsel testlerimizi yazmaya başlayabiliriz. 
 
-`Arttirma butonuna basıldığında sayı bir artmalı` testini yazarken `increaseBtn`'a basıldığında `count` öğesinin değeri `-1` olmalıdır. Diyerek istediğimiz yani beklediğimiz sonucu belirtiyoruz bunu koda dokünce ortaya şöyle bir şey çıkıyor.
+`Arttırma butonuna basıldığında sayı bir artmalı` testini yazarken `increaseBtn`'a basıldığında `count` öğesinin değeri `1` olmalıdır. Diyerek istediğimiz yani beklediğimiz sonucu belirtiyoruz bunu koda dokünce ortaya şöyle bir şey çıkıyor.
 
 ```js
 it("Arttirma butonuna basıldığında sayı bir artmalı", () => {
@@ -146,9 +146,9 @@ yarn test
     <em></em>
 </p>
 
-## **Bir başka örnek yapalım!**
+## **Bir Başka Örnek Yapalım!**
 
-Şimdi de basit bir todo uygulaması hazırlayalım ve onun testlerini yazalım.
+Şimdi de basit bir to-do uygulaması hazırlayalım ve onun testlerini yazalım.
 
 ```js
 // Todo.js
@@ -179,11 +179,11 @@ export default Todo;
 <p align="center">
     <img alt="imgName" src="../images/day-10/2021-03-20-17-08-32.png" width="400">
     <br>
-    <em>Basit todo uygulamamız</em>
+    <em>Basit to-do uygulamamız</em>
 </p>
 
 Şimdi gelin testini yazalım.   
-> Bu örneğe [burdan](../pratice/day-10/1-testing) ulaşabilirsiniz. 
+> Bu örneğe [buradan](../pratice/day-10/1-testing) ulaşabilirsiniz. 
 ```js
 // Todo.test.js
 import { render, screen } from "@testing-library/react";
@@ -229,7 +229,7 @@ it("Button ve input elemanları sayfaya yüklenmeli", () => {
 		expect(input).toBeInTheDocument();
 	});
 ```
-Sonrasında forma tıkladıktan sonra todo'muz eklendi mi diye bir test yapamak istersek;
+Sonrasında forma tıkladıktan sonra todo'muz eklendi mi diye bir test yapmak istersek;
 
 ```js
 it("Form gönderilince ilgili title listeye eklenmeli", () => {
